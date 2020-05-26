@@ -1,0 +1,115 @@
+{
+  "name": "serverless-plugin-tree-shake",
+  "version": "1.0.0",
+  "description": "Shake the dependency tree and only include files needed",
+  "license": "BSD-3-Clause",
+  "repository": "github:sergioramos/serverless-plugin-tree-shake",
+  "author": "Sérgio Ramos <mail@sergioramos.me>",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "trace",
+    "dependencies",
+    "tree",
+    "shake",
+    "tree-shake",
+    "package",
+    "bundle",
+    "typescript",
+    "serverless",
+    "serverless-plugin",
+    "plugin"
+  ],
+  "scripts": {
+    "eslint": "eslint . --ext .js",
+    "fmt": "prettier --config package.json --write '**/*'",
+    "test": "NODE_ENV=test c8 -r lcovonly -r html -r text ava"
+  },
+  "dependencies": {
+    "@zeit/node-file-trace": "^0.6.1",
+    "apr-for-each": "^3.0.3",
+    "apr-map": "^3.0.3",
+    "apr-parallel": "^3.0.3",
+    "common-shake": "^2.1.0",
+    "globby": "^11.0.0",
+    "lodash.topairs": "^4.3.0",
+    "nanomatch": "^1.2.13",
+    "path-is-inside": "^1.0.2",
+    "tempy": "^0.5.0"
+  },
+  "devDependencies": {
+    "ava": "^3.8.2",
+    "c8": "^7.1.2",
+    "eslint": "^7.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-xo-space": "^0.24.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.6",
+    "prettier": "^2.0.5",
+    "serverless": "^1.71.3",
+    "typescript": "^3.9.3"
+  },
+  "peerDependencies": {
+    "serverless": "^1.71.3",
+    "typescript": "^3.9.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --config .prettierrc --write",
+      "git add"
+    ],
+    "*.*": [
+      "prettier --config .prettierrc --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "useTabs": false,
+    "overrides": [
+      {
+        "files": [
+          ".eslintrc",
+          ".prettierrc"
+        ],
+        "options": {
+          "parser": "json"
+        }
+      },
+      {
+        "files": [
+          "serverless.js"
+        ],
+        "options": {
+          "printWidth": 120
+        }
+      }
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "xo-space/esnext",
+      "prettier"
+    ],
+    "rules": {
+      "new-cap": 0,
+      "camelcase": 0,
+      "capitalized-comments": 0
+    }
+  }
+}
