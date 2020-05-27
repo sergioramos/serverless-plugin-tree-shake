@@ -4,12 +4,12 @@ build
 logfile
 .nyc_output
 coverage
-node_modules
-test/__fixtures__
+.yarn/*
 
 .git/*
 .DS_Store
 .npmrc
+.nvmrc
 .yarnclean
 .eslintignore
 .prettierignore
@@ -25,6 +25,9 @@ test/__fixtures__
 .editorconfig
 .next
 _next
+.serverless
+.lighthouserc
+.gitkeep
 
 license
 yarn.lock
@@ -63,3 +66,8 @@ _env*ac
 *.toml
 *.jar
 *.zip
+*.prisma
+*.lock
+*.diff
+*.hbs
+*.pro

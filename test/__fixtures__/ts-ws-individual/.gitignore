@@ -166,4 +166,3 @@ $RECYCLE.BIN/
 .yarn/unplugged
 .npmrc
 .serverless
-test/__fixtures__/*/plugin

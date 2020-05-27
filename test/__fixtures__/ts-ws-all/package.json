@@ -1,0 +1,14 @@
+{
+  "name": "serverless-plugin-tree-shake-ts-ws-all",
+  "private": true,
+  "devDependencies": {
+    "serverless": "^1.72.0",
+    "typescript": "^3.9.5"
+  },
+  "workspaces": [
+    "handlers/*",
+    "framework",
+    "out",
+    "plugin"
+  ]
+}

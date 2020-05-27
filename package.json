@@ -25,16 +25,15 @@
   "scripts": {
     "eslint": "eslint . --ext .js",
     "fmt": "prettier --config package.json --write '**/*'",
-    "test": "NODE_ENV=test c8 -r lcovonly -r html -r text ava"
+    "test": "NODE_ENV=test ava --timeout 99999"
   },
   "dependencies": {
-    "@zeit/node-file-trace": "^0.6.1",
+    "@zeit/node-file-trace": "^0.6.3",
     "apr-find": "^3.0.3",
-    "apr-for-each": "^3.0.3",
     "apr-map": "^3.0.3",
     "apr-parallel": "^3.0.3",
     "archiver": "^4.0.1",
-    "globby": "^11.0.0",
+    "globby": "^11.0.1",
     "lodash.sortby": "^4.7.0",
     "lodash.topairs": "^4.3.0",
     "lodash.uniq": "^4.5.0",
@@ -44,13 +43,19 @@
     "tempy": "^0.5.0"
   },
   "devDependencies": {
+    "apr-for-each": "^3.0.3",
+    "apr-intercept": "^3.0.4",
+    "apr-reduce": "^3.0.3",
     "ava": "^3.8.2",
-    "c8": "^7.1.2",
-    "eslint": "^7.1.0",
+    "directory-tree": "^2.2.4",
+    "eslint": "^7.2.0",
     "eslint-config-prettier": "^6.11.0",
-    "eslint-config-xo-space": "^0.24.0",
+    "eslint-config-xo-space": "^0.25.0",
+    "execa": "^4.0.2",
+    "hasha": "^5.2.0",
     "husky": "^4.2.5",
-    "lint-staged": "^10.2.6",
+    "lint-staged": "^10.2.10",
+    "path-type": "^4.0.0",
     "prettier": "^2.0.5"
   },
   "peerDependencies": {
@@ -81,26 +86,7 @@
     "singleQuote": true,
     "tabWidth": 2,
     "trailingComma": "all",
-    "useTabs": false,
-    "overrides": [
-      {
-        "files": [
-          ".eslintrc",
-          ".prettierrc"
-        ],
-        "options": {
-          "parser": "json"
-        }
-      },
-      {
-        "files": [
-          "serverless.js"
-        ],
-        "options": {
-          "printWidth": 120
-        }
-      }
-    ]
+    "useTabs": false
   },
   "eslintConfig": {
     "extends": [
@@ -113,5 +99,10 @@
       "camelcase": 0,
       "capitalized-comments": 0
     }
+  },
+  "ava": {
+    "files": [
+      "test/*.js"
+    ]
   }
 }
