@@ -29,12 +29,15 @@
   },
   "dependencies": {
     "@zeit/node-file-trace": "^0.6.1",
+    "apr-find": "^3.0.3",
     "apr-for-each": "^3.0.3",
     "apr-map": "^3.0.3",
     "apr-parallel": "^3.0.3",
-    "common-shake": "^2.1.0",
     "globby": "^11.0.0",
+    "lodash.sortby": "^4.7.0",
     "lodash.topairs": "^4.3.0",
+    "lodash.uniq": "^4.5.0",
+    "mz": "^2.7.0",
     "nanomatch": "^1.2.13",
     "path-is-inside": "^1.0.2",
     "tempy": "^0.5.0"

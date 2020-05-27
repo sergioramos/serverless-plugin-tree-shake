@@ -1,0 +1,16 @@
+{
+  "name": "serverless-plugin-tree-shake-example",
+  "private": true,
+  "devDependencies": {
+    "serverless": "^1.71.1",
+    "typescript": "~3.8.3"
+  },
+  "workspaces": [
+    "handlers/*",
+    "framework",
+    "out"
+  ],
+  "dependencies": {
+    "lodash.flatten": "^4.4.0"
+  }
+}

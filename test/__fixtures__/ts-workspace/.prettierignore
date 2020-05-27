@@ -5,7 +5,6 @@ logfile
 .nyc_output
 coverage
 .yarn/*
-test/__fixtures__
 
 .git/*
 .DS_Store
@@ -72,4 +71,3 @@ _env*ac
 *.diff
 *.hbs
 *.pro
-*.gz

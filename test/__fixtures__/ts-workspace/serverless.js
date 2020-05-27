@@ -2,7 +2,7 @@ const { name: service } = require('./package.json');
 
 module.exports = {
   service,
-  plugins: ['..'],
+  plugins: ['../../../'],
   provider: {
     name: 'aws',
     runtime: 'nodejs12.x',
