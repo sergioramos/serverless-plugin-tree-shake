@@ -112,9 +112,19 @@ module.exports = class {
     };
   }
 
-  resolveFilePathsAll(...args) {
-    this.serverless.cli.log('resolveFilePathsAll', ...args);
-    throw new Error('todo');
+  async resolveFilePathsAll() {
+    const allFiles = await Map(
+      this.serverless.service.getAllFunctions(),
+      (fnName) => {
+        return this.resolveFilePathsFunction(fnName);
+      },
+    );
+
+    return Uniq(
+      SortBy(Flatten(allFiles), (pathname) => {
+        return pathname.split(sep).includes('package.json');
+      }),
+    );
   }
 
   async getFileContentAndStat(pathname) {

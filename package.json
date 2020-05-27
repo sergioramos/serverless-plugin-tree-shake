@@ -33,6 +33,7 @@
     "apr-for-each": "^3.0.3",
     "apr-map": "^3.0.3",
     "apr-parallel": "^3.0.3",
+    "archiver": "^4.0.1",
     "globby": "^11.0.0",
     "lodash.sortby": "^4.7.0",
     "lodash.topairs": "^4.3.0",
@@ -50,9 +51,7 @@
     "eslint-config-xo-space": "^0.24.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.6",
-    "prettier": "^2.0.5",
-    "serverless": "^1.71.3",
-    "typescript": "^3.9.3"
+    "prettier": "^2.0.5"
   },
   "peerDependencies": {
     "serverless": "^1.71.3",
