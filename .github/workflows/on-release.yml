@@ -16,7 +16,7 @@ jobs:
       run: yarn install --immutable
       env:
         YARN_CHECKSUM_BEHAVIOR: update
-    # - name: Publish
-    #   run: npm publish
-    #   env:
-    #     NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+    - name: Publish
+      uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NODE_AUTH_TOKEN }}
