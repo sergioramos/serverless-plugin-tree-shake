@@ -50,13 +50,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bcoe/v8-coverage@npm:^0.2.3":
-  version: 0.2.3
-  resolution: "@bcoe/v8-coverage@npm:0.2.3"
-  checksum: 3/4fc6fb784b09d2e994fc9180dc8af9f674a4e5114cd2c52754e689f87725e670d0919728945fe3991d434109e42e5ac6f9d85c58a566e2a645eb9dda68eead6a
-  languageName: node
-  linkType: hard
-
 "@concordance/react@npm:^2.0.0":
   version: 2.0.0
   resolution: "@concordance/react@npm:2.0.0"
@@ -131,13 +124,6 @@ __metadata:
   dependencies:
     "@hapi/hoek": ^9.0.0
   checksum: 3/f92797d5ef54bb801a3591a118ea483ed5a6b41cdd1aaa6f7bf427b64b5f76056bc7063447adf43be8f94b04408228cce12963ea498b8da8f9e01d01c78710ac
-  languageName: node
-  linkType: hard
-
-"@istanbuljs/schema@npm:^0.1.2":
-  version: 0.1.2
-  resolution: "@istanbuljs/schema@npm:0.1.2"
-  checksum: 3/ebc6bd5f14aca7dd229d3e03aaab47c4c9a1ae25c892d6370d786c7a06128b4e03f60b31b10408010b701e1982087c1e2dae798e66cb57b44c7883228693f8e4
   languageName: node
   linkType: hard
 
@@ -585,20 +571,6 @@ __metadata:
     "@types/minimatch": "*"
     "@types/node": "*"
   checksum: 3/f74ae67cb205302da0d452e925529f817a253c4dce5d59ae6077d592238b921db750da143b8a5f8427a5011e202937d8a7b264f7d14b0ddc7f8137ca5e1af1b6
-  languageName: node
-  linkType: hard
-
-"@types/is-windows@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@types/is-windows@npm:1.0.0"
-  checksum: 3/dea87837bcf279d4892bde219aeed2e992c12fa8f2ed06347697f35ea0f48d83227f6897c291fafbda387be2f1b413fbe9c1e98639c44bded88bcc18c9fcdc20
-  languageName: node
-  linkType: hard
-
-"@types/istanbul-lib-coverage@npm:^2.0.1":
-  version: 2.0.2
-  resolution: "@types/istanbul-lib-coverage@npm:2.0.2"
-  checksum: 3/4a57a6749c68c0ef6377d213b9681fc18ff0aea8e5867ce8fb976a9409efe3608ef692cfdd5a64d54e428b8bc44ddc1b8f919f638821f615d9d9cdee6b60f300
   languageName: node
   linkType: hard
 
@@ -1796,29 +1768,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"c8@npm:^7.2.0":
-  version: 7.2.0
-  resolution: "c8@npm:7.2.0"
-  dependencies:
-    "@bcoe/v8-coverage": ^0.2.3
-    "@istanbuljs/schema": ^0.1.2
-    find-up: ^4.0.0
-    foreground-child: ^2.0.0
-    furi: ^2.0.0
-    istanbul-lib-coverage: ^3.0.0
-    istanbul-lib-report: ^3.0.0
-    istanbul-reports: ^3.0.2
-    rimraf: ^3.0.0
-    test-exclude: ^6.0.0
-    v8-to-istanbul: ^4.1.2
-    yargs: ^15.0.0
-    yargs-parser: ^18.0.0
-  bin:
-    c8: bin/c8.js
-  checksum: 3/8fd1add1845fd53af2b3664d578565669ea63bee8ce74e3c7ee254d2ab0e8d63f4b712eedb845f03a8cd8dae91eef447fcd3bc917a1d3d18ea12f1b03bb4a634
-  languageName: node
-  linkType: hard
-
 "cache-base@npm:^1.0.1":
   version: 1.0.1
   resolution: "cache-base@npm:1.0.1"
@@ -2470,7 +2419,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"convert-source-map@npm:^1.6.0, convert-source-map@npm:^1.7.0":
+"convert-source-map@npm:^1.7.0":
   version: 1.7.0
   resolution: "convert-source-map@npm:1.7.0"
   dependencies:
@@ -4126,16 +4075,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"foreground-child@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "foreground-child@npm:2.0.0"
-  dependencies:
-    cross-spawn: ^7.0.0
-    signal-exit: ^3.0.2
-  checksum: 3/661c7adbc153c3f6dc1cd6b14f395442adfe22fce9bce65b7b436dfa2c95554879de50a0cfd30a40fc74a80fa541c2c7afe0890f1728cb608ce8d0689bcb0e32
-  languageName: node
-  linkType: hard
-
 "forever-agent@npm:~0.6.1":
   version: 0.6.1
   resolution: "forever-agent@npm:0.6.1"
@@ -4286,16 +4225,6 @@ fsevents@~2.1.2:
   version: 1.0.1
   resolution: "functional-red-black-tree@npm:1.0.1"
   checksum: 3/477ecaf62d4f8d788876099b35ed4b97586b331e729d2d28d0df96b598863d21c18b8a45a6cbecb6c2bf7f5e5ef1e82a053570583ef9a0ff8336683ab42b8d14
-  languageName: node
-  linkType: hard
-
-"furi@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "furi@npm:2.0.0"
-  dependencies:
-    "@types/is-windows": ^1.0.0
-    is-windows: ^1.0.2
-  checksum: 3/5052fc35ac44f602666ff60978fbfee1b8cfe8177ea5d54e2e7cd8eeec1a04cc2b20547032e8c57160896942fcf815971f8bd767292b2d635a4a071d7347cd9b
   languageName: node
   linkType: hard
 
@@ -4777,13 +4706,6 @@ fsevents@~2.1.2:
   version: 2.8.8
   resolution: "hosted-git-info@npm:2.8.8"
   checksum: 3/3ecc389dc6ecbd5463fada7e04461e96f3c817fe2f989ca41e9dd3b503745a0bfa26fba405861b2831ca64edc1abc5d2fbc97ee977303f89650dac4fbfdc2d7a
-  languageName: node
-  linkType: hard
-
-"html-escaper@npm:^2.0.0":
-  version: 2.0.2
-  resolution: "html-escaper@npm:2.0.2"
-  checksum: 3/a216ae96fa647155ce31ebf14e45b602eb84ab7b4a99d329d85d855d8a74d54c0c4146ac7eb4ada2761d3e22c067e73d6c66b54faefee37229ac025cfc97a513
   languageName: node
   linkType: hard
 
@@ -5569,34 +5491,6 @@ fsevents@~2.1.2:
   version: 0.1.2
   resolution: "isstream@npm:0.1.2"
   checksum: 3/8e6e5c4cf1823562db7035d2e7bac388412060fe9bc6727eca8c608def5aa57709165c51c2e68a2fce6ff0b64d79489501b84715060c5e8a477b87b6cbcd1eca
-  languageName: node
-  linkType: hard
-
-"istanbul-lib-coverage@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "istanbul-lib-coverage@npm:3.0.0"
-  checksum: 3/c8effc09ae00fc7974a10ee245fa2c3eceda840e8f46245b80bddc7101b84cf2ac0bcce514aa47e338de610cad06af1b6e3c21f679aebf03e398651898ca9aad
-  languageName: node
-  linkType: hard
-
-"istanbul-lib-report@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "istanbul-lib-report@npm:3.0.0"
-  dependencies:
-    istanbul-lib-coverage: ^3.0.0
-    make-dir: ^3.0.0
-    supports-color: ^7.1.0
-  checksum: 3/aada59dfceae04005f684031a627f1e9730634262a5426837a9b60c49530d626dc727be5930e7ae6303ce0d4357fb8331eda0935b8c6b999df5d376bdc825991
-  languageName: node
-  linkType: hard
-
-"istanbul-reports@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "istanbul-reports@npm:3.0.2"
-  dependencies:
-    html-escaper: ^2.0.0
-    istanbul-lib-report: ^3.0.0
-  checksum: 3/d4ed416e13fe0fc709566439086660ddab58dce9d6a655053c5315715aac8225bc7e9fcae553c2c3d8cc66cd4b59498a50b92d543a4820c5be0e5ee30178cdf0
   languageName: node
   linkType: hard
 
@@ -8197,8 +8091,8 @@ fsevents@~2.1.2:
   version: 0.0.0-use.local
   resolution: "serverless-plugin-tree-shake-ts-ws-all@workspace:."
   dependencies:
-    serverless: 1.72.0
-    typescript: 3.9.5
+    serverless: ^1.72.0
+    typescript: ^3.9.5
   languageName: unknown
   linkType: soft
 
@@ -8215,7 +8109,6 @@ fsevents@~2.1.2:
     apr-reduce: ^3.0.3
     archiver: ^4.0.1
     ava: ^3.8.2
-    c8: ^7.2.0
     directory-tree: ^2.2.4
     eslint: ^7.2.0
     eslint-config-prettier: ^6.11.0
@@ -8240,7 +8133,7 @@ fsevents@~2.1.2:
   languageName: unknown
   linkType: soft
 
-"serverless@npm:1.72.0":
+"serverless@npm:^1.72.0":
   version: 1.72.0
   resolution: "serverless@npm:1.72.0"
   dependencies:
@@ -8590,13 +8483,6 @@ fsevents@~2.1.2:
   version: 0.6.1
   resolution: "source-map@npm:0.6.1"
   checksum: 3/8647829a0611724114022be455ca1c8a2c8ae61df81c5b3667d9b398207226a1e21174fb7bbf0b4dbeb27ac358222afb5a14f1c74a62a62b8883b012e5eb1270
-  languageName: node
-  linkType: hard
-
-"source-map@npm:^0.7.3":
-  version: 0.7.3
-  resolution: "source-map@npm:0.7.3"
-  checksum: 3/351ce26ffa1ebf203660c0d70d7566c81e65d2d994d1c2d94da140808e02da34961673ce12ecea9b40797b96fbeb8c70bf71a4ad9f779f1a4fdbba75530bb386
   languageName: node
   linkType: hard
 
@@ -9096,17 +8982,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"test-exclude@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "test-exclude@npm:6.0.0"
-  dependencies:
-    "@istanbuljs/schema": ^0.1.2
-    glob: ^7.1.4
-    minimatch: ^3.0.4
-  checksum: 3/68294d10066726cbced152aeb8a39cf9fd199199c62afb39290b824f613090f2535fc6acbad7d78f1f34cf00f4f00d42fa14f02d6262b910a7c9e2db2ecfa388
-  languageName: node
-  linkType: hard
-
 "text-hex@npm:1.0.x":
   version: 1.0.0
   resolution: "text-hex@npm:1.0.0"
@@ -9404,16 +9279,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-typescript@3.9.5:
-  version: 3.9.5
-  resolution: "typescript@npm:3.9.5"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 3/15618435493667083eb43dc7b36c4d3dd47fd9e9c8a14f0ac4019bbf6124b6cc518b6ed506400913db1bf50831207ee8201b5d827680076930b562923f4f18a0
-  languageName: node
-  linkType: hard
-
 "typescript@^3.0.3, typescript@^3.7.5, typescript@^3.8.3":
   version: 3.8.3
   resolution: "typescript@npm:3.8.3"
@@ -9424,13 +9289,13 @@ typescript@3.9.5:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@3.9.5#builtin<compat/typescript>":
+typescript@^3.9.5:
   version: 3.9.5
-  resolution: "typescript@patch:typescript@npm%3A3.9.5#builtin<compat/typescript>::version=3.9.5&hash=8cac75"
+  resolution: "typescript@npm:3.9.5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 3/347b57e017c6f6c956eb7fc3c392e764bb924b1758103207cfb9c465210d4134212a164a064c259d524f055b86b023ebecc3e3ab5b5d666c1c0d96e1397149f6
+  checksum: 3/15618435493667083eb43dc7b36c4d3dd47fd9e9c8a14f0ac4019bbf6124b6cc518b6ed506400913db1bf50831207ee8201b5d827680076930b562923f4f18a0
   languageName: node
   linkType: hard
 
@@ -9441,6 +9306,16 @@ typescript@3.9.5:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 3/a32f5bfbaf77de05a6f7da10baea27c76281d969a73405336e5f53afb465539e2246fa5b83b9d4032046e6484a8f9c331d042dddb00fb74a8499d5a559d58682
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^3.9.5#builtin<compat/typescript>":
+  version: 3.9.5
+  resolution: "typescript@patch:typescript@npm%3A3.9.5#builtin<compat/typescript>::version=3.9.5&hash=8cac75"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 3/347b57e017c6f6c956eb7fc3c392e764bb924b1758103207cfb9c465210d4134212a164a064c259d524f055b86b023ebecc3e3ab5b5d666c1c0d96e1397149f6
   languageName: node
   linkType: hard
 
@@ -9657,17 +9532,6 @@ typescript@3.9.5:
   version: 2.1.0
   resolution: "v8-compile-cache@npm:2.1.0"
   checksum: 3/b7490d548401f6f4cadeb94da33b2d65473fb931e1f7c28fba02889c19adf1cfff884fb933c6282fc7e82e400f35eddc9d8fc577fa1e4998cc3797c4aaf6246c
-  languageName: node
-  linkType: hard
-
-"v8-to-istanbul@npm:^4.1.2":
-  version: 4.1.4
-  resolution: "v8-to-istanbul@npm:4.1.4"
-  dependencies:
-    "@types/istanbul-lib-coverage": ^2.0.1
-    convert-source-map: ^1.6.0
-    source-map: ^0.7.3
-  checksum: 3/9d6c0cd729340d3d19e2d5d59f5b5f1e63a2e0828a209d61d42992eb66e797629ed1a845833166b3ea9a8f84465244d7ab2cc955677b686be0f533402217dedd
   languageName: node
   linkType: hard
 
@@ -10008,7 +9872,7 @@ typescript@3.9.5:
   languageName: node
   linkType: hard
 
-"yargs-parser@npm:^18.0.0, yargs-parser@npm:^18.1.1, yargs-parser@npm:^18.1.3":
+"yargs-parser@npm:^18.1.1, yargs-parser@npm:^18.1.3":
   version: 18.1.3
   resolution: "yargs-parser@npm:18.1.3"
   dependencies:
@@ -10018,7 +9882,7 @@ typescript@3.9.5:
   languageName: node
   linkType: hard
 
-"yargs@npm:^15.0.0, yargs@npm:^15.3.1":
+"yargs@npm:^15.3.1":
   version: 15.3.1
   resolution: "yargs@npm:15.3.1"
   dependencies:

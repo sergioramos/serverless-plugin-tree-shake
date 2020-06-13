@@ -25,7 +25,7 @@
   "scripts": {
     "eslint": "eslint . --ext .js",
     "fmt": "prettier --config package.json --write '**/*'",
-    "test": "NODE_ENV=test ava --timeout 99999"
+    "test": "NODE_ENV=test ava --timeout=5m"
   },
   "dependencies": {
     "@zeit/node-file-trace": "^0.6.3",

@@ -218,11 +218,11 @@ __metadata:
   linkType: hard
 
 "acorn-numeric-separator@npm:^0.3.0":
-  version: 0.3.2
-  resolution: "acorn-numeric-separator@npm:0.3.2"
+  version: 0.3.3
+  resolution: "acorn-numeric-separator@npm:0.3.3"
   peerDependencies:
     acorn: ^6 || ^7
-  checksum: 3/e3611bad113cca0883d676b878e25ea98f0b7476a05b102d0a1c99cd3fb73cf37f44891294c376f5cb6e54bda445acffe014bf8f22c82f1e3d7c47c2474cf9a0
+  checksum: 3/95d97d5546b62bd9526886d744943e1f61e3b31ab4114ffbc52623927ef0f67d1c73b252b9e505c9f5adbcd3a0f36e9983767fc9e6695021e4200922b54f84c1
   languageName: node
   linkType: hard
 
