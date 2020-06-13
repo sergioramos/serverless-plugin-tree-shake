@@ -70,11 +70,11 @@
   "lint-staged": {
     "*.js": [
       "eslint --fix",
-      "prettier --config .prettierrc --write",
+      "prettier --config package.json --write",
       "git add"
     ],
     "*.*": [
-      "prettier --config .prettierrc --write",
+      "prettier --config package.json --write",
       "git add"
     ]
   },
