@@ -1,3 +1,9 @@
+## [1.0.2](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.0.1...v1.0.2) (2020-06-14)
+
+### Documentation
+
+- add license file ([90b8c91](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/90b8c91bde86a91b597a3ce647575e0db47321fc))
+
 ## [1.0.1](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.0.0...v1.0.1) (2020-06-14)
 
 ### Chores
