@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.0.0...v1.0.1) (2020-06-14)
+
+### Chores
+
+- add benchmark ([e130641](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/e130641800b25bbb940bae5be92e918f11b3ef5a))
+
 # 1.0.0 (2020-06-13)
 
 ### Chores
