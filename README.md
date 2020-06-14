@@ -2,6 +2,10 @@
 
 Shake the file dependency tree and only include files needed.
 
+<div align="center">
+  <img width="898" src="media/cover.svg" alt="serverless-plugin-tree-shake">
+</div>
+
 ## install
 
 ```bash
