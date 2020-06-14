@@ -94,6 +94,19 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '13.x'
+    - name: Setup Cache
+      uses: actions/cache@v1
+      with:
+        path: .yarn
+        key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+    - name: Install dependencies
+      run: yarn install --immutable --immutable-cache
+    - name: Benchmark
+      run: yarn run benchmark
     - name: Get branch
       uses: rlespinasse/github-slug-action@1.1.0
     - name: Release
@@ -101,5 +114,7 @@ jobs:
       if: ${{ env.GITHUB_REF_SLUG == 'master' }}
       with:
         node-module: true
+        commit-assets: |
+          ./BENCHMARK.md
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_GITHUB_TOKEN }}

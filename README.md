@@ -18,10 +18,36 @@ npm install --save-dev serverless-plugin-tree-shake
 plugins:
   - serverless-plugin-tree-shake
 package:
-  # no need to spend time doing excluding dev dependencies, given that
+  # no need to spend time excluding dev dependencies, given that
   # serverless-plugin-tree-shake does it already
   excludeDevDependencies: false
 ```
+
+**example output before** (with `excludeDevDependencies` enabled):
+
+```
+$ time sls package
+33.93s user 20.17s system 82% cpu 1:05.94 total
+```
+
+```
+$ tree
+988 directories, 5978 files
+```
+
+**example output after**:
+
+```
+$ time sls package
+3.77s user 1.27s system 51% cpu 9.724 total
+```
+
+```
+$ tree
+24 directories, 48 files
+```
+
+More details: [`BENCHMARK.md`](./BENCHMARK.md).
 
 ##### typescript support
 
@@ -41,10 +67,13 @@ package:
 
 You can use the `include` and `exclude` global, and per-function, configurations and it will include/exclude the especified files/patterns.
 
+## performance
+
+Check out [`BENCHMARK.md`](./BENCHMARK.md) - auto generated.
+
 ## todo
 
 - [ ] tree shake handlers, not only the file tree
-- [ ] add benchmarks
 
 ## license
 
