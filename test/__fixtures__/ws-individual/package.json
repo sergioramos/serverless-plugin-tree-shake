@@ -2,7 +2,9 @@
   "name": "serverless-plugin-tree-shake-ws-all",
   "private": true,
   "devDependencies": {
-    "serverless": "^1.72.0"
+    "@zeit/ncc": "^0.22.3",
+    "serverless": "^1.72.0",
+    "serverless-plugin-ncc": "^0.4.0"
   },
   "workspaces": [
     "handlers/*",

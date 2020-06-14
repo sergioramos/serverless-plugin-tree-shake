@@ -696,6 +696,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@zeit/ncc@npm:^0.22.3":
+  version: 0.22.3
+  resolution: "@zeit/ncc@npm:0.22.3"
+  dependencies:
+    node-gyp: latest
+  bin:
+    ncc: dist/ncc/cli.js
+  checksum: 3/433ca215e1092cb9214c10c87b661e4de8114b356c1f5a37d95b8fafa7267449d43a9d882be128fdfc48cf57a21b08e305dcb5d99f6815e83708db38ec19cf00
+  languageName: node
+  linkType: hard
+
 "@zeit/node-file-trace@npm:^0.6.3":
   version: 0.6.3
   resolution: "@zeit/node-file-trace@npm:0.6.3"
@@ -1060,6 +1071,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"apr-main@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "apr-main@npm:4.0.3"
+  dependencies:
+    is-promise: ^2.1.0
+  checksum: 3/2e6d8d1ba6199836912430fdbf0767caeac8a9c9fa22701bde0e01e0d93a6870ef6ae2b5aeca46d7c51bafbe85a6625621b57da65b07857e17c40696f8d50b0a
+  languageName: node
+  linkType: hard
+
 "apr-map@npm:^3.0.3":
   version: 3.0.3
   resolution: "apr-map@npm:3.0.3"
@@ -1107,7 +1127,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"archiver-utils@npm:^2.1.0":
+"archiver-utils@npm:^2.0.0, archiver-utils@npm:^2.1.0":
   version: 2.1.0
   resolution: "archiver-utils@npm:2.1.0"
   dependencies:
@@ -1122,6 +1142,21 @@ __metadata:
     normalize-path: ^3.0.0
     readable-stream: ^2.0.0
   checksum: 3/a4b54783cb3bf4d4810661a992ae2a1901032d05b11eaa4d0f75aae2f6c5fa7bd2269283bb830f467e15863354120e35e1c9a1e14b92fd460faee4fb2c3f4d0f
+  languageName: node
+  linkType: hard
+
+"archiver@npm:3.0.0":
+  version: 3.0.0
+  resolution: "archiver@npm:3.0.0"
+  dependencies:
+    archiver-utils: ^2.0.0
+    async: ^2.0.0
+    buffer-crc32: ^0.2.1
+    glob: ^7.0.0
+    readable-stream: ^2.0.0
+    tar-stream: ^1.5.0
+    zip-stream: ^2.0.1
+  checksum: 3/a9c9215af641e0471f74007b0798bc61d23258e7307484aa1989a62e37a60f59cdd666a8bb5151790565a4067e77430be5e79f0bbcdf2b6747c1b602b4ca5b94
   languageName: node
   linkType: hard
 
@@ -1318,7 +1353,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"async@npm:^2.6.1, async@npm:^2.6.3":
+"async@npm:^2.0.0, async@npm:^2.6.1, async@npm:^2.6.3":
   version: 2.6.3
   resolution: "async@npm:2.6.3"
   dependencies:
@@ -4368,7 +4403,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"glob@npm:^7.0.5, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6":
+"glob@npm:^7.0.0, glob@npm:^7.0.5, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6":
   version: 7.1.6
   resolution: "glob@npm:7.1.6"
   dependencies:
@@ -5317,7 +5352,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"is-promise@npm:^2.1":
+"is-promise@npm:^2.1, is-promise@npm:^2.1.0":
   version: 2.2.2
   resolution: "is-promise@npm:2.2.2"
   checksum: 3/6fe84293b8750d3604a909979a7517a38b1618817f1fbbfdaf4d6138642117c85fbee12927b4d51349a5bcd9bdf8d1bf181f09145ede2d7eb41f4b394ab2ce7d
@@ -6065,7 +6100,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"make-dir@npm:^1.0.0, make-dir@npm:^1.2.0":
+"make-dir@npm:1.3.0, make-dir@npm:^1.0.0, make-dir@npm:^1.2.0":
   version: 1.3.0
   resolution: "make-dir@npm:1.3.0"
   dependencies:
@@ -6115,6 +6150,15 @@ fsevents@~2.1.2:
   dependencies:
     object-visit: ^1.0.0
   checksum: 3/9e85e6d802183927229d9ad04d70a0e0c7225451994605674d3ed4e4a21f817b4d9aba42a775e98078ffe47cf67df44a50eb07f965f14afead5015c8692503bd
+  languageName: node
+  linkType: hard
+
+"markdown-table@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "markdown-table@npm:2.0.0"
+  dependencies:
+    repeat-string: ^1.0.0
+  checksum: 3/48492b01bc27eab584b7e07d0a0ba5eef2e94017e7c0a781e0525cd908e44a8b224120217f32e28676184c4f0f93f2c7a2178cf3341c6503dd9b0eb8f409b72f
   languageName: node
   linkType: hard
 
@@ -7387,6 +7431,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"pretty-bytes@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "pretty-bytes@npm:5.3.0"
+  checksum: 3/ecc6b1670f7ebcf6c78b91edad97ffdc0be58283ff5fa6c95c99c6bda48d2aa1858367fae8eccce35bc36eb90ec3cbcc24b9d7e29fd6ad98cc52d53d2e307789
+  languageName: node
+  linkType: hard
+
 "pretty-ms@npm:^7.0.0":
   version: 7.0.0
   resolution: "pretty-ms@npm:7.0.0"
@@ -7690,7 +7741,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"repeat-string@npm:^1.6.1":
+"repeat-string@npm:^1.0.0, repeat-string@npm:^1.6.1":
   version: 1.6.1
   resolution: "repeat-string@npm:1.6.1"
   checksum: 3/99c431ba7bef7a5d39819d562ebca89206368b45f73213677a3b562e25b5dd272d9e6a2ca8105001df14b6fc8cc71f0b10258c86e16cf8a256318fac1ddc8a77
@@ -8087,11 +8138,27 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"serverless-plugin-ncc@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "serverless-plugin-ncc@npm:0.4.0"
+  dependencies:
+    archiver: 3.0.0
+    lodash: ^4.17.15
+    make-dir: 1.3.0
+  peerDependencies:
+    "@zeit/ncc": ">=0.15.2"
+  checksum: 3/571e31fe60024a0374f31581339ad9b6a917074df590b58f68625adfda0c7daa71af05e6a86a64c68b4329e0aecb6876444af83300270a2c2b90f58accfe11c5
+  languageName: node
+  linkType: hard
+
 "serverless-plugin-tree-shake-ts-ws-individual@workspace:.":
   version: 0.0.0-use.local
   resolution: "serverless-plugin-tree-shake-ts-ws-individual@workspace:."
   dependencies:
+    "@zeit/ncc": ^0.22.3
     serverless: ^1.72.0
+    serverless-plugin-ncc: ^0.4.0
+    serverless-plugin-typescript: ^1.1.9
     typescript: ^3.9.5
   languageName: unknown
   linkType: soft
@@ -8104,6 +8171,7 @@ fsevents@~2.1.2:
     apr-find: ^3.0.3
     apr-for-each: ^3.0.3
     apr-intercept: ^3.0.4
+    apr-main: ^4.0.3
     apr-map: ^3.0.3
     apr-parallel: ^3.0.3
     apr-reduce: ^3.0.3
@@ -8121,17 +8189,33 @@ fsevents@~2.1.2:
     lodash.sortby: ^4.7.0
     lodash.topairs: ^4.3.0
     lodash.uniq: ^4.5.0
+    markdown-table: ^2.0.0
     mz: ^2.7.0
     nanomatch: ^1.2.13
     path-is-inside: ^1.0.2
     path-type: ^4.0.0
     prettier: ^2.0.5
+    pretty-bytes: ^5.3.0
+    pretty-ms: ^7.0.0
     tempy: ^0.5.0
   peerDependencies:
     serverless: ^1.71.3
     typescript: ^3.9.3
   languageName: unknown
   linkType: soft
+
+"serverless-plugin-typescript@npm:^1.1.9":
+  version: 1.1.9
+  resolution: "serverless-plugin-typescript@npm:1.1.9"
+  dependencies:
+    fs-extra: ^7.0.1
+    globby: ^9.2.0
+    lodash: ^4.17.11
+  peerDependencies:
+    typescript: ">=2.2.2"
+  checksum: 3/d0a574489e9f97b84b81ae23013e37410ab37e4bf88905b2e9c06263089fcf1d0f4405eec77dc6a89460fcc37d8b133d71aa574c9e3eed0f55a5466d5237cd47
+  languageName: node
+  linkType: hard
 
 "serverless@npm:^1.72.0":
   version: 1.72.0
@@ -8904,7 +8988,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"tar-stream@npm:^1.5.2":
+"tar-stream@npm:^1.5.0, tar-stream@npm:^1.5.2":
   version: 1.6.2
   resolution: "tar-stream@npm:1.6.2"
   dependencies:
@@ -9918,7 +10002,7 @@ typescript@^3.9.5:
   languageName: node
   linkType: hard
 
-"zip-stream@npm:^2.1.2":
+"zip-stream@npm:^2.0.1, zip-stream@npm:^2.1.2":
   version: 2.1.3
   resolution: "zip-stream@npm:2.1.3"
   dependencies:

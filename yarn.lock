@@ -450,6 +450,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"apr-main@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "apr-main@npm:4.0.3"
+  dependencies:
+    is-promise: ^2.1.0
+  checksum: 3/2e6d8d1ba6199836912430fdbf0767caeac8a9c9fa22701bde0e01e0d93a6870ef6ae2b5aeca46d7c51bafbe85a6625621b57da65b07857e17c40696f8d50b0a
+  languageName: node
+  linkType: hard
+
 "apr-map@npm:^3.0.3":
   version: 3.0.3
   resolution: "apr-map@npm:3.0.3"
@@ -2843,6 +2852,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"is-promise@npm:^2.1.0":
+  version: 2.2.2
+  resolution: "is-promise@npm:2.2.2"
+  checksum: 3/6fe84293b8750d3604a909979a7517a38b1618817f1fbbfdaf4d6138642117c85fbee12927b4d51349a5bcd9bdf8d1bf181f09145ede2d7eb41f4b394ab2ce7d
+  languageName: node
+  linkType: hard
+
 "is-promise@npm:^4.0.0":
   version: 4.0.0
   resolution: "is-promise@npm:4.0.0"
@@ -3354,6 +3370,15 @@ fsevents@~2.1.2:
   dependencies:
     object-visit: ^1.0.0
   checksum: 3/9e85e6d802183927229d9ad04d70a0e0c7225451994605674d3ed4e4a21f817b4d9aba42a775e98078ffe47cf67df44a50eb07f965f14afead5015c8692503bd
+  languageName: node
+  linkType: hard
+
+"markdown-table@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "markdown-table@npm:2.0.0"
+  dependencies:
+    repeat-string: ^1.0.0
+  checksum: 3/48492b01bc27eab584b7e07d0a0ba5eef2e94017e7c0a781e0525cd908e44a8b224120217f32e28676184c4f0f93f2c7a2178cf3341c6503dd9b0eb8f409b72f
   languageName: node
   linkType: hard
 
@@ -4138,6 +4163,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"pretty-bytes@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "pretty-bytes@npm:5.3.0"
+  checksum: 3/ecc6b1670f7ebcf6c78b91edad97ffdc0be58283ff5fa6c95c99c6bda48d2aa1858367fae8eccce35bc36eb90ec3cbcc24b9d7e29fd6ad98cc52d53d2e307789
+  languageName: node
+  linkType: hard
+
 "pretty-ms@npm:^7.0.0":
   version: 7.0.0
   resolution: "pretty-ms@npm:7.0.0"
@@ -4294,6 +4326,13 @@ fsevents@~2.1.2:
   dependencies:
     rc: ^1.2.8
   checksum: 3/50802a1d43efb18505ffc1f242b8af43bde95e95ac2461f453ef21d4bce793d4230076147809f1ade7452afaa537c6e0324dd4a7bc9d83f1b6f5cc7e1300c544
+  languageName: node
+  linkType: hard
+
+"repeat-string@npm:^1.0.0":
+  version: 1.6.1
+  resolution: "repeat-string@npm:1.6.1"
+  checksum: 3/99c431ba7bef7a5d39819d562ebca89206368b45f73213677a3b562e25b5dd272d9e6a2ca8105001df14b6fc8cc71f0b10258c86e16cf8a256318fac1ddc8a77
   languageName: node
   linkType: hard
 
@@ -4587,6 +4626,7 @@ resolve@^1.10.0:
     apr-find: ^3.0.3
     apr-for-each: ^3.0.3
     apr-intercept: ^3.0.4
+    apr-main: ^4.0.3
     apr-map: ^3.0.3
     apr-parallel: ^3.0.3
     apr-reduce: ^3.0.3
@@ -4604,11 +4644,14 @@ resolve@^1.10.0:
     lodash.sortby: ^4.7.0
     lodash.topairs: ^4.3.0
     lodash.uniq: ^4.5.0
+    markdown-table: ^2.0.0
     mz: ^2.7.0
     nanomatch: ^1.2.13
     path-is-inside: ^1.0.2
     path-type: ^4.0.0
     prettier: ^2.0.5
+    pretty-bytes: ^5.3.0
+    pretty-ms: ^7.0.0
     tempy: ^0.5.0
   peerDependencies:
     serverless: ^1.71.3

@@ -3,12 +3,13 @@ const Tree = require('directory-tree');
 const Execa = require('execa');
 const { series: ForEach } = require('apr-for-each');
 const { readlinkSync } = require('fs');
-const { readdir, readFile, rmdir, link, mkdir, unlink } = require('mz/fs');
+const { readFile, rmdir } = require('mz/fs');
 const { fromFileSync } = require('hasha');
 const Intercept = require('apr-intercept');
 const { basename, dirname, extname, join, resolve, relative } = require('path');
 const { isSymlinkSync } = require('path-type');
 const Reduce = require('apr-reduce');
+const Setup = require('./setup');
 
 const EVENT = {
   httpMethod: 'GET',
@@ -68,36 +69,8 @@ const getFn = (handler, cwd) => {
 };
 
 test.before(async () => {
-  const ls = await readdir(resolve(__dirname, '__fixtures__'), {
-    withFileTypes: true,
-  });
-
-  const fixtures = ls.filter((entry) => entry.isDirectory());
-
-  await ForEach(fixtures, async ({ name }) => {
+  await ForEach(await Setup(), async ({ name }) => {
     const root = resolve(__dirname, '__fixtures__', name);
-
-    await rmdir(resolve(root, 'plugin'), { recursive: true });
-    await mkdir(resolve(root, 'plugin'));
-    await rmdir(resolve(root, '.serverless'), { recursive: true });
-    await mkdir(resolve(root, '.serverless'), { recursive: true });
-
-    await link(
-      resolve(__dirname, '../index.js'),
-      resolve(root, 'plugin/index.js'),
-    );
-
-    await link(
-      resolve(__dirname, '../package.json'),
-      resolve(root, 'plugin/package.json'),
-    );
-
-    await rmdir(resolve(root, '.yarn/cache'), { recursive: true });
-    await rmdir(resolve(root, '.yarn/unplugged'), { recursive: true });
-    await Intercept(unlink(resolve(root, '.yarn/build-state.yml')));
-    await Intercept(unlink(resolve(root, '.yarn/install-state.gz')));
-
-    await Execa('yarn', { stdio: 'inherit', cwd: root });
     await Execa('yarn', ['sls', 'package'], { stdio: 'inherit', cwd: root });
   });
 });
