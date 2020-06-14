@@ -1,3 +1,9 @@
+## [1.0.3](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.0.2...v1.0.3) (2020-06-14)
+
+### Documentation
+
+- add cover image ([d4bbb0a](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/d4bbb0a9a27a98dd0f77bf1196fd09eddce57b77))
+
 ## [1.0.2](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.0.1...v1.0.2) (2020-06-14)
 
 ### Documentation
