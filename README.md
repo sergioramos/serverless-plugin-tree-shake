@@ -75,10 +75,6 @@ You can use the `include` and `exclude` global, and per-function, configurations
 
 Check out [`BENCHMARK.md`](./BENCHMARK.md) - auto generated.
 
-## todo
-
-- [ ] tree shake handlers, not only the file tree
-
 ## license
 
 BSD-3-Clause
