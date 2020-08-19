@@ -1,7 +1,7 @@
 const archiver = require('archiver');
 const { readFileSync, lstatSync, realpathSync, ...fs } = require('fs');
 const { exists, stat: statAsync } = require('mz/fs');
-const { nodeFileTrace: FileTrace } = require('@zeit/node-file-trace');
+const { nodeFileTrace: FileTrace } = require('@vercel/nft');
 const Flatten = require('lodash.flatten');
 const { default: Find } = require('apr-find');
 const Globby = require('globby');

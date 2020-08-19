@@ -696,20 +696,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zeit/ncc@npm:^0.22.3":
-  version: 0.22.3
-  resolution: "@zeit/ncc@npm:0.22.3"
-  dependencies:
-    node-gyp: latest
-  bin:
-    ncc: dist/ncc/cli.js
-  checksum: 3/433ca215e1092cb9214c10c87b661e4de8114b356c1f5a37d95b8fafa7267449d43a9d882be128fdfc48cf57a21b08e305dcb5d99f6815e83708db38ec19cf00
-  languageName: node
-  linkType: hard
-
-"@zeit/node-file-trace@npm:^0.8.2":
-  version: 0.8.2
-  resolution: "@zeit/node-file-trace@npm:0.8.2"
+"@vercel/nft@npm:^0.9.0":
+  version: 0.9.0
+  resolution: "@vercel/nft@npm:0.9.0"
   dependencies:
     acorn: ^7.1.1
     acorn-class-fields: ^0.3.2
@@ -729,7 +718,18 @@ __metadata:
     rollup-pluginutils: ^2.8.2
   bin:
     nft: out/cli.js
-  checksum: 3/fd671e034ecedc0a289cc975c63908bdeb0a490f37714941294bcf59d897224ddaad0b9b3c43a03e209469fa30557fab85997d87d6e18b87b191419d2504104f
+  checksum: 3/2d0204a0d49a15df9623a98c5162eca76a5f5b75abc27f73c4b06abebb9eecfd4d970fe8f229a20d056bedc2fea025b6a0807a8bebfb47fb406e713deaca2939
+  languageName: node
+  linkType: hard
+
+"@zeit/ncc@npm:^0.22.3":
+  version: 0.22.3
+  resolution: "@zeit/ncc@npm:0.22.3"
+  dependencies:
+    node-gyp: latest
+  bin:
+    ncc: dist/ncc/cli.js
+  checksum: 3/433ca215e1092cb9214c10c87b661e4de8114b356c1f5a37d95b8fafa7267449d43a9d882be128fdfc48cf57a21b08e305dcb5d99f6815e83708db38ec19cf00
   languageName: node
   linkType: hard
 
@@ -8188,7 +8188,7 @@ fsevents@~2.1.2:
   version: 0.0.0-use.local
   resolution: "serverless-plugin-tree-shake@workspace:plugin"
   dependencies:
-    "@zeit/node-file-trace": ^0.8.2
+    "@vercel/nft": ^0.9.0
     apr-find: ^3.0.3
     apr-for-each: ^3.0.3
     apr-intercept: ^3.0.4
