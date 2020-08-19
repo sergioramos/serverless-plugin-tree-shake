@@ -1,3 +1,18 @@
+## [1.0.5](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.0.4...v1.0.5) (2020-08-19)
+
+### Bug Fixes
+
+- _try_ to gracefully handle berry pnp ([84e9bce](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/84e9bce7c8ab055b558847e693fcc2d08b867298))
+
+### Chores
+
+- migrate to nft ([36f71bf](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/36f71bf2fc567169ef7223e96c955789df812807))
+
+### Documentation
+
+- add code of conduct ([1f555d7](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/1f555d7aa3e71b61ec4e04b38760414b1efc3943))
+- remove todo ([6f16dde](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/6f16dde9e94bff203be1ca74bcb081d5dbc7f3b7))
+
 ## [1.0.4](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.0.3...v1.0.4) (2020-08-17)
 
 ### Chores
