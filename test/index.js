@@ -9,6 +9,7 @@ const Intercept = require('apr-intercept');
 const { basename, dirname, extname, join, resolve, relative } = require('path');
 const { isSymlinkSync } = require('path-type');
 const Reduce = require('apr-reduce');
+const SortBy = require('lodash.sortby');
 const Setup = require('./setup');
 
 const EVENT = {
@@ -21,7 +22,7 @@ const normalizeTree = ({ path, type, name, children = [] }) => {
 
   return {
     path: relative(__dirname, path),
-    children: children.map(normalizeTree),
+    children: SortBy(children.map(normalizeTree), 'path'),
     isSymlink,
     link: isSymlink ? readlinkSync(path) : undefined,
     md5: isDirectory ? undefined : fromFileSync(path, { algorithm: 'md5' }),

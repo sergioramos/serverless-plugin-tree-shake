@@ -311,31 +311,53 @@ module.exports = class {
       (filename) => exists(filename),
     );
 
+    const getRealPath = (pathanme) => {
+      try {
+        return realpathSync(pathanme);
+        // eslint-disable-next-line no-unused-vars
+      } catch (err) {
+        return pathanme;
+      }
+    };
+
+    const readFile = (fullpath) => {
+      try {
+        return readFileSync(fullpath, 'utf-8');
+        // eslint-disable-next-line no-unused-vars
+      } catch (err) {
+        try {
+          return readFileSync(require.resolve(fullpath), 'utf-8');
+          // eslint-disable-next-line no-unused-vars
+        } catch (err) {}
+      }
+    };
+
     const handleFile = (pathname) => {
-      const realpath = realpathSync(pathname);
+      const realpath = getRealPath(pathname);
+
       const cache = this.files.find(([src]) => src === realpath);
 
       if (Array.isArray(cache)) {
         const [fullpath] = cache;
         if (fullpath) {
-          return readFileSync(fullpath, 'utf-8');
+          return readFile(fullpath);
         }
       }
 
       // eslint-disable-next-line block-scoped-var
       if (!tsAvailable) {
-        return readFileSync(pathname, 'utf-8');
+        return readFile(pathname);
       }
 
       if (!['.ts', '.tsx'].includes(extname(pathname))) {
-        return readFileSync(pathname, 'utf-8');
+        return readFile(pathname);
       }
 
       if (
         !PathIsInside(pathname, this.servicePath) ||
         pathname.split(sep).includes(['node_modules'])
       ) {
-        return readFileSync(pathname, 'utf-8');
+        return readFile(pathname);
       }
 
       // eslint-disable-next-line block-scoped-var
