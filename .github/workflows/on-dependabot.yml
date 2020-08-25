@@ -3,6 +3,9 @@ name: Continuous Updates
 on:
   push:
     branches: [ dependabot/** ]
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [ dependabot/** ]
 
 jobs:
   build:
@@ -10,31 +13,32 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        fetch-depth: 2
+        fetch-depth: 20
         persist-credentials: false
-    - name: Checkout
-      uses: actions/checkout@v2
     - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
         node-version: '14.x'
     - name: Autofix lockfile
       run: |
-        git checkout ${{ github.base_ref }} yarn.lock
+        git checkout ${{ github.sha }}^ -- yarn.lock
         yarn
       env:
         YARN_CHECKSUM_BEHAVIOR: update
         YARN_ENABLE_SCRIPTS: 0
     - name: Config Git
       run: |
-        # use personal access token to allow triggering new workflow
-        BASIC_AUTH=$(echo -n "x-access-token:${{ secrets.GITHUB_TOKEN }}" | base64)
-        echo "::add-mask::$BASIC_AUTH"
         git config --global user.name '${{ github.event.commits[0].author.name }}'
         git config --global user.email '${{ github.event.commits[0].author.email }}'
-        git config --local http.$GITHUB_SERVER_URL/.extraheader "AUTHORIZATION: basic $BASIC_AUTH"
     - name: Commit changes
       run: |
         git add yarn.lock
         git commit --amend --no-edit -n
-        git push --force-with-lease
+    - name: Get branch
+      uses: rlespinasse/github-slug-action@2.0.0
+    - name: Push changes
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ env.GITHUB_REF_SLUG }}
+        force: true
