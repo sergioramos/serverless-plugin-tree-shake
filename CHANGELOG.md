@@ -1,3 +1,9 @@
+## [1.0.7](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.0.6...v1.0.7) (2020-08-25)
+
+### Continuous Integration
+
+- revert yarn.lock before trying to fix it ([76f2817](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/76f2817dc93d363a4c05886666371049170af23f))
+
 ## [1.0.6](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.0.5...v1.0.6) (2020-08-25)
 
 ### Continuous Integration
