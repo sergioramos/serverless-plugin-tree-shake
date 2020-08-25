@@ -1,0 +1,38 @@
+name: Continuous Updates
+
+on:
+  push:
+    branches: [ dependabot/** ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 2
+        persist-credentials: false
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14.x'
+    - name: Autofix lockfile
+      run: yarn
+      env:
+        YARN_CHECKSUM_BEHAVIOR: update
+        YARN_ENABLE_SCRIPTS: 0
+    - name: Config Git
+      run: |
+        # use personal access token to allow triggering new workflow
+        BASIC_AUTH=$(echo -n "x-access-token:${{ secrets.GITHUB_TOKEN }}" | base64)
+        echo "::add-mask::$BASIC_AUTH"
+        git config --global user.name '${{ github.event.commits[0].author.name }}'
+        git config --global user.email '${{ github.event.commits[0].author.email }}'
+        git config --local http.$GITHUB_SERVER_URL/.extraheader "AUTHORIZATION: basic $BASIC_AUTH"
+    - name: Commit changes
+      run: |
+        git add yarn.lock
+        git commit --amend --no-edit -n
+        git push --force-with-lease
