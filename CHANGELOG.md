@@ -1,3 +1,9 @@
+## [1.0.6](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.0.5...v1.0.6) (2020-08-25)
+
+### Continuous Integration
+
+- add dependabot support ([6c0dd99](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/6c0dd99159a75969ec17726b8c9aa0d1f1e4cd0f))
+
 ## [1.0.5](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.0.4...v1.0.5) (2020-08-19)
 
 ### Bug Fixes
