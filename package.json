@@ -1,6 +1,6 @@
 {
   "name": "serverless-plugin-tree-shake",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Shake the dependency tree and only include files needed",
   "license": "BSD-3-Clause",
   "repository": "github:sergioramos/serverless-plugin-tree-shake",

@@ -1,3 +1,9 @@
+## [1.0.8](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.0.7...v1.0.8) (2020-08-25)
+
+### Continuous Integration
+
+- fix dependabot push ([e0a9afe](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/e0a9afedc282b0ffe2b64521511b21ca34a0c78a))
+
 ## [1.0.7](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.0.6...v1.0.7) (2020-08-25)
 
 ### Continuous Integration
