@@ -19,7 +19,9 @@ jobs:
       with:
         node-version: '14.x'
     - name: Autofix lockfile
-      run: yarn
+      run: |
+        git checkout ${{ github.base_ref }} yarn.lock
+        yarn
       env:
         YARN_CHECKSUM_BEHAVIOR: update
         YARN_ENABLE_SCRIPTS: 0
