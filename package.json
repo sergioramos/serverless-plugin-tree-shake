@@ -56,7 +56,7 @@
     "execa": "^4.0.3",
     "hasha": "^5.2.0",
     "husky": "^4.2.5",
-    "lint-staged": "^10.2.12",
+    "lint-staged": "^10.2.13",
     "markdown-table": "^2.0.0",
     "path-type": "^4.0.0",
     "prettier": "^2.1.0",
