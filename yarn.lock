@@ -4063,12 +4063,12 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "prettier@npm:2.1.0"
+"prettier@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "prettier@npm:2.1.1"
   bin:
     prettier: bin-prettier.js
-  checksum: 3/f955d380d2892284c28bbfe32b1601cfcd7a24d8b310832937773b9e733f624e38ff70cbafee80e9553bdb3c55783d019163667bf9a69df4e6f7c2acdcf54c06
+  checksum: 3/420a807cda2d482388daa42379a7aaa1be629cb71f5792362a971a5ed1c6ff377d2e311818d24e9390a4a8a6eac3fda9ebe6975f2168efec893790c0497d8a93
   languageName: node
   linkType: hard
 
@@ -4560,7 +4560,7 @@ resolve@^1.10.0:
     nanomatch: ^1.2.13
     path-is-inside: ^1.0.2
     path-type: ^4.0.0
-    prettier: ^2.1.0
+    prettier: ^2.1.1
     pretty-bytes: ^5.3.0
     pretty-ms: ^7.0.0
     tempy: ^0.6.0
