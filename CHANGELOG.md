@@ -1,3 +1,19 @@
+## [1.0.8](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.0.7...v1.0.8) (2020-08-31)
+
+### Chores
+
+- **deps-dev:** bump lint-staged from 10.2.12 to 10.2.13 ([b60c49b](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/b60c49bc69be6444c6376bcd6cc0807b9a894a97))
+- **deps-dev:** bump prettier from 2.1.0 to 2.1.1 ([9d2e912](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/9d2e91252e44d43921f7fc632803277de76765af))
+- **deps-dev:** bump pretty-bytes from 5.3.0 to 5.4.0 ([3e34635](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/3e3463521e2a55d47251f0f0bec53563cfe6e0c3))
+- **release:** v1.0.8 ([6e45cb0](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/6e45cb0e2ba7b2a790decfb4e1b871c08962b28f))
+- **release:** v1.0.8 ([ac40618](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/ac40618b9f3fae91fcdc74f9711ba52b26bfe2c1))
+- **release:** v1.0.8 ([ba1620d](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/ba1620ddef2b43b5cfe78482c25d09aac50e01dc))
+
+### Continuous Integration
+
+- fix dependabot push ([e0a9afe](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/e0a9afedc282b0ffe2b64521511b21ca34a0c78a))
+- update actions through dependabot ([d416f23](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/d416f23a2d3e6f234acad8085d8a6bb59dc28cfc))
+
 ## [1.0.8](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.0.7...v1.0.8) (2020-08-26)
 
 ### Chores
