@@ -4072,10 +4072,10 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"pretty-bytes@npm:^5.4.0":
-  version: 5.4.0
-  resolution: "pretty-bytes@npm:5.4.0"
-  checksum: 3/34613cdc2cd5a4d2b2c817da798cb4e73d429cca3d0364c14be22186a44b0bfedce1c8edb49d6a80f3cf480ec8e7ea75a8fddc972c4a9975ae81c6d55379cf74
+"pretty-bytes@npm:^5.4.1":
+  version: 5.4.1
+  resolution: "pretty-bytes@npm:5.4.1"
+  checksum: 3/da79e856b6fbdf2b3325837e5727a0b03be5c5a4854c17a60235aab6714c97060903913639c47559376e21a9dbf5ad7d958da1d512fdf568ee5c18d02cf2bd54
   languageName: node
   linkType: hard
 
@@ -4561,7 +4561,7 @@ resolve@^1.10.0:
     path-is-inside: ^1.0.2
     path-type: ^4.0.0
     prettier: ^2.1.1
-    pretty-bytes: ^5.4.0
+    pretty-bytes: ^5.4.1
     pretty-ms: ^7.0.0
     tempy: ^0.6.0
   peerDependencies:
