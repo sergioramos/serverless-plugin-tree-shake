@@ -542,7 +542,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"archiver@npm:^5.0.0":
+"archiver@npm:^5.0.1":
   version: 5.0.2
   resolution: "archiver@npm:5.0.2"
   dependencies:
@@ -4554,7 +4554,7 @@ resolve@^1.10.0:
     apr-map: ^3.0.3
     apr-parallel: ^3.0.3
     apr-reduce: ^3.0.3
-    archiver: ^5.0.0
+    archiver: ^5.0.1
     ava: ^3.12.1
     directory-tree: ^2.2.4
     eslint: ^7.8.1
