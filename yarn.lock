@@ -542,9 +542,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"archiver@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "archiver@npm:5.0.0"
+"archiver@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "archiver@npm:5.0.1"
   dependencies:
     archiver-utils: ^2.1.0
     async: ^3.2.0
@@ -553,7 +553,7 @@ __metadata:
     readdir-glob: ^1.0.0
     tar-stream: ^2.1.2
     zip-stream: ^4.0.0
-  checksum: 3/3c8443164d2ce58aac666d7d5cb280f95d9d571f83dc58becb8eb1104c9f6af029b19b1a2769e1738114b15f5a0cb6069ed688e12661d21f9580d73009b3dab6
+  checksum: 3/8bdba79a0c2f66343afbf3068f9c5a61261f6bfac3c8e0b9c74db79d7929d19925735fc44748e8b0da3e9aa67e9bd28d8a2b4954ed6f51716a61c740d3212f77
   languageName: node
   linkType: hard
 
@@ -4560,7 +4560,7 @@ resolve@^1.10.0:
     apr-map: ^3.0.3
     apr-parallel: ^3.0.3
     apr-reduce: ^3.0.3
-    archiver: ^5.0.0
+    archiver: ^5.0.1
     ava: ^3.12.1
     directory-tree: ^2.2.4
     eslint: ^7.8.1

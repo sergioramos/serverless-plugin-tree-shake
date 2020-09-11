@@ -33,7 +33,7 @@
     "apr-find": "^3.0.3",
     "apr-map": "^3.0.3",
     "apr-parallel": "^3.0.3",
-    "archiver": "^5.0.0",
+    "archiver": "^5.0.1",
     "globby": "^11.0.1",
     "lodash.sortby": "^4.7.0",
     "lodash.topairs": "^4.3.0",
