@@ -41,7 +41,7 @@
     "mz": "^2.7.0",
     "nanomatch": "^1.2.13",
     "path-is-inside": "^1.0.2",
-    "tempy": "^0.6.0"
+    "tempy": "^0.7.0"
   },
   "devDependencies": {
     "apr-for-each": "^3.0.3",
