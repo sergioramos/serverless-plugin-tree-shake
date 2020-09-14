@@ -4582,7 +4582,7 @@ resolve@^1.10.0:
     prettier: ^2.1.1
     pretty-bytes: ^5.4.1
     pretty-ms: ^7.0.0
-    tempy: ^0.6.0
+    tempy: ^0.7.0
   peerDependencies:
     serverless: ^1.71.3
     typescript: ^3.9.3
@@ -5046,15 +5046,16 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
-"tempy@npm:^0.6.0":
-  version: 0.6.0
-  resolution: "tempy@npm:0.6.0"
+"tempy@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "tempy@npm:0.7.0"
   dependencies:
+    del: ^5.1.0
     is-stream: ^2.0.0
     temp-dir: ^2.0.0
     type-fest: ^0.16.0
     unique-string: ^2.0.0
-  checksum: 3/33e24c4f5723c60d8d1089d802f6060707c3a05fecce279af01376ad93194e51b58a8ed447a8dab0592fa8d840b445fffcc594e23d764b51a3db6c7b11d389cf
+  checksum: 3/1683650c95e556eb4565fac01a82536d570b97f73da645afc64d7352a572713353ca2b86e1b9f3e98b9e8195d58af723d60a3bbeaf2904ffd032a007f8639615
   languageName: node
   linkType: hard
 
