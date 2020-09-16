@@ -59,7 +59,7 @@
     "lint-staged": "^10.3.0",
     "markdown-table": "^2.0.0",
     "path-type": "^4.0.0",
-    "prettier": "^2.1.1",
+    "prettier": "^2.1.2",
     "pretty-bytes": "^5.4.1",
     "pretty-ms": "^7.0.0"
   },
