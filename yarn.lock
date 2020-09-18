@@ -164,9 +164,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/nft@npm:^0.9.1":
-  version: 0.9.2
-  resolution: "@vercel/nft@npm:0.9.2"
+"@vercel/nft@npm:^0.9.3":
+  version: 0.9.3
+  resolution: "@vercel/nft@npm:0.9.3"
   dependencies:
     acorn: ^7.1.1
     acorn-class-fields: ^0.3.2
@@ -186,7 +186,7 @@ __metadata:
     rollup-pluginutils: ^2.8.2
   bin:
     nft: out/cli.js
-  checksum: 3/fcd3f731fb357fd91f56b0cb042f532bc065e86c1b95d54db6a1d08f164151f96ba9319524023e08953680b0073b6b67eb0309c8ac53b574f302e49d1e0f9e3b
+  checksum: 3/4900cb2da440d52f9d5145a0fe7248ad28ca37dc87b091243bcab0d4158393c7b8af6f1fc3b44fb0309bc08fa54b11d518b69bc5ba4fb64233a0d32183f5c89b
   languageName: node
   linkType: hard
 
@@ -4546,7 +4546,7 @@ resolve@^1.10.0:
   version: 0.0.0-use.local
   resolution: "serverless-plugin-tree-shake@workspace:."
   dependencies:
-    "@vercel/nft": ^0.9.1
+    "@vercel/nft": ^0.9.3
     apr-find: ^3.0.3
     apr-for-each: ^3.0.3
     apr-intercept: ^3.0.4
