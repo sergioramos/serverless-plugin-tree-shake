@@ -2,33 +2,27 @@ const test = require('ava');
 const Tree = require('directory-tree');
 const Execa = require('execa');
 const { series: ForEach } = require('apr-for-each');
+const Flatten = require('lodash.flatten');
 const { readlinkSync } = require('fs');
 const { readFile, rmdir } = require('mz/fs');
-const { fromFileSync } = require('hasha');
 const Intercept = require('apr-intercept');
 const { basename, dirname, extname, join, resolve, relative } = require('path');
 const { isSymlinkSync } = require('path-type');
 const Reduce = require('apr-reduce');
-const SortBy = require('lodash.sortby');
 const Setup = require('./setup');
 
 const EVENT = {
   httpMethod: 'GET',
 };
 
-const normalizeTree = ({ path, type, name, children = [] }) => {
+const normalizeTree = ({ path, type, children = [] }) => {
+  const fullpath = relative(__dirname, path);
   const isSymlink = isSymlinkSync(path);
-  const isDirectory = type === 'directory';
+  const link = isSymlink ? ` -> ${readlinkSync(path)}` : '';
 
-  return {
-    path: relative(__dirname, path),
-    children: SortBy(children.map(normalizeTree), 'path'),
-    isSymlink,
-    link: isSymlink ? readlinkSync(path) : undefined,
-    md5: isDirectory ? undefined : fromFileSync(path, { algorithm: 'md5' }),
-    type,
-    name,
-  };
+  return Flatten(
+    [`${type} ${fullpath}${link}`].concat(children.map(normalizeTree)),
+  ).sort();
 };
 
 const decompress = async (file, cwd) => {
@@ -76,76 +70,49 @@ test.before(async () => {
   });
 });
 
-test('typescript + workspaces', async (t) => {
-  const root = resolve(__dirname, '__fixtures__/ts-ws-all');
-  const serverless = resolve(root, '.serverless');
-  const { service, functions } = require(resolve(root, 'serverless'));
-  const cwd = join(serverless, service);
+for (const pnp of [true, false]) {
+  for (const typescript of [true, false]) {
+    for (const individually of [true, false]) {
+      const name = [
+        typescript ? 'ts' : 'js',
+        pnp ? 'pnp' : 'nm',
+        individually ? 'individually' : 'single',
+      ].join('-');
 
-  await rmdir(cwd, { recursive: true });
-  await decompress(`${service}.zip`, serverless);
+      test(name, async (t) => {
+        const root = resolve(__dirname, '__fixtures__', name);
+        const serverless = resolve(root, '.serverless');
+        const { service, functions } = require(resolve(root, 'serverless'));
+        const rootCwd = join(serverless, service);
 
-  t.snapshot(normalizeTree(Tree(cwd)));
-  t.snapshot(await readOutputs(functions, cwd));
+        if (!individually) {
+          await rmdir(rootCwd, { recursive: true });
+          await decompress(`${service}.zip`, serverless);
 
-  await ForEach(Object.keys(functions), async (service) => {
-    const { handler } = functions[service];
-    const [fullpath, fn] = getFn(handler, cwd);
-    t.snapshot(await require(fullpath)[fn](EVENT));
-  });
-});
+          t.snapshot(normalizeTree(Tree(rootCwd)));
+          t.snapshot(await readOutputs(functions, rootCwd));
+        }
 
-test('individual > typescript + workspaces', async (t) => {
-  const root = resolve(__dirname, '__fixtures__/ts-ws-individual');
-  const serverless = resolve(root, '.serverless');
-  const { functions } = require(resolve(root, 'serverless'));
+        await ForEach(Object.keys(functions), async (service) => {
+          const cwd = join(serverless, service);
+          const { handler } = functions[service];
+          const [fullpath, fn] = getFn(handler, individually ? cwd : rootCwd);
 
-  await ForEach(Object.keys(functions), async (service) => {
-    const cwd = join(serverless, service);
-    await rmdir(cwd, { recursive: true });
-    await decompress(`${service}.zip`, serverless);
-    const { handler } = functions[service];
-    const [fullpath, fn] = getFn(handler, cwd);
+          if (individually) {
+            await rmdir(cwd, { recursive: true });
+            await decompress(`${service}.zip`, serverless);
+            const outputs = await readOutputs(
+              { [service]: functions[service] },
+              cwd,
+            );
 
-    t.snapshot(normalizeTree(Tree(cwd)));
-    t.snapshot(await readOutputs({ [service]: functions[service] }, cwd));
-    t.snapshot(await require(fullpath)[fn](EVENT));
-  });
-});
+            t.snapshot(normalizeTree(Tree(cwd)));
+            t.snapshot(outputs);
+          }
 
-test('javascript + workspaces', async (t) => {
-  const root = resolve(__dirname, '__fixtures__/ws-all');
-  const serverless = resolve(root, '.serverless');
-  const { service, functions } = require(resolve(root, 'serverless'));
-  const cwd = join(serverless, service);
-
-  await rmdir(cwd, { recursive: true });
-  await decompress(`${service}.zip`, serverless);
-
-  t.snapshot(normalizeTree(Tree(cwd)));
-  t.snapshot(await readOutputs(functions, cwd));
-
-  await ForEach(Object.keys(functions), async (service) => {
-    const { handler } = functions[service];
-    const [fullpath, fn] = getFn(handler, cwd);
-    t.snapshot(await require(fullpath)[fn](EVENT));
-  });
-});
-
-test('individual > javascript + workspaces', async (t) => {
-  const root = resolve(__dirname, '__fixtures__/ws-individual');
-  const serverless = resolve(root, '.serverless');
-  const { functions } = require(resolve(root, 'serverless'));
-
-  await ForEach(Object.keys(functions), async (service) => {
-    const cwd = join(serverless, service);
-    await rmdir(cwd, { recursive: true });
-    await decompress(`${service}.zip`, serverless);
-    const { handler } = functions[service];
-    const [fullpath, fn] = getFn(handler, cwd);
-
-    t.snapshot(normalizeTree(Tree(cwd)));
-    t.snapshot(await readOutputs({ [service]: functions[service] }, cwd));
-    t.snapshot(await require(fullpath)[fn](EVENT));
-  });
-});
+          t.snapshot(await require(fullpath)[fn](EVENT));
+        });
+      });
+    }
+  }
+}

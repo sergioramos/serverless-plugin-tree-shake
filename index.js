@@ -1,14 +1,15 @@
 const archiver = require('archiver');
 const { readFileSync, lstatSync, realpathSync, ...fs } = require('fs');
-const { exists, stat: statAsync } = require('mz/fs');
+const { exists, existsSync, stat: statAsync } = require('mz/fs');
 const { nodeFileTrace: FileTrace } = require('@vercel/nft');
+const { default: resDep } = require('@vercel/nft/out/resolve-dependency.js');
 const Flatten = require('lodash.flatten');
 const { default: Find } = require('apr-find');
 const Globby = require('globby');
 const { default: Map } = require('apr-map');
 const nanomatch = require('nanomatch');
 const Parallel = require('apr-parallel');
-const { basename, dirname, extname, sep } = require('path');
+const { basename, dirname, extname, isAbsolute, sep, join } = require('path');
 const { normalize, relative, resolve } = require('path');
 const PathIsInside = require('path-is-inside');
 const SortBy = require('lodash.sortby');
@@ -18,6 +19,20 @@ const Uniq = require('lodash.uniq');
 
 const zipService = require('serverless/lib/plugins/package/lib/zipService');
 const packageService = require('serverless/lib/plugins/package/lib/packageService');
+
+const EXTENSIONS = ['.tsx', '.ts', '.node', '.mjs', '.cjs', '.js'];
+const NODE_BUILTINS = [
+  ...require('repl')._builtinLibs,
+  'constants',
+  'module',
+  'timers',
+  'console',
+  '_stream_writable',
+  '_stream_readable',
+  '_stream_duplex',
+  'process',
+  'sys',
+];
 
 try {
   // eslint-disable-next-line no-var
@@ -307,57 +322,36 @@ module.exports = class {
     );
 
     const entrypoint = await Find(
-      ['.tsx', '.ts', '.js'].map((ext) => entry.concat(ext)),
+      EXTENSIONS.map((ext) => entry.concat(ext)),
       (filename) => exists(filename),
     );
 
-    const getRealPath = (pathanme) => {
-      try {
-        return realpathSync(pathanme);
-        // eslint-disable-next-line no-unused-vars
-      } catch (err) {
-        return pathanme;
-      }
-    };
-
-    const readFile = (fullpath) => {
-      try {
-        return readFileSync(fullpath, 'utf-8');
-        // eslint-disable-next-line no-unused-vars
-      } catch (err) {
-        try {
-          return readFileSync(require.resolve(fullpath), 'utf-8');
-          // eslint-disable-next-line no-unused-vars
-        } catch (err) {}
-      }
-    };
-
     const handleFile = (pathname) => {
-      const realpath = getRealPath(pathname);
+      const realpath = realpathSync(pathname);
 
       const cache = this.files.find(([src]) => src === realpath);
 
       if (Array.isArray(cache)) {
         const [fullpath] = cache;
         if (fullpath) {
-          return readFile(fullpath);
+          return readFileSync(fullpath, 'utf-8');
         }
       }
 
       // eslint-disable-next-line block-scoped-var
       if (!tsAvailable) {
-        return readFile(pathname);
+        return readFileSync(pathname, 'utf-8');
       }
 
       if (!['.ts', '.tsx'].includes(extname(pathname))) {
-        return readFile(pathname);
+        return readFileSync(pathname, 'utf-8');
       }
 
       if (
         !PathIsInside(pathname, this.servicePath) ||
         pathname.split(sep).includes(['node_modules'])
       ) {
-        return readFile(pathname);
+        return readFileSync(pathname, 'utf-8');
       }
 
       // eslint-disable-next-line block-scoped-var
@@ -375,10 +369,69 @@ module.exports = class {
       return outputText;
     };
 
+    const nativeResolve = (id, parent) => {
+      return require.resolve(id, {
+        paths: [parent, dirname(parent)],
+      });
+    };
+
+    const fallbackResolve = (id, parent, { previous } = {}) => {
+      const pathStack = parent.split(sep);
+      if (pathStack.includes('node_modules') || pathStack.includes('.yarn')) {
+        return nativeResolve(id, parent);
+      }
+
+      if (
+        isAbsolute(id) ||
+        id === '.' ||
+        id === '..' ||
+        id.startsWith('./') ||
+        id.startsWith('../')
+      ) {
+        const ext = extname(id);
+        const entry = resolve(dirname(parent), ext ? basename(id, ext) : id);
+        const resolved = EXTENSIONS.map((ext) => entry.concat(ext)).find(
+          (filename) => {
+            return existsSync(filename);
+          },
+        );
+
+        if (resolved) {
+          return resolved;
+        }
+
+        if (!resolved && previous) {
+          return nativeResolve(previous, parent);
+        }
+
+        return fallbackResolve(join(id, 'index'), parent, {
+          tryAgain: false,
+          previous: id,
+        });
+      }
+
+      return nativeResolve(id, parent);
+    };
+
     const { fileList = [] } = await FileTrace([entrypoint], {
       base: this.servicePath,
       readLink: handleFile,
       readFile: handleFile,
+      resolve: (id, parent, job, isESM) => {
+        if (NODE_BUILTINS.includes(id)) {
+          return `node:${id}`;
+        }
+
+        const [, defaultResolve] = (() => {
+          try {
+            return [null, resDep(id, parent, job, isESM)];
+          } catch (err) {
+            return [err];
+          }
+        })();
+
+        return defaultResolve ? defaultResolve : fallbackResolve(id, parent);
+      },
     });
 
     const patterns = excludes

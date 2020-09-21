@@ -1,0 +1,20 @@
+{
+  "name": "serverless-plugin-tree-shake-ts-ws-individual",
+  "private": true,
+  "devDependencies": {
+    "@zeit/ncc": "^0.22.3",
+    "serverless": "^1.72.0",
+    "serverless-plugin-ncc": "^0.4.0",
+    "serverless-plugin-typescript": "^1.1.9",
+    "typescript": "^3.9.5"
+  },
+  "workspaces": [
+    "handlers/*",
+    "framework",
+    "out",
+    "plugin"
+  ],
+  "resolutions": {
+    "ts-loader": "7.0.5"
+  }
+}
