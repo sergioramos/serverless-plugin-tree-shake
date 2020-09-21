@@ -1,0 +1,12 @@
+{
+  "name": "hello-handler",
+  "private": true,
+  "main": "index.ts",
+  "dependencies": {
+    "framework": "workspace:framework",
+    "out": "workspace:out"
+  },
+  "devDependencies": {
+    "aws-lambda": "1.0.6"
+  }
+}
