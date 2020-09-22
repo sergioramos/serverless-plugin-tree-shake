@@ -42,6 +42,7 @@
     "mz": "^2.7.0",
     "nanomatch": "^1.2.13",
     "path-is-inside": "^1.0.2",
+    "pkg-up": "^3.1.0",
     "tempy": "^0.7.0"
   },
   "devDependencies": {

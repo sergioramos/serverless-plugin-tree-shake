@@ -16,6 +16,7 @@ const SortBy = require('lodash.sortby');
 const ToPairs = require('lodash.topairs');
 const { writeSync } = require('tempy');
 const Uniq = require('lodash.uniq');
+const pkgUp = require('pkg-up');
 
 const zipService = require('serverless/lib/plugins/package/lib/zipService');
 const packageService = require('serverless/lib/plugins/package/lib/packageService');
@@ -33,6 +34,29 @@ const NODE_BUILTINS = [
   'process',
   'sys',
 ];
+
+if ('pnp' in process.versions) {
+  try {
+    const {
+      buildNodeModulesTree,
+      buildLocatorMap,
+    } = require('@yarnpkg/pnpify');
+
+    // eslint-disable-next-line no-var, block-scoped-var
+    var pnp = require('pnpapi');
+    // eslint-disable-next-line no-var, block-scoped-var
+    var locatorMap = buildLocatorMap(
+      // eslint-disable-next-line block-scoped-var
+      buildNodeModulesTree(pnp, { pnpifyFs: false }),
+    );
+  } catch (err) {
+    console.error(err);
+    // eslint-disable-next-line no-var, no-redeclare
+    var locatorMap;
+    // eslint-disable-next-line no-var, no-redeclare
+    var pnp;
+  }
+}
 
 try {
   // eslint-disable-next-line no-var
@@ -225,13 +249,14 @@ module.exports = class {
       statAsync(pathname),
     ]);
 
+    const ext = extname(pathname);
     const filePath = relative(
       this.servicePath,
       resolve(
         this.servicePath,
         dirname(pathname),
-        basename(pathname, extname(pathname)),
-      ).concat('.js'),
+        basename(pathname, ext),
+      ).concat(['.ts', '.tsx'].includes(ext) ? '.js' : ext),
     );
 
     return {
@@ -258,6 +283,73 @@ module.exports = class {
     this.serverless.utils.writeFileDir(artifactFilePath);
     const output = fs.createWriteStream(artifactFilePath);
 
+    const inferNodeModulesPath = ({ filePath, name, key }) => {
+      const filePathParts = filePath.split(sep);
+      const nameParts = name.split(sep);
+
+      const nameIndex = nameParts.findIndex((namePart, nameIndex) => {
+        return filePathParts.find((filePathPart, filePathIndex) => {
+          return (
+            filePathPart === namePart &&
+            nameParts[nameIndex + 1] === filePathParts[filePathIndex + 1]
+          );
+        });
+      });
+
+      const sharedSize = /^@/.test(key) ? 3 : 2;
+
+      return join(
+        filePath,
+        nameParts.slice(nameIndex + sharedSize, nameParts.length).join(sep),
+      );
+    };
+
+    const revertPnp = ({ filePath }) => {
+      // eslint-disable-next-line block-scoped-var
+      if (!locatorMap) {
+        return;
+      }
+
+      try {
+        const name = filePath.slice(prefix ? `${prefix}${sep}`.length : 0);
+
+        // eslint-disable-next-line block-scoped-var
+        const { name: key, reference } = pnp.findPackageLocator(name);
+        // eslint-disable-next-line block-scoped-var
+        const { locations, target } = locatorMap.get(`${key}@${reference}`);
+        const isSymlink = !/\.yarn\//.test(name);
+
+        const fullTarget = isSymlink ? target : join(this.servicePath, name);
+        const stat = lstatSync(fullTarget);
+        const data = isSymlink ? Buffer.from('') : readFileSync(fullTarget);
+
+        return locations.map((source) => {
+          if (isSymlink) {
+            return {
+              stat,
+              filePath: relative(this.servicePath, source),
+              data,
+              type: 'symlink',
+              linkname: relative(dirname(source), target),
+            };
+          }
+
+          return {
+            data,
+            stat,
+            filePath: inferNodeModulesPath({
+              filePath: relative(this.servicePath, source),
+              key,
+              name,
+            }),
+            type: 'file',
+          };
+        });
+      } catch ({ message }) {
+        this.serverless.cli.log(message);
+      }
+    };
+
     return new Promise((resolve, reject) => {
       output.on('close', () => resolve(artifactFilePath));
       output.on('error', (err) => reject(err));
@@ -277,7 +369,8 @@ module.exports = class {
           ),
         );
 
-        SortBy(contents, ['filePath']).forEach((file) => {
+        const pnpLinks = Flatten(contents.map(revertPnp)).filter(Boolean);
+        SortBy(contents.concat(pnpLinks), ['filePath']).forEach((file) => {
           const { filePath, data, stat, ...rest } = file;
           let { mode } = stat;
 
@@ -328,11 +421,10 @@ module.exports = class {
 
     const handleFile = (pathname) => {
       const realpath = realpathSync(pathname);
-
       const cache = this.files.find(([src]) => src === realpath);
 
       if (Array.isArray(cache)) {
-        const [fullpath] = cache;
+        const [, fullpath] = cache;
         if (fullpath) {
           return readFileSync(fullpath, 'utf-8');
         }
@@ -371,13 +463,15 @@ module.exports = class {
 
     const nativeResolve = (id, parent) => {
       return require.resolve(id, {
-        paths: [parent, dirname(parent)],
+        paths: [parent, dirname(parent), this.servicePath, __filename],
       });
     };
 
     const fallbackResolve = (id, parent, { previous } = {}) => {
-      const pathStack = parent.split(sep);
-      if (pathStack.includes('node_modules') || pathStack.includes('.yarn')) {
+      if (
+        parent.split(sep).includes('node_modules') ||
+        /^\.yarn/.test(relative(this.servicePath, parent))
+      ) {
         return nativeResolve(id, parent);
       }
 
@@ -404,7 +498,7 @@ module.exports = class {
           return nativeResolve(previous, parent);
         }
 
-        return fallbackResolve(join(id, 'index'), parent, {
+        return fallbackResolve('./' + join(id, 'index'), parent, {
           tryAgain: false,
           previous: id,
         });
@@ -413,7 +507,7 @@ module.exports = class {
       return nativeResolve(id, parent);
     };
 
-    const { fileList = [] } = await FileTrace([entrypoint], {
+    const { fileList = [], warnings } = await FileTrace([entrypoint], {
       base: this.servicePath,
       readLink: handleFile,
       readFile: handleFile,
@@ -432,6 +526,10 @@ module.exports = class {
 
         return defaultResolve ? defaultResolve : fallbackResolve(id, parent);
       },
+    });
+
+    warnings.forEach(({ message }) => {
+      this.serverless.cli.log(message);
     });
 
     const patterns = excludes
@@ -475,7 +573,74 @@ module.exports = class {
       );
     }
 
-    return SortBy(filePaths, (pathname) => {
+    const appendPkgs = async (filePaths) => {
+      // eslint-disable-next-line block-scoped-var
+      if (!locatorMap) {
+        return filePaths;
+      }
+
+      return Uniq(
+        Flatten(
+          await Map(filePaths, async (pathname) => {
+            if (basename(pathname) === 'package.json') {
+              return pathname;
+            }
+
+            return [
+              pathname,
+              relative(
+                this.servicePath,
+                await pkgUp({
+                  cwd: dirname(join(this.servicePath, pathname)),
+                }),
+              ),
+            ];
+          }),
+        ),
+      );
+    };
+
+    const filePathsWPkgs = await appendPkgs(filePaths);
+
+    // eslint-disable-next-line block-scoped-var
+    if (tsAvailable) {
+      filePathsWPkgs
+        .filter((pathname) => {
+          return !(
+            pathname.split(sep).includes('node_modules') ||
+            /^\.yarn/.test(pathname) ||
+            basename(pathname) !== 'package.json'
+          );
+        })
+        .forEach((pathname) => {
+          const fullpath = join(this.servicePath, pathname);
+          const pkg = require(fullpath);
+          const { main } = pkg;
+
+          if (!main) {
+            return;
+          }
+
+          const ext = extname(main);
+          if (!['.tsx', '.ts'].includes(ext)) {
+            return;
+          }
+
+          const newPkg = {
+            ...pkg,
+            main: main.replace(/\.tsx|\.ts$/, ''),
+          };
+
+          this.files.push([
+            fullpath,
+            writeSync(JSON.stringify(newPkg, null, 2), {
+              extension: '.json',
+            }),
+          ]);
+        });
+    }
+
+    return SortBy(filePathsWPkgs, (pathname) => {
       return pathname.split(sep).includes('package.json');
     });
   }
