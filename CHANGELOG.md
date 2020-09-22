@@ -1,3 +1,9 @@
+## [1.1.1](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.0...v1.1.1) (2020-09-22)
+
+### Bug Fixes
+
+- improve pnp support, specially with ts ([20a1c5e](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/20a1c5e10c3d269b3dbecda87c9b69209a08aa56))
+
 # [1.1.0](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.0.7...v1.1.0) (2020-09-21)
 
 ### Chores
