@@ -4084,6 +4084,15 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"pretty-ms@npm:^7.0.1":
+  version: 7.0.1
+  resolution: "pretty-ms@npm:7.0.1"
+  dependencies:
+    parse-ms: ^2.1.0
+  checksum: 3/34de13967bc5eed1eb10d44e0f5d16f46e125ec541cf21c8b254ef42faccecd05a073357ed9e6eda7901c35a9db274ca6f9be8f8b3665bbf5fed4e49bf286ee8
+  languageName: node
+  linkType: hard
+
 "process-nextick-args@npm:~2.0.0":
   version: 2.0.1
   resolution: "process-nextick-args@npm:2.0.1"
@@ -4552,7 +4561,7 @@ resolve@^1.10.0:
     pkg-up: ^3.1.0
     prettier: ^2.1.2
     pretty-bytes: ^5.4.1
-    pretty-ms: ^7.0.0
+    pretty-ms: ^7.0.1
     tempy: ^0.7.0
   peerDependencies:
     serverless: ^1.71.3

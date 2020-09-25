@@ -62,7 +62,7 @@
     "path-type": "^4.0.0",
     "prettier": "^2.1.2",
     "pretty-bytes": "^5.4.1",
-    "pretty-ms": "^7.0.0"
+    "pretty-ms": "^7.0.1"
   },
   "peerDependencies": {
     "serverless": "^1.71.3",
