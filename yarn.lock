@@ -4075,15 +4075,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"pretty-ms@npm:^7.0.0, pretty-ms@npm:^7.0.1":
-  version: 7.0.1
-  resolution: "pretty-ms@npm:7.0.1"
-  dependencies:
-    parse-ms: ^2.1.0
-  checksum: 3/34de13967bc5eed1eb10d44e0f5d16f46e125ec541cf21c8b254ef42faccecd05a073357ed9e6eda7901c35a9db274ca6f9be8f8b3665bbf5fed4e49bf286ee8
-  languageName: node
-  linkType: hard
-
 "pretty-ms@npm:^7.0.1":
   version: 7.0.1
   resolution: "pretty-ms@npm:7.0.1"
@@ -4562,7 +4553,7 @@ resolve@^1.10.0:
     prettier: ^2.1.2
     pretty-bytes: ^5.4.1
     pretty-ms: ^7.0.1
-    tempy: ^0.7.0
+    tempy: ^0.7.1
   peerDependencies:
     serverless: ^1.71.3
     typescript: ^3.9.3
@@ -5026,7 +5017,7 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
-"tempy@npm:^0.7.0":
+"tempy@npm:^0.7.1":
   version: 0.7.1
   resolution: "tempy@npm:0.7.1"
   dependencies:
