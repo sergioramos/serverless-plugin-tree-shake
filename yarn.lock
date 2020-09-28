@@ -108,16 +108,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/glob@npm:^7.1.1":
-  version: 7.1.3
-  resolution: "@types/glob@npm:7.1.3"
-  dependencies:
-    "@types/minimatch": "*"
-    "@types/node": "*"
-  checksum: 3/633bf1dda9a30899b233ed6b97c75cdd59f2ee856a12240c85474ce6889e26b3b3520b62de56f6bb61824af0ef51b311a0cae305f27ba0de8ddc4898a3673d42
-  languageName: node
-  linkType: hard
-
 "@types/keyv@npm:^3.1.1":
   version: 3.1.1
   resolution: "@types/keyv@npm:3.1.1"
@@ -127,17 +117,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/minimatch@npm:*":
-  version: 3.0.3
-  resolution: "@types/minimatch@npm:3.0.3"
-  checksum: 3/672ccdac197e8176eed1a9441d0caf8a29a90eb139b1cefdd4c9e71b1c48f5c749f5d101a2d85da15c6259214ebda95072835021407d60330a731a2672964b82
-  languageName: node
-  linkType: hard
-
 "@types/node@npm:*":
-  version: 14.11.1
-  resolution: "@types/node@npm:14.11.1"
-  checksum: 3/f8bad278fcd5bdd3c173343967806a5601838570ee89ef96912909489df6d722ef7f4de08a31d98159293ef0005bd65353199327c65af77505d3aad2a05fd636
+  version: 14.11.2
+  resolution: "@types/node@npm:14.11.2"
+  checksum: 3/3badcce3991cd8487b549b2541c9a9809f77ded06a2846dd9c73948d12a442290b31abef2d4b0304cc7e30539614ae82ff3b70d93a4b9a82e19128b3d17a9e0f
   languageName: node
   linkType: hard
 
@@ -281,11 +264,11 @@ __metadata:
   linkType: hard
 
 "acorn@npm:^8.0.1":
-  version: 8.0.1
-  resolution: "acorn@npm:8.0.1"
+  version: 8.0.2
+  resolution: "acorn@npm:8.0.2"
   bin:
     acorn: bin/acorn
-  checksum: 3/11fa4a057db938d2b2a6fd20e8baeb853624439bceac47030ea2fdebe4700b14eadf2f4de146fcbe04b0245ce2c718c5226239092e6bcf5eed0f77edf4b5149a
+  checksum: 3/1b9a38572297b6235ba4855a9adbf0bf85bc8ffed6b851b8d623996f21deea055b01d832f6eb2799a08f781330a56f0775f25480c2e04affcb3bb4c64d9a63cd
   languageName: node
   linkType: hard
 
@@ -1514,22 +1497,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"del@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "del@npm:5.1.0"
-  dependencies:
-    globby: ^10.0.1
-    graceful-fs: ^4.2.2
-    is-glob: ^4.0.1
-    is-path-cwd: ^2.2.0
-    is-path-inside: ^3.0.1
-    p-map: ^3.0.0
-    rimraf: ^3.0.0
-    slash: ^3.0.0
-  checksum: 3/e9de3180b2a5742adf877d1acdf1721fe42a27ea86890a9f19e949697ac4d972ba505e912df023a8b5ef04c1b5989a02e8451fd52fa6d3487b8745c21456efc6
-  languageName: node
-  linkType: hard
-
 "del@npm:^6.0.0":
   version: 6.0.0
   resolution: "del@npm:6.0.0"
@@ -1717,16 +1684,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^6.11.0":
-  version: 6.11.0
-  resolution: "eslint-config-prettier@npm:6.11.0"
+"eslint-config-prettier@npm:^6.12.0":
+  version: 6.12.0
+  resolution: "eslint-config-prettier@npm:6.12.0"
   dependencies:
     get-stdin: ^6.0.0
   peerDependencies:
     eslint: ">=3.14.1"
   bin:
     eslint-config-prettier-check: bin/cli.js
-  checksum: 3/59efd906c78d47753a673c205ef515fdab19cd6ea0fd992c9cb2366804861746238244526ab565ccc7448569f5472ce7646a77d0c9998787192e4ebae95df71d
+  checksum: 3/9371c0a8d05df36f3698247e703118a8eb95fa887aabc4b1e189c21e248ab9c49c3b8e5621f42826b89bbfd05aa52493ffddf0c41219db9b6e4df20e46e21da0
   languageName: node
   linkType: hard
 
@@ -1956,7 +1923,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.0.3, fast-glob@npm:^3.1.1":
+"fast-glob@npm:^3.1.1":
   version: 3.2.4
   resolution: "fast-glob@npm:3.2.4"
   dependencies:
@@ -2276,22 +2243,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"globby@npm:^10.0.1":
-  version: 10.0.2
-  resolution: "globby@npm:10.0.2"
-  dependencies:
-    "@types/glob": ^7.1.1
-    array-union: ^2.1.0
-    dir-glob: ^3.0.1
-    fast-glob: ^3.0.3
-    glob: ^7.1.3
-    ignore: ^5.1.1
-    merge2: ^1.2.3
-    slash: ^3.0.0
-  checksum: 3/53924c2b46f104d99a6b15da92b9f9f1e9f004bce745fdf56cf985afd615897bd6fd8fe01303f5758943e643c0885e8abaae0b5a596c13523c9431bf071c3f23
-  languageName: node
-  linkType: hard
-
 "globby@npm:^11.0.1":
   version: 11.0.1
   resolution: "globby@npm:11.0.1"
@@ -2325,7 +2276,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"graceful-fs@npm:^4.1.15, graceful-fs@npm:^4.1.2, graceful-fs@npm:^4.2.0, graceful-fs@npm:^4.2.2, graceful-fs@npm:^4.2.3, graceful-fs@npm:^4.2.4":
+"graceful-fs@npm:^4.1.15, graceful-fs@npm:^4.1.2, graceful-fs@npm:^4.2.0, graceful-fs@npm:^4.2.3, graceful-fs@npm:^4.2.4":
   version: 4.2.4
   resolution: "graceful-fs@npm:4.2.4"
   checksum: 3/d095ee4dc6eacc76814cd52d5d185b860119378a6fd4888e7d4e94983095c54d4f6369942a5e3d759cdbdd4e3ee7eaeb27a39ff938c6ee4610894fd9de46b6cb
@@ -2508,7 +2459,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"ignore@npm:^5.1.1, ignore@npm:^5.1.4":
+"ignore@npm:^5.1.4":
   version: 5.1.8
   resolution: "ignore@npm:5.1.8"
   checksum: 3/b08e3d5b5d94eca13475f29a5d47d221060e9cdd7e38d7647088e29d90130669a970fecbc4cdb41b8fa295c6673740c729d3dc05dadc381f593efb42282cbf9f
@@ -3362,7 +3313,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"merge2@npm:^1.2.3, merge2@npm:^1.3.0":
+"merge2@npm:^1.3.0":
   version: 1.4.1
   resolution: "merge2@npm:1.4.1"
   checksum: 3/7ad40d8b140a5ed4e621b916858410e4f0dd4ced1e5a2b675563347e70f0661d95ba6c3c8007dd3c4e242d0b8eee44559fa75bb90a146cf168debffc0cbc18f3
@@ -3896,15 +3847,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"p-map@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "p-map@npm:3.0.0"
-  dependencies:
-    aggregate-error: ^3.0.0
-  checksum: 3/f7ce4709f432323a11f7c808f96add4104774cb7ba88cc9a92b6b5b8ea8a7fa977d28c4e5619669f9cf1315e889769843c6a4772155b08dadbd20d504e4ce2a7
-  languageName: node
-  linkType: hard
-
 "p-map@npm:^4.0.0":
   version: 4.0.0
   resolution: "p-map@npm:4.0.0"
@@ -4133,16 +4075,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"pretty-ms@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "pretty-ms@npm:7.0.0"
-  dependencies:
-    parse-ms: ^2.1.0
-  checksum: 3/68f2c4da168d38fa42b802a3f2fce070e78fff13a48078fe74ce19da381851783b2e53394159de520fea4e2e7cd176a0abc8e9bbfd451b84b514bcc24ebecbb0
-  languageName: node
-  linkType: hard
-
-"pretty-ms@npm:^7.0.1":
+"pretty-ms@npm:^7.0.0, pretty-ms@npm:^7.0.1":
   version: 7.0.1
   resolution: "pretty-ms@npm:7.0.1"
   dependencies:
@@ -4258,11 +4191,11 @@ fsevents@~2.1.2:
   linkType: hard
 
 "readdir-glob@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "readdir-glob@npm:1.0.0"
+  version: 1.1.0
+  resolution: "readdir-glob@npm:1.1.0"
   dependencies:
     minimatch: ^3.0.4
-  checksum: 3/edfb4cd53646aaa37fa8bf5fe1fd1ff4d68a535effe87ef2512ed89000249d52b8feb1e6bf8f144d104a01a28f4704a8391c03c5f820ec9198ec47bb56f22a15
+  checksum: 3/538017b90db2f389bf75aeb41aa097287ed6bc69b7885722fdb2ebd24e4a9d141e28d34bf6aba7b769249beb52f0a823354a69affc3d43777d8be54cba1a7e59
   languageName: node
   linkType: hard
 
@@ -4455,7 +4388,7 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
-"rimraf@npm:^3.0.0, rimraf@npm:^3.0.2":
+"rimraf@npm:^3.0.2":
   version: 3.0.2
   resolution: "rimraf@npm:3.0.2"
   dependencies:
@@ -4601,7 +4534,7 @@ resolve@^1.10.0:
     ava: ^3.13.0
     directory-tree: ^2.2.4
     eslint: ^7.10.0
-    eslint-config-prettier: ^6.11.0
+    eslint-config-prettier: ^6.12.0
     eslint-config-xo-space: ^0.25.0
     execa: ^4.0.3
     globby: ^11.0.1
@@ -5085,15 +5018,15 @@ resolve@^1.10.0:
   linkType: hard
 
 "tempy@npm:^0.7.0":
-  version: 0.7.0
-  resolution: "tempy@npm:0.7.0"
+  version: 0.7.1
+  resolution: "tempy@npm:0.7.1"
   dependencies:
-    del: ^5.1.0
+    del: ^6.0.0
     is-stream: ^2.0.0
     temp-dir: ^2.0.0
     type-fest: ^0.16.0
     unique-string: ^2.0.0
-  checksum: 3/1683650c95e556eb4565fac01a82536d570b97f73da645afc64d7352a572713353ca2b86e1b9f3e98b9e8195d58af723d60a3bbeaf2904ffd032a007f8639615
+  checksum: 3/ec106bd42e8800106b98bd3ad5740ac34c2a1136c118e23ab79d24a44e510c086c2849aed6201b4718615fa06a168b5045255f5f23dfb6737899e900fec6bee7
   languageName: node
   linkType: hard
 
@@ -5312,8 +5245,8 @@ resolve@^1.10.0:
   linkType: hard
 
 "update-notifier@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "update-notifier@npm:4.1.1"
+  version: 4.1.3
+  resolution: "update-notifier@npm:4.1.3"
   dependencies:
     boxen: ^4.2.0
     chalk: ^3.0.0
@@ -5328,7 +5261,7 @@ resolve@^1.10.0:
     pupa: ^2.0.1
     semver-diff: ^3.1.1
     xdg-basedir: ^4.0.0
-  checksum: 3/e607ff849d83e1112cc6ed5bfd2c8081723f1bce9ce3904c49ef0a1e5bc930afb8ebb725f015f35b481c0ce508483648f4e6dc8da9a1b7819210ec0800ae2cc9
+  checksum: 3/90362dcdf349651f92cffc6b9c1dfe6cb1035c1af3e4952316800d7aa05e98ba7bd291edd315aa215ce3f9b4b246f1fc2489a25c85c6fee8bdd0163731b3e1fa
   languageName: node
   linkType: hard
 
