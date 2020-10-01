@@ -114,6 +114,7 @@ jobs:
       if: ${{ env.GITHUB_REF_SLUG == 'master' }}
       with:
         node-module: true
+        release-rules: '[{ "type": "chore(deps-dev)", "release": false }, { "scope": "no-release", "release": false }]'
         commit-assets: |
           ./BENCHMARK.md
       env:
