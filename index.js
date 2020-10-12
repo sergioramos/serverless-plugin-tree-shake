@@ -532,10 +532,10 @@ module.exports = class {
       this.serverless.cli.log(message);
     });
 
-    const patterns = excludes
-      .map((p) => (p.charAt(0) === '!' ? p.substring(1) : `!${p}`))
-      .concat(includes)
-      .concat(fileList);
+    // Order is important, otherwise exclude flags will be overwritten
+    const patterns = includes
+      .concat(fileList)
+      .concat(excludes.map((p) => (p.charAt(0) === '!' ? p.substring(1) : `!${p}`)));
 
     const allFilePaths = await Globby(patterns, {
       cwd: this.servicePath,
