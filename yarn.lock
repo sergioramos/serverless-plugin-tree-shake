@@ -1545,10 +1545,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"directory-tree@npm:^2.2.4":
-  version: 2.2.4
-  resolution: "directory-tree@npm:2.2.4"
-  checksum: 3/e2d5417db500c177f38dbb27b00f55ada28e1d5ef41f5f9aed97bbd1be7bd515c03f6cc31dddf398da5c5b54377feb5ffe14cc46dae3375ff69db7da2d09d141
+"directory-tree@npm:^2.2.5":
+  version: 2.2.5
+  resolution: "directory-tree@npm:2.2.5"
+  checksum: 3/a691348ca37fa6839436c50c56a46fbf8c735bb338d749f5903c3dc21f21f5dc9eadd35be2114efb55c8b486887ba33bffa3ac23a0a5a7d2922f16f500b79856
   languageName: node
   linkType: hard
 
@@ -4532,7 +4532,7 @@ resolve@^1.10.0:
     apr-reduce: ^3.0.3
     archiver: ^5.0.2
     ava: ^3.13.0
-    directory-tree: ^2.2.4
+    directory-tree: ^2.2.5
     eslint: ^7.10.0
     eslint-config-prettier: ^6.12.0
     eslint-config-xo-space: ^0.25.0
