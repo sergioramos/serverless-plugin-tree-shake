@@ -43,7 +43,7 @@
     "nanomatch": "^1.2.13",
     "path-is-inside": "^1.0.2",
     "pkg-up": "^3.1.0",
-    "tempy": "^0.7.1"
+    "tempy": "^1.0.0"
   },
   "devDependencies": {
     "apr-for-each": "^3.0.3",
@@ -51,8 +51,8 @@
     "apr-main": "^4.0.3",
     "apr-reduce": "^3.0.3",
     "ava": "^3.13.0",
-    "directory-tree": "^2.2.4",
-    "eslint": "^7.10.0",
+    "directory-tree": "^2.2.5",
+    "eslint": "^7.11.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-config-xo-space": "^0.25.0",
     "execa": "^4.0.3",

@@ -1545,10 +1545,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"directory-tree@npm:^2.2.4":
-  version: 2.2.4
-  resolution: "directory-tree@npm:2.2.4"
-  checksum: 3/e2d5417db500c177f38dbb27b00f55ada28e1d5ef41f5f9aed97bbd1be7bd515c03f6cc31dddf398da5c5b54377feb5ffe14cc46dae3375ff69db7da2d09d141
+"directory-tree@npm:^2.2.5":
+  version: 2.2.5
+  resolution: "directory-tree@npm:2.2.5"
+  checksum: 3/a691348ca37fa6839436c50c56a46fbf8c735bb338d749f5903c3dc21f21f5dc9eadd35be2114efb55c8b486887ba33bffa3ac23a0a5a7d2922f16f500b79856
   languageName: node
   linkType: hard
 
@@ -1745,9 +1745,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^7.10.0":
-  version: 7.10.0
-  resolution: "eslint@npm:7.10.0"
+"eslint-visitor-keys@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "eslint-visitor-keys@npm:2.0.0"
+  checksum: 3/429dabdcab3c1cf5e65d44843afc513398d4ee32a37f93edc93bb5ba59a12b78fa67d87ff23c752c170b5e4f9085050f45b3c036cdfb23d40a724f2614048140
+  languageName: node
+  linkType: hard
+
+"eslint@npm:^7.11.0":
+  version: 7.11.0
+  resolution: "eslint@npm:7.11.0"
   dependencies:
     "@babel/code-frame": ^7.0.0
     "@eslint/eslintrc": ^0.1.3
@@ -1759,7 +1766,7 @@ __metadata:
     enquirer: ^2.3.5
     eslint-scope: ^5.1.1
     eslint-utils: ^2.1.0
-    eslint-visitor-keys: ^1.3.0
+    eslint-visitor-keys: ^2.0.0
     espree: ^7.3.0
     esquery: ^1.2.0
     esutils: ^2.0.2
@@ -1788,7 +1795,7 @@ __metadata:
     v8-compile-cache: ^2.0.3
   bin:
     eslint: bin/eslint.js
-  checksum: 3/a136b9e01c956b97b1705517ecf71de082d7758b5871c97f4ca6a33a6f364f8be42a75f045ed74c3ae85e42e333269c4db5ad8b793f0ceeb10975726808a1514
+  checksum: 3/45ef6dc7b31684ca0f383ed9c6224e763197e1d49745542f4440e37286c947973388a6a7ebbf103eeee91ddb4af2652c5d22718f4130bfbbf4bd16a04103f82a
   languageName: node
   linkType: hard
 
@@ -4532,8 +4539,8 @@ resolve@^1.10.0:
     apr-reduce: ^3.0.3
     archiver: ^5.0.2
     ava: ^3.13.0
-    directory-tree: ^2.2.4
-    eslint: ^7.10.0
+    directory-tree: ^2.2.5
+    eslint: ^7.11.0
     eslint-config-prettier: ^6.12.0
     eslint-config-xo-space: ^0.25.0
     execa: ^4.0.3
@@ -4553,7 +4560,7 @@ resolve@^1.10.0:
     prettier: ^2.1.2
     pretty-bytes: ^5.4.1
     pretty-ms: ^7.0.1
-    tempy: ^0.7.1
+    tempy: ^1.0.0
   peerDependencies:
     serverless: ^1.71.3
     typescript: ^3.9.3
@@ -5017,16 +5024,16 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
-"tempy@npm:^0.7.1":
-  version: 0.7.1
-  resolution: "tempy@npm:0.7.1"
+"tempy@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "tempy@npm:1.0.0"
   dependencies:
     del: ^6.0.0
     is-stream: ^2.0.0
     temp-dir: ^2.0.0
     type-fest: ^0.16.0
     unique-string: ^2.0.0
-  checksum: 3/ec106bd42e8800106b98bd3ad5740ac34c2a1136c118e23ab79d24a44e510c086c2849aed6201b4718615fa06a168b5045255f5f23dfb6737899e900fec6bee7
+  checksum: 3/3f5dc793d1bcf933eb7cfba8f2490749ad4974eda064fdb7c95bb42196e8d935b12f91ab764fc86b7d398af867966785349e1ee97674a8c770e23ed5f9bb7f6f
   languageName: node
   linkType: hard
 
