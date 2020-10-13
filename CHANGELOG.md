@@ -1,3 +1,30 @@
+## [1.1.2](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.1...v1.1.2) (2020-10-13)
+
+### Bug Fixes
+
+- file excluding ([a32218f](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/a32218f2d0c86fc152da18e6f5f399721f8abf64))
+
+### Chores
+
+- **deps:** bump actions/cache from v2.1.1 to v2.1.2 ([fe26f06](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/fe26f061efc1b966f75f5df675f89f2b5a3634f0))
+- **deps:** bump actions/setup-node from v2.1.1 to v2.1.2 ([5130154](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/513015498ddc4c50afb604e9fcb44cbf46163c81))
+- **deps:** bump rlespinasse/github-slug-action from 2.1.0 to 2.1.1 ([f031f78](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/f031f78249bebfa21d9f4f4c163818f760f209c3))
+- **deps:** bump tempy from 0.7.0 to 0.7.1 ([95e596f](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/95e596ffda4f98c1c57a291b336a1901eea63b1a))
+- **deps:** upgrade dependencies ([b286741](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/b2867416af3c7c989ea9cc7aa284a7beb38efabf))
+- **deps-dev:** bump ava from 3.12.1 to 3.13.0 ([2969107](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/296910736550c55185ef2cee12d2e322c0375259))
+- **deps-dev:** bump eslint from 7.9.0 to 7.10.0 ([57729e2](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/57729e269efc8a259cafd7f62d4e71b13e7e24e1))
+- **deps-dev:** bump eslint-config-prettier from 6.11.0 to 6.12.0 ([618fa8a](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/618fa8a1b05ac7eb63c9f7721ba8bab5d1b9169e))
+- **deps-dev:** bump pretty-ms from 7.0.0 to 7.0.1 ([e71049a](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/e71049ae9bbcd07228dbf376ac1ae9108076e12f))
+- **deps-dev:** upgrade ridedott/release-me-action ([01f1df1](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/01f1df1c9a694ed028a42eee519a710288980da3))
+
+### Continuous Integration
+
+- don't release on deps-dev ([95b6cd6](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/95b6cd611e7c9dd33cf1aa9238ce22c2670f14b0))
+
+### Tests
+
+- apply alphanum-sort ([dc1d992](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/dc1d992e0ae81fed383e50c248579cf52072d5a8))
+
 ## [1.1.1](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.0...v1.1.1) (2020-09-22)
 
 ### Bug Fixes
