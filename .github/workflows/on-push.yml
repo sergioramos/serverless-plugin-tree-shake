@@ -110,11 +110,11 @@ jobs:
     - name: Get branch
       uses: rlespinasse/github-slug-action@2.1.1
     - name: Release
-      uses: ridedott/release-me-action@master
+      uses: ridedott/release-me-action@v3.2.2
       if: ${{ env.GITHUB_REF_SLUG == 'master' }}
       with:
         node-module: true
-        release-rules: '[{ "type": "chore(deps-dev)", "release": false }, { "scope": "no-release", "release": false }]'
+        release-rules: '[{"type":"chore(deps-dev)","release":false},{"scope":"no-release","release":false},{"release":"patch","type":"build"},{"release":"patch","type":"chore"},{"release":"patch","type":"ci"},{"release":"patch","type":"docs"},{"release":"patch","type":"improvement"},{"release":"patch","type":"refactor"},{"release":"minor","type":"feat"},{"release":false,"subject":"*\\[skip release\\]*"}]'
         commit-assets: |
           ./BENCHMARK.md
       env:
