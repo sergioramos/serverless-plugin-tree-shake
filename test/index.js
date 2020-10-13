@@ -9,6 +9,7 @@ const Intercept = require('apr-intercept');
 const { basename, dirname, extname, join, resolve, relative } = require('path');
 const { isSymlinkSync } = require('path-type');
 const Reduce = require('apr-reduce');
+const Sort = require('alphanum-sort');
 const Setup = require('./setup');
 
 const EVENT = {
@@ -20,9 +21,9 @@ const normalizeTree = ({ path, type, children = [] }) => {
   const isSymlink = isSymlinkSync(path);
   const link = isSymlink ? ` -> ${readlinkSync(path)}` : '';
 
-  return Flatten(
+  return Sort(Flatten(
     [`${type} ${fullpath}${link}`].concat(children.map(normalizeTree)),
-  ).sort();
+  ));
 };
 
 const decompress = async (file, cwd) => {

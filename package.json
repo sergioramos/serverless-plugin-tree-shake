@@ -46,6 +46,7 @@
     "tempy": "^1.0.0"
   },
   "devDependencies": {
+    "alphanum-sort": "^1.0.2",
     "apr-for-each": "^3.0.3",
     "apr-intercept": "^3.0.4",
     "apr-main": "^4.0.3",
