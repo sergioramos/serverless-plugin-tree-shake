@@ -1,3 +1,14 @@
+## [1.1.3](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.2...v1.1.3) (2020-10-16)
+
+### Chores
+
+- **deps-dev:** bump lint-staged from 10.4.0 to 10.4.1 ([3af0cc1](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/3af0cc125f3b8845f40611f527c1f9c79fa6d6b0))
+- **deps-dev:** bump ridedott/release-me-action from v3.2.2 to v3.2.3 ([bc15e1d](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/bc15e1dd8facbecfae92d0a6b7e75529948d2a49))
+
+### Continuous Integration
+
+- don't release on deps-dev scope ([8d964d4](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/8d964d46ad02e84d05b8ad444b6c6934590467eb))
+
 ## [1.1.2](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.1...v1.1.2) (2020-10-13)
 
 ### Bug Fixes
