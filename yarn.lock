@@ -2066,7 +2066,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^7.11.0":
+"eslint@npm:^7.12.0":
   version: 7.13.0
   resolution: "eslint@npm:7.13.0"
   dependencies:
@@ -2180,7 +2180,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"execa@npm:^4.0.3, execa@npm:^4.1.0":
+"execa@npm:^4.1.0":
   version: 4.1.0
   resolution: "execa@npm:4.1.0"
   dependencies:
@@ -2201,23 +2201,6 @@ __metadata:
   version: 1.0.1
   resolution: "exit-on-epipe@npm:1.0.1"
   checksum: 24b604747458c0c9b719934d2af91bc78dc381e9296b8ee3887dd68e8f35500090b453335e9f0b392c0295562da1873c05dcbc77d29e6eea75a32bbef19adf53
-  languageName: node
-  linkType: hard
-
-"execa@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "execa@npm:4.1.0"
-  dependencies:
-    cross-spawn: ^7.0.0
-    get-stream: ^5.0.0
-    human-signals: ^1.1.1
-    is-stream: ^2.0.0
-    merge-stream: ^2.0.0
-    npm-run-path: ^4.0.0
-    onetime: ^5.1.0
-    signal-exit: ^3.0.2
-    strip-final-newline: ^2.0.0
-  checksum: 3/79bd736acd63aa7c0afb32cc99af21cfd70db696580686c7cd56c177857b93b78bc0b9bb2b4410f377f46c71c566c8e723987e71ef0bc9b23791bfbced02f75c
   languageName: node
   linkType: hard
 
@@ -5216,7 +5199,7 @@ fsevents@~2.1.2:
     archiver: ^5.0.2
     ava: ^3.13.0
     directory-tree: ^2.2.5
-    eslint: ^7.11.0
+    eslint: ^7.12.0
     eslint-config-prettier: ^6.12.0
     eslint-config-xo-space: ^0.25.0
     execa: ^4.1.0
