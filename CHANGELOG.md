@@ -1,3 +1,22 @@
+## [1.1.4](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.3...v1.1.4) (2020-11-20)
+
+### Chores
+
+- **deps:** upgrade dependencies ([2477aa9](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/2477aa97d03bb3ee54035aec2f273b1a68853f6b))
+- **deps-dev:** bump actions/cache from v2.1.2 to v2.1.3 ([470c346](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/470c34620fff560391e6c3996249b76a7dc86abb))
+- **deps-dev:** bump eslint from 7.11.0 to 7.12.0 ([1e8e3d3](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/1e8e3d345dd82709b7a9da16f4f35aae7507f1fe))
+- **deps-dev:** bump eslint-config-prettier from 6.12.0 to 6.13.0 ([d770151](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/d770151003ad86006cf3e80b531bc309f57296eb))
+- **deps-dev:** bump execa from 4.0.3 to 4.1.0 ([503ecb0](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/503ecb071d384067d2e15e0e79d1e0341126e914))
+- **deps-dev:** bump lint-staged from 10.4.1 to 10.4.2 ([c589301](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/c5893010a83c37a20c589d888821464c154dc42d))
+- **deps-dev:** bump ridedott/release-me-action from v3.2.3 to v3.2.11 ([8944bb3](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/8944bb35a5eba297adbf729c36c117455e59395b))
+- **deps-dev:** bump rlespinasse/github-slug-action from 2.1.1 to 3.1.0 ([006d1e8](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/006d1e8077620c38da2f7024f00e5c7a3d927cee))
+- **deps-dev:** bump wagoid/commitlint-github-action from v2.0.2 to v2.1.1 ([27140b7](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/27140b719fcbd39337d3b75157e623ff68bc5ca0))
+- **deps-dev:** upgrade yarn ([b26a55c](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/b26a55caa6f01eeb95b0bc62826d853f5015ef6d))
+
+### Continuous Integration
+
+- add commitlint config ([e6e2945](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/e6e29458537e06d9eb556b833b1f7ffbf973adcd))
+
 ## [1.1.3](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.2...v1.1.3) (2020-10-16)
 
 ### Chores
