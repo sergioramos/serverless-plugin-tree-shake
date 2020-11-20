@@ -46,6 +46,8 @@
     "tempy": "^1.0.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "alphanum-sort": "^1.0.2",
     "apr-for-each": "^3.0.3",
     "apr-intercept": "^3.0.4",
@@ -71,7 +73,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
@@ -111,5 +114,15 @@
     "files": [
       "test/index.js"
     ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "body-max-line-length": [
+        0
+      ]
+    }
   }
 }
