@@ -1,3 +1,11 @@
+## [1.1.5](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.4...v1.1.5) (2020-11-24)
+
+### Chores
+
+- upgrade dependencies ([d2f8688](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/d2f8688bb4d7819f168f5bb4336d15f14a18f9fe))
+- **deps-dev:** bump ridedott/release-me-action from v3.2.11 to v3.2.12 ([b13c7eb](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/b13c7eb2fc84503d5c19cbbd04a30ed5cae15332))
+- **deps-dev:** bump wagoid/commitlint-github-action from v2.1.1 to v2.1.2 ([8eeb105](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/8eeb105c0357a48df43ede214992af97853ea230))
+
 ## [1.1.4](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.3...v1.1.4) (2020-11-20)
 
 ### Chores
