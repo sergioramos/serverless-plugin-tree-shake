@@ -859,17 +859,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/ncc@npm:^0.27.0":
-  version: 0.27.0
-  resolution: "@vercel/ncc@npm:0.27.0"
-  dependencies:
-    node-gyp: latest
-  bin:
-    ncc: dist/ncc/cli.js
-  checksum: ce8fbde30502da756b804b81e5203031a227a42d175c654381f36d81417d1ba2c06fd2ffc2514a61beb44bfd361b443a454f688cc4a98eeccd300bc5558c4e9a
-  languageName: node
-  linkType: hard
-
 "@vercel/nft@npm:^0.9.5":
   version: 0.9.5
   resolution: "@vercel/nft@npm:0.9.5"
@@ -893,6 +882,17 @@ __metadata:
   bin:
     nft: out/cli.js
   checksum: cdfbd485be3326e4fa5e6d6535af17e29179f31171f57caa1050ada6ecf11c46e515f7328ab77d237552b65b54e21c97b568c7364478ea2490677ed80b796ac7
+  languageName: node
+  linkType: hard
+
+"@zeit/ncc@npm:^0.22.3":
+  version: 0.22.3
+  resolution: "@zeit/ncc@npm:0.22.3"
+  dependencies:
+    node-gyp: latest
+  bin:
+    ncc: dist/ncc/cli.js
+  checksum: 433ca215e1092cb9214c10c87b661e4de8114b356c1f5a37d95b8fafa7267449d43a9d882be128fdfc48cf57a21b08e305dcb5d99f6815e83708db38ec19cf00
   languageName: node
   linkType: hard
 
@@ -8322,7 +8322,7 @@ fsevents@~2.3.1:
   version: 0.0.0-use.local
   resolution: "serverless-plugin-tree-shake-ws-all@workspace:."
   dependencies:
-    "@vercel/ncc": ^0.27.0
+    "@zeit/ncc": ^0.22.3
     serverless: ^2.18.0
     serverless-plugin-ncc: ^0.4.0
   languageName: unknown
