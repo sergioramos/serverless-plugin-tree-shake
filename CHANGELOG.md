@@ -1,3 +1,23 @@
+## [1.1.6](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.5...v1.1.6) (2021-01-13)
+
+### Chores
+
+- **deps-dev:** bump actions/setup-node from v2.1.2 to v2.1.4 ([ea262c0](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/ea262c0cf8393cb11b6a75edf9ccb6294d2740cb))
+- **deps-dev:** bump ridedott/release-me-action from v3.2.12 to v3.4.2 ([33c14af](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/33c14af595b26e934f61392ee5432e7f06543a14))
+- **deps-dev:** bump rlespinasse/github-slug-action from 3.1.0 to 3.2.0 ([eb73cc5](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/eb73cc5fa268f66221b7e8e1dc6537c3279b3d0a))
+- **deps-dev:** bump wagoid/commitlint-github-action from v2.1.2 to v2.1.6 ([092f5bc](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/092f5bc91f96614f2ae30dae6108a341d93b487b))
+- restore original ncc as it is a peer dep ([f9851df](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/f9851df824eb5f2cab01ea6abf1132b7134815f8))
+- upgrade dependencies ([26f3fbd](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/26f3fbd04cba324c1b04497e24720b27781cf8ea))
+- upgrade yarn ([dc08b82](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/dc08b82211b0b413890e708f61551e42439f89d9))
+
+### Code Style
+
+- format coc ([c644a81](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/c644a81de02bf74ea1ba2238f1a485783c4311e1))
+
+### Tests
+
+- cleanup tree outputs ([11ee91f](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/11ee91f696af751c44d88a70abed5dd419bfd94b))
+
 ## [1.1.5](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.4...v1.1.5) (2020-11-24)
 
 ### Chores
