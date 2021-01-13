@@ -48,7 +48,6 @@
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
-    "alphanum-sort": "^1.0.2",
     "apr-for-each": "^3.0.3",
     "apr-intercept": "^3.0.4",
     "apr-main": "^4.0.3",

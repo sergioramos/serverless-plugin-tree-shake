@@ -10,7 +10,6 @@ const PathIsInside = require('path-is-inside');
 const { isSymlinkSync } = require('path-type');
 const Reduce = require('apr-reduce');
 const SortBy = require('lodash.sortby');
-const Sort = require('alphanum-sort');
 const Uniq = require('lodash.uniq');
 const Setup = require('./setup');
 
@@ -29,18 +28,16 @@ const EVENT = {
 };
 
 const serializeTree = (children = []) => {
-  return Sort(
-    Uniq(
-      children.map(({ type, pathname, source }) => {
-        const link = source ? `-> ${source}` : '';
-        return `${type} ${pathname}${link}`;
-      }),
-    ),
+  return Uniq(
+    children.map(({ type, pathname, source }) => {
+      const link = source ? `-> ${source}` : '';
+      return `${type} ${pathname}${link}`;
+    }),
   );
 };
 
 const normalizeTree = ({ path: fullpath, type, children = [] }, root) => {
-  const pathname = relative(__dirname, fullpath);
+  const pathname = relative(root, fullpath);
   const realpath = realpathSync(fullpath);
   const isDiff = realpath !== fullpath;
   const isInside = PathIsInside(realpath, root);
@@ -67,18 +64,19 @@ const normalizeTree = ({ path: fullpath, type, children = [] }, root) => {
     : realpath;
 
   const isSymlink = isSymlinkSync(fullpath);
+  const stat = lstatSync(fullpath);
   const source = isSymlink
     ? readlinkSync(fullpath)
     : hasSymlink && fullpath !== target
-    ? relative(fullpath, target)
+    ? relative(stat.isDirectory() ? fullpath : dirname(fullpath), target)
     : null;
 
   return SortBy(
     Flatten(
       children
         .map((child) => normalizeTree(child, root))
-        .concat({ type, pathname, source }),
-    ),
+        .concat([{ type, pathname, source }]),
+    ).filter(({ pathname }) => pathname),
     'pathname',
   );
 };
