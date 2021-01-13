@@ -3,27 +3,84 @@ const Tree = require('directory-tree');
 const Execa = require('execa');
 const { series: ForEach } = require('apr-for-each');
 const Flatten = require('lodash.flatten');
-const { readlinkSync } = require('fs');
+const { readlinkSync, realpathSync, lstatSync } = require('fs');
 const { readFile, rmdir } = require('mz/fs');
 const Intercept = require('apr-intercept');
-const { basename, dirname, extname, join, resolve, relative } = require('path');
+const PathIsInside = require('path-is-inside');
 const { isSymlinkSync } = require('path-type');
 const Reduce = require('apr-reduce');
+const SortBy = require('lodash.sortby');
 const Sort = require('alphanum-sort');
+const Uniq = require('lodash.uniq');
 const Setup = require('./setup');
+
+const {
+  basename,
+  dirname,
+  extname,
+  join,
+  resolve,
+  relative,
+  sep,
+} = require('path');
 
 const EVENT = {
   httpMethod: 'GET',
 };
 
-const normalizeTree = ({ path, type, children = [] }) => {
-  const fullpath = relative(__dirname, path);
-  const isSymlink = isSymlinkSync(path);
-  const link = isSymlink ? ` -> ${readlinkSync(path)}` : '';
+const serializeTree = (children = []) => {
+  return Sort(
+    Uniq(
+      children.map(({ type, pathname, source }) => {
+        const link = source ? `-> ${source}` : '';
+        return `${type} ${pathname}${link}`;
+      }),
+    ),
+  );
+};
 
-  return Sort(Flatten(
-    [`${type} ${fullpath}${link}`].concat(children.map(normalizeTree)),
-  ));
+const normalizeTree = ({ path: fullpath, type, children = [] }, root) => {
+  const pathname = relative(__dirname, fullpath);
+  const realpath = realpathSync(fullpath);
+  const isDiff = realpath !== fullpath;
+  const isInside = PathIsInside(realpath, root);
+  const hasSymlink = isDiff && isInside;
+
+  const target = hasSymlink
+    ? fullpath.split(sep).reduceRight((memo, _, i, arr) => {
+        if (memo) {
+          return memo;
+        }
+
+        const partial = arr.slice(0, i).join(sep);
+        if (!PathIsInside(partial, root)) {
+          return memo;
+        }
+
+        const lstat = lstatSync(partial);
+        if (!lstat.isSymbolicLink()) {
+          return memo;
+        }
+
+        return join(realpathSync(partial), arr.slice(i, arr.length).join(sep));
+      }, '') || realpath
+    : realpath;
+
+  const isSymlink = isSymlinkSync(fullpath);
+  const source = isSymlink
+    ? readlinkSync(fullpath)
+    : hasSymlink && fullpath !== target
+    ? relative(fullpath, target)
+    : null;
+
+  return SortBy(
+    Flatten(
+      children
+        .map((child) => normalizeTree(child, root))
+        .concat({ type, pathname, source }),
+    ),
+    'pathname',
+  );
 };
 
 const decompress = async (file, cwd) => {
@@ -71,8 +128,8 @@ test.before(async () => {
   });
 });
 
-for (const pnp of [true, false]) {
-  for (const typescript of [true, false]) {
+for (const typescript of [false, true]) {
+  for (const pnp of [false, true]) {
     for (const individually of [true, false]) {
       const name = [
         typescript ? 'ts' : 'js',
@@ -90,7 +147,7 @@ for (const pnp of [true, false]) {
           await rmdir(rootCwd, { recursive: true });
           await decompress(`${service}.zip`, serverless);
 
-          t.snapshot(normalizeTree(Tree(rootCwd)));
+          t.snapshot(serializeTree(normalizeTree(Tree(rootCwd), rootCwd)));
           t.snapshot(await readOutputs(functions, rootCwd));
         }
 
@@ -107,7 +164,7 @@ for (const pnp of [true, false]) {
               cwd,
             );
 
-            t.snapshot(normalizeTree(Tree(cwd)));
+            t.snapshot(serializeTree(normalizeTree(Tree(cwd), cwd)));
             t.snapshot(outputs);
           }
 

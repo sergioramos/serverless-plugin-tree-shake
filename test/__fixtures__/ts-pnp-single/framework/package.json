@@ -3,11 +3,11 @@
   "private": true,
   "main": "index.ts",
   "dependencies": {
-    "@hapi/boom": "^9.1.0",
+    "@hapi/boom": "^9.1.1",
     "@hapi/bourne": "^2.0.0",
     "@hapi/joi": "^17.1.1",
-    "apr-intercept": "^3.0.3",
+    "apr-intercept": "^3.0.4",
     "aws-lambda": "^1.0.6",
-    "debug": "^4.1.1"
+    "debug": "^4.3.1"
   }
 }

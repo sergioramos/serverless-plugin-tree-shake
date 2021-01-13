@@ -183,15 +183,7 @@ module.exports = class {
       ];
     }
 
-    if (!Array.isArray(cache)) {
-      return zipService.getFileContentAndStat.call(this, pathname);
-    }
-
-    const [, transpiled] = cache;
-    if (!transpiled) {
-      return zipService.getFileContentAndStat.call(this, pathname);
-    }
-
+    const [, transpiled] = cache || [];
     const isDiff = realpath !== fullpath;
     const isInside = PathIsInside(realpath, this.servicePath);
     const hasSymlink = isDiff && isInside;
@@ -245,7 +237,7 @@ module.exports = class {
 
     const [data, stat] = await Promise.all([
       // Get file contents and stat in parallel
-      zipService.getFileContent.call(this, transpiled),
+      zipService.getFileContent.call(this, transpiled || realpath),
       statAsync(pathname),
     ]);
 
@@ -535,7 +527,9 @@ module.exports = class {
     // Order is important, otherwise exclude flags will be overwritten
     const patterns = includes
       .concat(fileList)
-      .concat(excludes.map((p) => (p.charAt(0) === '!' ? p.substring(1) : `!${p}`)));
+      .concat(
+        excludes.map((p) => (p.charAt(0) === '!' ? p.substring(1) : `!${p}`)),
+      );
 
     const allFilePaths = await Globby(patterns, {
       cwd: this.servicePath,
