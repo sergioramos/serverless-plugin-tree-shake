@@ -61,7 +61,7 @@
     "husky": "^4.3.7",
     "lint-staged": "^10.5.3",
     "markdown-table": "^2.0.0",
-    "path-type": "^4.0.0",
+    "path-type": "^5.0.0",
     "prettier": "^2.2.1",
     "pretty-bytes": "^5.5.0",
     "pretty-ms": "^7.0.1"
