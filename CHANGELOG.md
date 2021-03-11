@@ -1,3 +1,9 @@
+## [1.1.8](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.7...v1.1.8) (2021-03-11)
+
+### Chores
+
+- upgrade dependencies ([4fd4a64](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/4fd4a6414e0b8fabf290492c2b23c2b57012a397))
+
 ## [1.1.7](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.6...v1.1.7) (2021-03-11)
 
 ### Bug Fixes
