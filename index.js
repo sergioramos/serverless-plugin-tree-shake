@@ -316,7 +316,11 @@ module.exports = class {
         const data = isSymlink ? Buffer.from('') : readFileSync(fullTarget);
 
         return locations.map((source) => {
-          if (isSymlink) {
+          const relSymlink = isSymlink
+            ? relative(this.servicePath, source)
+            : '';
+
+          if (isSymlink && relSymlink) {
             return {
               stat,
               filePath: relative(this.servicePath, source),
