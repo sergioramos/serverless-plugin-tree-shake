@@ -1,3 +1,17 @@
+## [1.1.7](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.6...v1.1.7) (2021-03-11)
+
+### Bug Fixes
+
+- handle empty rel on symlinks ([fc5c0dd](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/fc5c0ddf7e62f9665e855e5257b9e15ba796ceb1))
+
+### Chores
+
+- **deps:** bump actions/cache from v2.1.3 to v2.1.4 ([493c34f](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/493c34fc714f370c3ab87efcf463f7c60a7ff8b6))
+- **deps:** bump actions/setup-node from v2.1.4 to v2.1.5 ([1b5bf55](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/1b5bf5564577b6ad9d0739f9e8278a15b3c4b7eb))
+- **deps:** bump ridedott/release-me-action from v3.4.2 to v3.5.10 ([106c51a](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/106c51acf3723ad89679d0de6fe467230d7f04a4))
+- **deps:** bump rlespinasse/github-slug-action from 3.2.0 to 3.4.0 ([2a59a34](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/2a59a349bb4a2db0446b7b824e7914cbb61ac6de))
+- **deps:** bump wagoid/commitlint-github-action from v2.1.6 to v3.0.6 ([cbdd2db](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/cbdd2db8f10e564fe86f88c72436b8f08477dbbb))
+
 ## [1.1.6](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.5...v1.1.6) (2021-01-13)
 
 ### Chores
