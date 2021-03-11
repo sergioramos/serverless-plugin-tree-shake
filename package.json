@@ -1,6 +1,6 @@
 {
   "name": "serverless-plugin-tree-shake",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Shake the dependency tree and only include files needed",
   "license": "BSD-3-Clause",
   "repository": "github:sergioramos/serverless-plugin-tree-shake",
@@ -56,7 +56,7 @@
     "directory-tree": "^2.2.5",
     "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.1.0",
-    "eslint-config-xo-space": "^0.26.0",
+    "eslint-config-xo-space": "^0.27.0",
     "execa": "^5.0.0",
     "husky": "^4.3.7",
     "lint-staged": "^10.5.3",
