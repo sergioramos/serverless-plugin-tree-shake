@@ -1,6 +1,6 @@
 {
   "name": "serverless-plugin-tree-shake",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Shake the dependency tree and only include files needed",
   "license": "BSD-3-Clause",
   "repository": "github:sergioramos/serverless-plugin-tree-shake",
@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
+    "@commitlint/config-conventional": "^12.0.1",
     "apr-for-each": "^3.0.3",
     "apr-intercept": "^3.0.4",
     "apr-main": "^4.0.3",
