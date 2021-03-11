@@ -92,23 +92,28 @@ jobs:
     needs: [test, eslint, commitlint]
     runs-on: ubuntu-latest
     steps:
+    - name: Get branch
+      uses: rlespinasse/github-slug-action@3.4.0
     - name: Checkout
       uses: actions/checkout@v2
+      if: ${{ env.GITHUB_REF_SLUG == 'master' }}
     - name: Setup Node.js
       uses: actions/setup-node@v2.1.5
+      if: ${{ env.GITHUB_REF_SLUG == 'master' }}
       with:
         node-version: '13.x'
     - name: Setup Cache
       uses: actions/cache@v2.1.4
+      if: ${{ env.GITHUB_REF_SLUG == 'master' }}
       with:
         path: .yarn
         key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
     - name: Install dependencies
       run: yarn install --immutable --immutable-cache
+      if: ${{ env.GITHUB_REF_SLUG == 'master' }}
     - name: Benchmark
       run: yarn run benchmark
-    - name: Get branch
-      uses: rlespinasse/github-slug-action@3.4.0
+      if: ${{ env.GITHUB_REF_SLUG == 'master' }}
     - name: Release
       uses: ridedott/release-me-action@v3.5.10
       if: ${{ env.GITHUB_REF_SLUG == 'master' }}
