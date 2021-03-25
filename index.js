@@ -24,6 +24,7 @@ const packageService = require('serverless/lib/plugins/package/lib/packageServic
 const EXTENSIONS = ['.tsx', '.ts', '.node', '.mjs', '.cjs', '.js'];
 const NODE_BUILTINS = [
   ...require('repl')._builtinLibs,
+  'fs/promises',
   'constants',
   'module',
   'timers',
