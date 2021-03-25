@@ -1,3 +1,14 @@
+## [1.1.9](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.8...v1.1.9) (2021-03-25)
+
+### Bug Fixes
+
+- handle fs/promises ([16b32ee](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/16b32ee5c576f80d2faf223200b92c25076defd2))
+
+### Chores
+
+- upgrade dependencies ([b72c738](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/b72c7381e54a8adb189b8926daf6f463644c623f))
+- **deps:** bump ridedott/release-me-action from v3.5.10 to v3.5.11 ([2baeabb](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/2baeabbaad4a47b190231df73867a043c8bbb460))
+
 ## [1.1.8](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.7...v1.1.8) (2021-03-11)
 
 ### Chores
