@@ -93,7 +93,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Get branch
-      uses: rlespinasse/github-slug-action@3.4.0
+      uses: rlespinasse/github-slug-action@3.5.1
     - name: Checkout
       uses: actions/checkout@v2
       if: ${{ env.GITHUB_REF_SLUG == 'master' }}
