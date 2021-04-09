@@ -29,7 +29,7 @@
     "test": "NODE_ENV=test ava --timeout=5m"
   },
   "dependencies": {
-    "@vercel/nft": "^0.9.6",
+    "@vercel/nft": "^0.10.0",
     "apr-find": "^3.0.3",
     "apr-map": "^3.0.3",
     "apr-parallel": "^3.0.3",
@@ -46,19 +46,19 @@
     "tempy": "^1.0.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^12.1.0",
-    "@commitlint/config-conventional": "^12.1.0",
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
     "apr-for-each": "^3.0.3",
     "apr-intercept": "^3.0.4",
     "apr-main": "^4.0.3",
     "apr-reduce": "^3.0.3",
     "ava": "^3.15.0",
     "directory-tree": "^2.2.7",
-    "eslint": "^7.22.0",
+    "eslint": "^7.23.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-config-xo-space": "^0.27.0",
     "execa": "^5.0.0",
-    "husky": "^5.2.0",
+    "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
     "markdown-table": "^2.0.0",
     "path-type": "^4.0.0",
