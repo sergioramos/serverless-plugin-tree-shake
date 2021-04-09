@@ -8547,18 +8547,6 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"serverless-plugin-tree-shake-ts-ws-individual@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "serverless-plugin-tree-shake-ts-ws-individual@workspace:."
-  dependencies:
-    "@zeit/ncc": ^0.22.3
-    serverless: ^2.18.0
-    serverless-plugin-ncc: ^0.4.0
-    serverless-plugin-typescript: ^1.1.9
-    typescript: ^4.1.3
-  languageName: unknown
-  linkType: soft
-
 "serverless-plugin-tree-shake@workspace:plugin":
   version: 0.0.0-use.local
   resolution: "serverless-plugin-tree-shake@workspace:plugin"
@@ -9714,6 +9702,18 @@ fsevents@~2.3.1:
   checksum: 806ab08b30481cddc9600407e18e5deec5e80557042162fd7759d9419d33877506b21ebbc6646aaa4d3e44e10eb99445f05751044e176d6b0d7211355cce587b
   languageName: node
   linkType: hard
+
+"ts-nm-individually@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "ts-nm-individually@workspace:."
+  dependencies:
+    "@zeit/ncc": ^0.22.3
+    serverless: ^2.18.0
+    serverless-plugin-ncc: ^0.4.0
+    serverless-plugin-typescript: ^1.1.9
+    typescript: ^4.1.3
+  languageName: unknown
+  linkType: soft
 
 "tslib@npm:^1.9.0":
   version: 1.13.0

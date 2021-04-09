@@ -5553,6 +5553,16 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"js-nm-single@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "js-nm-single@workspace:."
+  dependencies:
+    "@zeit/ncc": ^0.22.3
+    serverless: ^2.18.0
+    serverless-plugin-ncc: ^0.4.0
+  languageName: unknown
+  linkType: soft
+
 "js-string-escape@npm:^1.0.1":
   version: 1.0.1
   resolution: "js-string-escape@npm:1.0.1"
@@ -8296,16 +8306,6 @@ fsevents@~2.3.1:
   checksum: 571e31fe60024a0374f31581339ad9b6a917074df590b58f68625adfda0c7daa71af05e6a86a64c68b4329e0aecb6876444af83300270a2c2b90f58accfe11c5
   languageName: node
   linkType: hard
-
-"serverless-plugin-tree-shake-ws-all@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "serverless-plugin-tree-shake-ws-all@workspace:."
-  dependencies:
-    "@zeit/ncc": ^0.22.3
-    serverless: ^2.18.0
-    serverless-plugin-ncc: ^0.4.0
-  languageName: unknown
-  linkType: soft
 
 "serverless-plugin-tree-shake@workspace:plugin":
   version: 0.0.0-use.local

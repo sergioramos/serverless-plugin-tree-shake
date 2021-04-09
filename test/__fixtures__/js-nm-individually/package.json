@@ -1,5 +1,5 @@
 {
-  "name": "serverless-plugin-tree-shake-ws-all",
+  "name": "js-nm-individually",
   "private": true,
   "devDependencies": {
     "@zeit/ncc": "^0.22.3",
