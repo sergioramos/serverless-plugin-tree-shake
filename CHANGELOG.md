@@ -1,3 +1,9 @@
+## [1.1.11](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.10...v1.1.11) (2021-04-09)
+
+### Bug Fixes
+
+- fallback to sls when runtime is not node, at service and fn level ([eb25809](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/eb258093e2f71a164c75975c206e936ee9adf800))
+
 ## [1.1.10](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.9...v1.1.10) (2021-04-09)
 
 ### Bug Fixes
