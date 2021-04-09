@@ -395,10 +395,18 @@ module.exports = class {
     });
   }
 
-  async resolveFilePathsFunction(fnName) {
+  async resolveFilePathsFunction(fnName, ...args) {
     const { service } = this.serverless;
-    const { package: pkg = {}, handler } = service.getFunction(fnName);
+    const { package: pkg = {}, handler, runtime } = service.getFunction(fnName);
     const { include = [], exclude = [] } = pkg;
+
+    if (runtime && !/^nodejs/.test(runtime)) {
+      return packageService.resolveFilePathsFunction.call(
+        this,
+        fnName,
+        ...args,
+      );
+    }
 
     const { excludes, includes } = await Parallel({
       excludes: async () => this.getExcludes(exclude, true),
