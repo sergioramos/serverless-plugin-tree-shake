@@ -20,6 +20,7 @@ const pkgUp = require('pkg-up');
 
 const zipService = require('serverless/lib/plugins/package/lib/zipService');
 const packageService = require('serverless/lib/plugins/package/lib/packageService');
+const NativePkg = require('serverless/lib/plugins/package/package');
 
 const EXTENSIONS = ['.tsx', '.ts', '.node', '.mjs', '.cjs', '.js'];
 const NODE_BUILTINS = [
@@ -116,6 +117,8 @@ module.exports = class {
     this.servicePath = serverless.config.servicePath || '';
     this.files = [];
     this.syms = [];
+
+    this.nativeService = new NativePkg(serverless, options);
 
     if (options.package) {
       this.packagePath = options.package;
@@ -260,9 +263,29 @@ module.exports = class {
   }
 
   // from: https://github.com/serverless/serverless/blob/f93b27bf684d9a14b1e67ec554a7719ca3628135/lib/plugins/package/lib/zipService.js#L65-L116
-  async zipFiles(files, zipFileName, prefix, filesToChmodPlusX) {
+  async zipFiles(files, zipFileName, prefix, filesToChmodPlusX, ...args) {
     if (files.length === 0) {
       throw new this.serverless.classes.Error('No files to package');
+    }
+
+    const { service } = this.serverless;
+    const fn = (() => {
+      try {
+        return service.getFunction(zipFileName.replace(/\.zip$/, ''));
+      } catch {
+        return {};
+      }
+    })();
+
+    const runtime = fn.runtime || service.provider.runtime;
+    if (runtime && !/^nodejs/.test(runtime)) {
+      return this.nativeService.zipFiles(
+        files,
+        zipFileName,
+        prefix,
+        filesToChmodPlusX,
+        ...args,
+      );
     }
 
     const zip = archiver.create('zip');
@@ -397,15 +420,12 @@ module.exports = class {
 
   async resolveFilePathsFunction(fnName, ...args) {
     const { service } = this.serverless;
-    const { package: pkg = {}, handler, runtime } = service.getFunction(fnName);
+    const { package: pkg = {}, handler, ...fn } = service.getFunction(fnName);
     const { include = [], exclude = [] } = pkg;
 
+    const runtime = fn.runtime || service.provider.runtime;
     if (runtime && !/^nodejs/.test(runtime)) {
-      return packageService.resolveFilePathsFunction.call(
-        this,
-        fnName,
-        ...args,
-      );
+      return this.nativeService.resolveFilePathsFunction(fnName, ...args);
     }
 
     const { excludes, includes } = await Parallel({

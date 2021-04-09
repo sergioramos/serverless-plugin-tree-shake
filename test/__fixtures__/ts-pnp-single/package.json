@@ -1,5 +1,5 @@
 {
-  "name": "serverless-plugin-tree-shake-ts-ws-all",
+  "name": "ts-pnp-single",
   "private": true,
   "devDependencies": {
     "@zeit/ncc": "^0.22.3",

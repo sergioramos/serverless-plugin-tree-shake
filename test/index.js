@@ -122,7 +122,13 @@ const getFn = (handler, cwd) => {
 test.before(async () => {
   await ForEach(await Setup(), async ({ name }) => {
     const root = resolve(__dirname, '__fixtures__', name);
-    await Execa('yarn', ['sls', 'package'], { stdio: 'inherit', cwd: root });
+    await Execa('yarn', ['sls', 'package'], {
+      stdio: 'inherit',
+      cwd: root,
+      env: {
+        SLS_DEBUG: '*',
+      },
+    });
   });
 });
 
