@@ -1,3 +1,16 @@
+## [1.1.10](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.9...v1.1.10) (2021-04-09)
+
+### Bug Fixes
+
+- ignore non-nodejs functions ([39bf104](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/39bf104d0148dfb30bce105a2dd9437a6b40992d))
+
+### Chores
+
+- **deps:** bump ridedott/release-me-action from v3.5.11 to v3.5.16 ([2783c43](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/2783c431322c22173d181958cf19c0f394f85371))
+- **deps:** bump rlespinasse/github-slug-action from 3.4.0 to 3.5.1 ([4aa68c0](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/4aa68c0bef48176890136967adfaefb6d4ba11ca))
+- **deps:** bump wagoid/commitlint-github-action from v3.0.6 to v3.1.0 ([b1d0408](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/b1d0408da347b13626ffad287b1759464dd4f801))
+- upgrade dependencies ([22134b3](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/22134b31683b4daecc98dbfe159fd73f271bcabc))
+
 ## [1.1.9](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.8...v1.1.9) (2021-03-25)
 
 ### Bug Fixes
