@@ -115,7 +115,7 @@ jobs:
       run: yarn run benchmark
       if: ${{ env.GITHUB_REF_SLUG == 'master' }}
     - name: Release
-      uses: ridedott/release-me-action@v3.5.16
+      uses: ridedott/release-me-action@v3.5.32
       if: ${{ env.GITHUB_REF_SLUG == 'master' }}
       with:
         node-module: true
