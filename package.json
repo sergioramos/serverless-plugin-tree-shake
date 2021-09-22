@@ -53,7 +53,7 @@
     "apr-main": "^4.0.3",
     "apr-reduce": "^3.0.3",
     "ava": "^3.15.0",
-    "directory-tree": "^2.2.7",
+    "directory-tree": "^3.0.0",
     "eslint": "^7.23.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-config-xo-space": "^0.27.0",
