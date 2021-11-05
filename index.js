@@ -474,6 +474,7 @@ module.exports = class {
       // eslint-disable-next-line block-scoped-var
       const { outputText } = transpileModule(sys.readFile(pathname), {
         compilerOptions: getCompilerOptions(pathname, this.servicePath),
+        fileName: basename(pathname),
       });
 
       this.files.push([
