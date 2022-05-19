@@ -45,22 +45,22 @@ const normalizeTree = ({ path: fullpath, type, children = [] }, root) => {
 
   const target = hasSymlink
     ? fullpath.split(sep).reduceRight((memo, _, i, arr) => {
-        if (memo) {
-          return memo;
-        }
+      if (memo) {
+        return memo;
+      }
 
-        const partial = arr.slice(0, i).join(sep);
-        if (!PathIsInside(partial, root)) {
-          return memo;
-        }
+      const partial = arr.slice(0, i).join(sep);
+      if (!PathIsInside(partial, root)) {
+        return memo;
+      }
 
-        const lstat = lstatSync(partial);
-        if (!lstat.isSymbolicLink()) {
-          return memo;
-        }
+      const lstat = lstatSync(partial);
+      if (!lstat.isSymbolicLink()) {
+        return memo;
+      }
 
-        return join(realpathSync(partial), arr.slice(i, arr.length).join(sep));
-      }, '') || realpath
+      return join(realpathSync(partial), arr.slice(i, arr.length).join(sep));
+    }, '') || realpath
     : realpath;
 
   const isSymlink = isSymlinkSync(fullpath);
@@ -68,8 +68,8 @@ const normalizeTree = ({ path: fullpath, type, children = [] }, root) => {
   const source = isSymlink
     ? readlinkSync(fullpath)
     : hasSymlink && fullpath !== target
-    ? relative(stat.isDirectory() ? fullpath : dirname(fullpath), target)
-    : null;
+      ? relative(stat.isDirectory() ? fullpath : dirname(fullpath), target)
+      : null;
 
   return SortBy(
     Flatten(
