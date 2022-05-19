@@ -1,6 +1,6 @@
 {
   "name": "serverless-plugin-tree-shake",
-  "version": "1.1.11",
+  "version": "1.1.12",
   "description": "Shake the dependency tree and only include files needed",
   "license": "BSD-3-Clause",
   "repository": "github:sergioramos/serverless-plugin-tree-shake",
@@ -63,7 +63,7 @@
     "markdown-table": "^2.0.0",
     "path-type": "^4.0.0",
     "prettier": "^2.2.1",
-    "pretty-bytes": "^5.6.0",
+    "pretty-bytes": "^6.0.0",
     "pretty-ms": "^7.0.1"
   },
   "peerDependencies": {
