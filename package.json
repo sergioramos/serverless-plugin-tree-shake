@@ -29,12 +29,13 @@
     "test": "NODE_ENV=test ava --timeout=5m"
   },
   "dependencies": {
-    "@vercel/nft": "^0.10.0",
+    "@vercel/nft": "^0.19.0",
     "apr-find": "^3.0.3",
+    "apr-intercept": "^3.0.4",
     "apr-map": "^3.0.3",
     "apr-parallel": "^3.0.3",
-    "archiver": "^5.3.0",
-    "globby": "^11.0.3",
+    "archiver": "^5.3.1",
+    "globby": "^11.1.0",
     "lodash.flatten": "^4.4.0",
     "lodash.sortby": "^4.7.0",
     "lodash.topairs": "^4.3.0",
@@ -46,29 +47,28 @@
     "tempy": "^1.0.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^12.1.1",
-    "@commitlint/config-conventional": "^12.1.1",
+    "@commitlint/cli": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0",
     "apr-for-each": "^3.0.3",
-    "apr-intercept": "^3.0.4",
     "apr-main": "^4.0.3",
     "apr-reduce": "^3.0.3",
     "ava": "^3.15.0",
-    "directory-tree": "^2.2.7",
-    "eslint": "^7.23.0",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-config-xo-space": "^0.27.0",
-    "execa": "^5.0.0",
-    "husky": "^6.0.0",
-    "lint-staged": "^10.5.4",
+    "directory-tree": "^2.3.1",
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-xo-space": "^0.33.0",
+    "execa": "^5.1.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.4.1",
     "markdown-table": "^2.0.0",
     "path-type": "^4.0.0",
-    "prettier": "^2.2.1",
+    "prettier": "^2.6.2",
     "pretty-bytes": "^5.6.0",
     "pretty-ms": "^7.0.1"
   },
   "peerDependencies": {
-    "serverless": "^1.71.3",
-    "typescript": "^3.9.3"
+    "serverless": "^2.72.3",
+    "typescript": "^4.6.4"
   },
   "resolutions": {
     "fsevents": "1.2.13"
@@ -92,7 +92,6 @@
   },
   "prettier": {
     "bracketSpacing": true,
-    "jsxBracketSameLine": false,
     "printWidth": 80,
     "semi": true,
     "singleQuote": true,

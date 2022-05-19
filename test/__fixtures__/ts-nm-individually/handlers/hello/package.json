@@ -7,6 +7,6 @@
     "out": "workspace:out"
   },
   "devDependencies": {
-    "aws-lambda": "^1.0.6"
+    "aws-lambda": "^1.0.7"
   }
 }

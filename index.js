@@ -12,6 +12,7 @@ const Parallel = require('apr-parallel');
 const { basename, dirname, extname, isAbsolute, sep, join } = require('path');
 const { normalize, relative, resolve } = require('path');
 const PathIsInside = require('path-is-inside');
+const Intercept = require('apr-intercept');
 const SortBy = require('lodash.sortby');
 const ToPairs = require('lodash.topairs');
 const { writeSync } = require('tempy');
@@ -537,18 +538,14 @@ module.exports = class {
       base: this.servicePath,
       readLink: handleFile,
       readFile: handleFile,
-      resolve: (id, parent, job, isESM) => {
+      resolve: async (id, parent, job, isESM) => {
         if (NODE_BUILTINS.includes(id)) {
           return `node:${id}`;
         }
 
-        const [, defaultResolve] = (() => {
-          try {
-            return [null, resDep(id, parent, job, isESM)];
-          } catch (err) {
-            return [err];
-          }
-        })();
+        const [, defaultResolve] = await Intercept(
+          resDep(id, parent, job, isESM),
+        );
 
         return defaultResolve ? defaultResolve : fallbackResolve(id, parent);
       },
@@ -560,7 +557,7 @@ module.exports = class {
 
     // Order is important, otherwise exclude flags will be overwritten
     const patterns = includes
-      .concat(fileList)
+      .concat(Array.from(fileList))
       .concat(
         excludes.map((p) => (p.charAt(0) === '!' ? p.substring(1) : `!${p}`)),
       );
