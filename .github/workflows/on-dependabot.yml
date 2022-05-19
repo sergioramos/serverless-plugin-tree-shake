@@ -11,7 +11,7 @@ jobs:
   update-manifests:
     runs-on: ubuntu-latest
     steps:
-    - uses: technote-space/auto-cancel-redundant-job@v1
+    - uses: technote-space/auto-cancel-redundant-job@v1.7.5
     - uses: actions/checkout@v2
       with:
         fetch-depth: 20
@@ -19,7 +19,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v2.1.5
       with:
-        node-version: '14.x'
+        node-version: 'lts/*'
     - name: Config Git
       run: |
         git config --global user.name '${{ github.event.commits[0].author.name }}'
