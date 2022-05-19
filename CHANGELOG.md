@@ -1,3 +1,25 @@
+## [1.1.12](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.11...v1.1.12) (2022-05-19)
+
+### Bug Fixes
+
+- gracefully handle non-existing dirs when trying to rm ([0ad64b6](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/0ad64b67d17a63374c813417cf54f23807f58c94))
+- inline source maps file name on ts ([d864ec1](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/d864ec1940cc4218f5a82e827ca80af680d931ac))
+
+### Chores
+
+- **deps:** bump actions/cache from 2.1.4 to 3.0.2 ([59f4848](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/59f48481ee3875d869137dffdfe6314ffcdd42f7))
+- **deps:** bump actions/checkout from 2 to 3 ([32a58d5](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/32a58d5a6265976b2c7b64bfa3e24bcd6b9e552c))
+- **deps:** bump actions/setup-node from 2.1.5 to 3.2.0 ([9159b3c](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/9159b3cfa93231f362cf92ba385ca260dc6cd232))
+- **deps:** bump ridedott/release-me-action from 3.5.16 to 3.6.39 ([35f5b17](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/35f5b17d799f58785f0b6b4f333ad131274c77a1))
+- **deps:** bump rlespinasse/github-slug-action from 3.5.1 to 4.2.4 ([92117b7](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/92117b7d8ebe62e28f582830d229ad10b32b76e2))
+- **deps:** bump technote-space/auto-cancel-redundant-job ([83a3c22](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/83a3c2261bae3faf065b3d28b3ad47ee21ea1513))
+- **deps:** bump technote-space/auto-cancel-redundant-job ([4ef88c6](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/4ef88c6c640bcd769bba58a7e5118e166bebf639))
+- **deps:** bump wagoid/commitlint-github-action from 3.1.0 to 4.1.12 ([5cda7da](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/5cda7dad7be90f91d103abf02b2e42e8092a4679))
+
+### Continuous Integration
+
+- upgrade node to lts ([4d1f736](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/4d1f7363dec019f8fbd21a080472a115ddeb681b))
+
 ## [1.1.11](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.10...v1.1.11) (2021-04-09)
 
 ### Bug Fixes
