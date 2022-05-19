@@ -14,10 +14,10 @@ module.exports = async () => {
   await ForEach(fixtures, async ({ name }) => {
     const root = resolve(__dirname, '__fixtures__', name);
 
-    await rmdir(resolve(root, 'plugin'), { recursive: true });
-    await mkdir(resolve(root, 'plugin'));
-    await rmdir(resolve(root, '.serverless'), { recursive: true });
-    await mkdir(resolve(root, '.serverless'), { recursive: true });
+    await Intercept(rmdir(resolve(root, 'plugin'), { recursive: true }));
+    await Intercept(mkdir(resolve(root, 'plugin')));
+    await Intercept(rmdir(resolve(root, '.serverless'), { recursive: true }));
+    await Intercept(mkdir(resolve(root, '.serverless'), { recursive: true }));
 
     await link(
       resolve(__dirname, '../index.js'),
@@ -29,8 +29,10 @@ module.exports = async () => {
       resolve(root, 'plugin/package.json'),
     );
 
-    await rmdir(resolve(root, '.yarn/cache'), { recursive: true });
-    await rmdir(resolve(root, '.yarn/unplugged'), { recursive: true });
+    await Intercept(rmdir(resolve(root, '.yarn/cache'), { recursive: true }));
+    await Intercept(
+      rmdir(resolve(root, '.yarn/unplugged'), { recursive: true }),
+    );
     await Intercept(unlink(resolve(root, '.yarn/build-state.yml')));
     await Intercept(unlink(resolve(root, '.yarn/install-state.gz')));
 

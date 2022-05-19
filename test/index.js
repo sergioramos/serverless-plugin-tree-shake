@@ -148,7 +148,7 @@ for (const typescript of [false, true]) {
         const rootCwd = join(serverless, service);
 
         if (!individually) {
-          await rmdir(rootCwd, { recursive: true });
+          await Intercept(rmdir(rootCwd, { recursive: true }));
           await decompress(`${service}.zip`, serverless);
 
           t.snapshot(serializeTree(normalizeTree(Tree(rootCwd), rootCwd)));
@@ -161,7 +161,7 @@ for (const typescript of [false, true]) {
           const [fullpath, fn] = getFn(handler, individually ? cwd : rootCwd);
 
           if (individually) {
-            await rmdir(cwd, { recursive: true });
+            await Intercept(rmdir(cwd, { recursive: true }));
             await decompress(`${service}.zip`, serverless);
             const outputs = await readOutputs(
               { [service]: functions[service] },
