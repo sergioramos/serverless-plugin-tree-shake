@@ -1,6 +1,6 @@
 {
   "name": "serverless-plugin-tree-shake",
-  "version": "1.1.11",
+  "version": "1.1.12",
   "description": "Shake the dependency tree and only include files needed",
   "license": "BSD-3-Clause",
   "repository": "github:sergioramos/serverless-plugin-tree-shake",
@@ -43,7 +43,7 @@
     "nanomatch": "^1.2.13",
     "path-is-inside": "^1.0.2",
     "pkg-up": "^3.1.0",
-    "tempy": "^1.0.1"
+    "tempy": "^3.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.1",
