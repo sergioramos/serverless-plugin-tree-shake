@@ -29,7 +29,7 @@
     "test": "NODE_ENV=test ava --timeout=5m"
   },
   "dependencies": {
-    "@vercel/nft": "^0.19.0",
+    "@vercel/nft": "^0.20.0",
     "apr-find": "^3.0.3",
     "apr-intercept": "^3.0.4",
     "apr-map": "^3.0.3",
