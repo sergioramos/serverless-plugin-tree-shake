@@ -19,8 +19,8 @@ const { writeSync } = require('tempy');
 const Uniq = require('lodash.uniq');
 const pkgUp = require('pkg-up');
 
-const zipService = require('serverless/lib/plugins/package/lib/zipService');
-const packageService = require('serverless/lib/plugins/package/lib/packageService');
+const zipService = tryRequire('zipService', 'zip-service');
+const packageService = tryRequire('packageService', 'package-service');
 const NativePkg = require('serverless/lib/plugins/package/package');
 
 const EXTENSIONS = ['.tsx', '.ts', '.node', '.mjs', '.cjs', '.js'];
@@ -78,6 +78,14 @@ try {
 } catch (e) {
   // eslint-disable-next-line no-var,block-scoped-var,no-redeclare
   var tsAvailable = false;
+}
+
+function tryRequire(oldLib, newLib) {
+  try {
+    return require(`serverless/lib/plugins/package/lib/${oldLib}`);
+  } catch (err) {
+    return require(`serverless/lib/plugins/package/lib/${newLib}`);
+  }
 }
 
 const getCompilerOptions = (entrypoint, servicePath) => {

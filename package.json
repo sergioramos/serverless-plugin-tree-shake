@@ -1,6 +1,6 @@
 {
   "name": "serverless-plugin-tree-shake",
-  "version": "1.1.11",
+  "version": "1.1.13",
   "description": "Shake the dependency tree and only include files needed",
   "license": "BSD-3-Clause",
   "repository": "github:sergioramos/serverless-plugin-tree-shake",
@@ -29,7 +29,7 @@
     "test": "NODE_ENV=test ava --timeout=5m"
   },
   "dependencies": {
-    "@vercel/nft": "^0.19.0",
+    "@vercel/nft": "^0.22.1",
     "apr-find": "^3.0.3",
     "apr-intercept": "^3.0.4",
     "apr-map": "^3.0.3",
@@ -47,14 +47,14 @@
     "tempy": "^1.0.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.0.0",
+    "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.0.0",
     "apr-for-each": "^3.0.3",
     "apr-main": "^4.0.3",
     "apr-reduce": "^3.0.3",
-    "ava": "^3.15.0",
-    "directory-tree": "^2.3.1",
-    "eslint": "^8.15.0",
+    "ava": "^4.3.3",
+    "directory-tree": "^3.3.1",
+    "eslint": "^8.23.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-xo-space": "^0.33.0",
     "execa": "^5.1.1",
@@ -67,7 +67,7 @@
     "pretty-ms": "^7.0.1"
   },
   "peerDependencies": {
-    "serverless": "^2.72.3",
+    "serverless": "^3.22.0",
     "typescript": "^4.6.4"
   },
   "resolutions": {
