@@ -8965,7 +8965,7 @@ __metadata:
     tempy: ^1.0.1
   peerDependencies:
     osls: ^3.40.1
-    typescript: ^4.6.4
+    typescript: ^5.8.3
   languageName: unknown
   linkType: soft
 
