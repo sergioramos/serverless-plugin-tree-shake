@@ -1,26 +1,18 @@
 |                                                     | Duration | Acc size |
 | :-------------------------------------------------- | :------: | :------: |
-| js-nm-individually -> serverless-plugin-ncc         |    9s    | 44.2 kB  |
-| js-nm-individually -> serverless-plugin-tree-shake  |   8.4s   |  119 kB  |
-| js-nm-individually -> default serverless            | 1m 9.8s  |  164 MB  |
-| js-nm-single -> serverless-plugin-ncc               |   8.9s   | 44.2 kB  |
-| js-nm-single -> serverless-plugin-tree-shake        |   9.7s   | 59.6 kB  |
-| js-nm-single -> default serverless                  |  43.1s   | 82.2 MB  |
-| js-pnp-individually -> serverless-plugin-ncc        |   8.6s   | 44.2 kB  |
-| js-pnp-individually -> serverless-plugin-tree-shake |   7.5s   |  119 kB  |
-| js-pnp-individually -> default serverless           |  1m 9s   |  164 MB  |
-| js-pnp-single -> serverless-plugin-ncc              |   8.6s   | 44.2 kB  |
-| js-pnp-single -> serverless-plugin-tree-shake       |   7.5s   | 59.6 kB  |
-| js-pnp-single -> default serverless                 |  42.4s   | 82.2 MB  |
-| ts-nm-individually -> serverless-plugin-ncc         |  14.4s   | 53.3 kB  |
-| ts-nm-individually -> serverless-plugin-tree-shake  |   7.9s   |  133 kB  |
-| ts-nm-individually -> default serverless            | 1m 14.2s |  204 MB  |
-| ts-nm-single -> serverless-plugin-ncc               |  14.4s   | 53.3 kB  |
-| ts-nm-single -> serverless-plugin-tree-shake        |    8s    | 66.1 kB  |
-| ts-nm-single -> default serverless                  |  57.6s   | 27.4 MB  |
-| ts-pnp-individually -> serverless-plugin-ncc        |  14.6s   | 53.2 kB  |
-| ts-pnp-individually -> serverless-plugin-tree-shake |   8.2s   |  133 kB  |
-| ts-pnp-individually -> default serverless           | 1m 14.5s |  204 MB  |
-| ts-pnp-single -> serverless-plugin-ncc              |  14.4s   | 53.2 kB  |
-| ts-pnp-single -> serverless-plugin-tree-shake       |   7.9s   | 66.1 kB  |
-| ts-pnp-single -> default serverless                 |  55.4s   | 27.4 MB  |
+| js-nm-individually -> serverless-plugin-tree-shake  |    2s    |  86.7 kB |
+| js-nm-individually -> default serverless            |   22.1s  |  285 MB  |
+| js-nm-single -> serverless-plugin-tree-shake        |   1.8s   |  43.6 kB |
+| js-nm-single -> default serverless                  |   19.3s  |  144 MB  |
+| js-pnp-individually -> serverless-plugin-tree-shake |   2.2s   |  86.7 kB |
+| js-pnp-individually -> default serverless           |    25s   |  288 MB  |
+| js-pnp-single -> serverless-plugin-tree-shake       |   2.2s   |  43.6 kB |
+| js-pnp-single -> default serverless                 |   19.7s  |  144 MB  |
+| ts-nm-individually -> serverless-plugin-tree-shake  |   2.4s   |  102 kB  |
+| ts-nm-individually -> default serverless            |   24.1s  |  313 MB  |
+| ts-nm-single -> serverless-plugin-tree-shake        |   2.5s   |  50.2 kB |
+| ts-nm-single -> default serverless                  |   30.1s  |  51.7 MB |
+| ts-pnp-individually -> serverless-plugin-tree-shake |   2.5s   |  102 kB  |
+| ts-pnp-individually -> default serverless           |   24.2s  |  313 MB  |
+| ts-pnp-single -> serverless-plugin-tree-shake       |   2.4s   |  50.2 kB |
+| ts-pnp-single -> default serverless                 |   32.6s  |  51.7 MB |

@@ -1,18 +1,16 @@
 const { name: service } = require('./package.json');
 
 const DISABLE_TREE_SHAKE = Boolean(JSON.parse(process.env.DISABLE_TREE_SHAKE || '0'));
-const ENABLE_NCC = Boolean(JSON.parse(process.env.ENABLE_NCC || '0'));
-
 module.exports = {
+  frameworkVersion: '3',
   service,
   plugins: [
-    DISABLE_TREE_SHAKE && !ENABLE_NCC ? 'serverless-plugin-typescript' : false,
-    DISABLE_TREE_SHAKE ? false : './plugin',
-    ENABLE_NCC ? 'serverless-plugin-ncc' : false
+    DISABLE_TREE_SHAKE ? 'serverless-plugin-typescript' : false,
+    DISABLE_TREE_SHAKE ? false : './plugin'
   ].filter(Boolean),
   provider: {
     name: 'aws',
-    runtime: 'nodejs12.x',
+    runtime: 'nodejs20.x',
   },
   package: {
     individually: false,

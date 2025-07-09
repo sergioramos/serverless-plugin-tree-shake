@@ -2,9 +2,7 @@
   "name": "js-pnp-single",
   "private": true,
   "devDependencies": {
-    "@zeit/ncc": "^0.22.3",
-    "serverless": "^2.72.3",
-    "serverless-plugin-ncc": "^0.4.0"
+    "osls": "^3.40.1"
   },
   "workspaces": [
     "handlers/*",
