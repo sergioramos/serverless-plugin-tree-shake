@@ -35,7 +35,7 @@
     "apr-intercept": "^3.0.4",
     "apr-map": "^3.0.3",
     "apr-parallel": "^3.0.3",
-    "archiver": "^5.3.1",
+    "archiver": "^7.0.1",
     "globby": "^11.1.0",
     "lodash.flatten": "^4.4.0",
     "lodash.sortby": "^4.7.0",
