@@ -67,7 +67,7 @@
     "pretty-ms": "^7.0.1"
   },
   "peerDependencies": {
-    "serverless": "^2.72.3",
+    "osls": "^3.40.1",
     "typescript": "^4.6.4"
   },
   "resolutions": {

@@ -47,37 +47,6 @@ Main(async () => {
         treeShakeSize,
       );
 
-      // with ncc
-      console.log('Packaging %s with ncc', name);
-      const nccStart = Date.now();
-      await Execa('yarn', ['sls', 'package'], {
-        stdio: 'inherit',
-        cwd: root,
-        env: {
-          ...process.env,
-          DISABLE_TREE_SHAKE: '1',
-          ENABLE_NCC: '1',
-        },
-      });
-
-      const nccDuration = PrettyMs(Date.now() - nccStart);
-      const nccSize = PrettyBytes(
-        await Reduce(
-          await readdir(output),
-          async (memo, name) => {
-            if (extname(name) !== '.zip') {
-              return memo;
-            }
-
-            const { size } = await stat(resolve(output, name));
-            return memo + size;
-          },
-          0,
-        ),
-      );
-
-      console.log('Packaged %s with ncc: %s, %s', name, nccDuration, nccSize);
-
       // with default
       console.log('Packaging %s with default config', name);
       const defaultStart = Date.now();
@@ -114,11 +83,6 @@ Main(async () => {
       );
 
       return memo.concat([
-        {
-          name: `${name} -> serverless-plugin-ncc`,
-          size: nccSize,
-          duration: nccDuration,
-        },
         {
           name: `${name} -> ${pkgName}`,
           size: treeShakeSize,

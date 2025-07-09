@@ -2,9 +2,7 @@
   "name": "ts-pnp-individually",
   "private": true,
   "devDependencies": {
-    "@zeit/ncc": "^0.22.3",
-    "serverless": "^2.72.3",
-    "serverless-plugin-ncc": "^0.4.0",
+    "osls": "^3.40.1",
     "serverless-plugin-typescript": "^2.1.2",
     "typescript": "^4.6.4"
   },
