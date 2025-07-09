@@ -49,8 +49,8 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.1.1",
-    "@commitlint/cli": "^17.0.0",
-    "@commitlint/config-conventional": "^17.0.0",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "apr-for-each": "^3.0.3",
     "apr-main": "^4.0.3",
     "apr-reduce": "^3.0.3",
