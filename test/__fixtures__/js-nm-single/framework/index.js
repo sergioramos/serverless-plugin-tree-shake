@@ -5,7 +5,7 @@ const Bourne = require('@hapi/bourne');
 const Debug = require('debug');
 const Intercept = require('apr-intercept');
 
-module.exports.validate = (prop,value,schema,options) => {
+module.exports.validate = (prop, value, schema, options) => {
   const { error, value: res } = schema.validate(value, options);
   if (error) {
     throw Boom.badRequest(`Error "${prop}": ${error.message}`, {
@@ -52,16 +52,16 @@ module.exports.http = (fn) => async (event) => {
 
   if (err) {
     debug('http:error', err);
-    const error = !Boom.isBoom(err)
-      ? Boom.boomify(err, {
+    const error = Boom.isBoom(err)
+      ? err
+      : Boom.boomify(err, {
           statusCode: 500,
           data: {
             error: err,
           },
-        })
-      : err;
+        });
 
-    const {data} = error;
+    const { data } = error;
     const payload =
       data && data.details
         ? {
@@ -75,7 +75,7 @@ module.exports.http = (fn) => async (event) => {
       body: JSON.stringify(payload),
       headers: {
         'content-type': 'application/json',
-        ...(error.output.headers),
+        ...error.output.headers,
       },
     };
   }

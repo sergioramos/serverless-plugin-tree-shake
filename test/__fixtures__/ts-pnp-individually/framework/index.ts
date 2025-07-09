@@ -2,10 +2,10 @@
 
 import Boom from '@hapi/boom';
 import Bourne from '@hapi/bourne';
-import Debug from 'debug';
+import type Joi from '@hapi/joi';
 import Intercept from 'apr-intercept';
-import { APIGatewayProxyResult, APIGatewayProxyEvent } from 'aws-lambda';
-import Joi from '@hapi/joi';
+import type { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
+import Debug from 'debug';
 
 export interface Request {
   method: 'get' | 'post';
@@ -42,78 +42,78 @@ export const validate = <T>(
 
 // ensure any thrown exception is handled and returned correctly
 const debug = Debug('http');
-export const http = <T>(
-  fn: (request: Request) => Promise<Response> | Response,
-) => async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-  let payload;
-  try {
-    payload = event.body && Bourne.parse(event.body);
-  } catch (err) {
-    const boom = Boom.badRequest(err.message);
-    return {
-      statusCode: boom.output.statusCode,
-      body: JSON.stringify(boom.output.payload),
-    };
-  }
-
-  // lowercase headers
-  const headers =
-    event.headers &&
-    Object.entries(event.headers).reduce((res, [key, value]) => {
+export const http =
+  <T>(fn: (request: Request) => Promise<Response> | Response) =>
+  async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+    let payload;
+    try {
+      payload = event.body && Bourne.parse(event.body);
+    } catch (err) {
+      const boom = Boom.badRequest(err.message);
       return {
-        ...res,
-        [key.toLowerCase()]: value,
+        statusCode: boom.output.statusCode,
+        body: JSON.stringify(boom.output.payload),
       };
-    }, {});
+    }
 
-  const request = {
-    method: event.httpMethod.toLocaleLowerCase(),
-    headers,
-    params: event.pathParameters,
-    payload,
-    query: event.queryStringParameters,
-  } as Request;
+    // lowercase headers
+    const headers =
+      event.headers &&
+      Object.entries(event.headers).reduce((res, [key, value]) => {
+        return {
+          ...res,
+          [key.toLowerCase()]: value,
+        };
+      }, {});
 
-  const [err, result] = await Intercept(fn(request));
+    const request = {
+      method: event.httpMethod.toLocaleLowerCase(),
+      headers,
+      params: event.pathParameters,
+      payload,
+      query: event.queryStringParameters,
+    } as Request;
 
-  if (err) {
-    debug('http:error', err);
-    const error = !Boom.isBoom(err)
-      ? Boom.boomify(err, {
-          statusCode: 500,
-          data: {
-            error: err,
-          },
-        })
-      : err;
+    const [err, result] = await Intercept(fn(request));
 
-    const data = error.data as { details: unknown };
-    const payload =
-      data && data.details
-        ? {
-            ...error.output.payload,
-            details: data.details,
-          }
-        : error.output.payload;
+    if (err) {
+      debug('http:error', err);
+      const error = Boom.isBoom(err)
+        ? err
+        : Boom.boomify(err, {
+            statusCode: 500,
+            data: {
+              error: err,
+            },
+          });
+
+      const data = error.data as { details: unknown };
+      const payload =
+        data && data.details
+          ? {
+              ...error.output.payload,
+              details: data.details,
+            }
+          : error.output.payload;
+
+      return {
+        statusCode: error.output.statusCode,
+        body: JSON.stringify(payload),
+        headers: {
+          'content-type': 'application/json',
+          ...(error.output.headers as
+            | { [header: string]: string | number | boolean }
+            | undefined),
+        },
+      };
+    }
 
     return {
-      statusCode: error.output.statusCode,
-      body: JSON.stringify(payload),
+      statusCode: result.statusCode || 200,
+      body: result.payload && JSON.stringify(result.payload),
       headers: {
         'content-type': 'application/json',
-        ...(error.output.headers as
-          | { [header: string]: string | number | boolean }
-          | undefined),
+        ...result.headers,
       },
     };
-  }
-
-  return {
-    statusCode: result.statusCode || 200,
-    body: result.payload && JSON.stringify(result.payload),
-    headers: {
-      'content-type': 'application/json',
-      ...result.headers,
-    },
   };
-};

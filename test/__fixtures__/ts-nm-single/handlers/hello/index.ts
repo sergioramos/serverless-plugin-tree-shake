@@ -1,5 +1,5 @@
-import { APIGatewayProxyHandler } from 'aws-lambda';
+import type { APIGatewayProxyHandler } from 'aws-lambda';
 import * as lambda from 'framework';
-import handle from './handler'
+import handle from './handler';
 
 export const handler: APIGatewayProxyHandler = lambda.http(handle);

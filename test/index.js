@@ -3,7 +3,7 @@ const Tree = require('directory-tree');
 const Execa = require('execa');
 const { series: ForEach } = require('apr-for-each');
 const Flatten = require('lodash.flatten');
-const { readlinkSync, realpathSync, lstatSync } = require('fs');
+const { readlinkSync, realpathSync, lstatSync } = require('node:fs');
 const { readFile, rmdir } = require('mz/fs');
 const Intercept = require('apr-intercept');
 const PathIsInside = require('path-is-inside');
@@ -11,7 +11,7 @@ const { isSymlinkSync } = require('path-type');
 const Reduce = require('apr-reduce');
 const SortBy = require('lodash.sortby');
 const Uniq = require('lodash.uniq');
-const Setup = require('./setup');
+const Setup = require('./setup.js');
 
 const {
   basename,
@@ -21,7 +21,7 @@ const {
   resolve,
   relative,
   sep,
-} = require('path');
+} = require('node:path');
 
 const EVENT = {
   httpMethod: 'GET',
@@ -68,8 +68,8 @@ const normalizeTree = ({ path: fullpath, type, children = [] }, root) => {
   const source = isSymlink
     ? readlinkSync(fullpath)
     : hasSymlink && fullpath !== target
-    ? relative(stat.isDirectory() ? fullpath : dirname(fullpath), target)
-    : null;
+      ? relative(stat.isDirectory() ? fullpath : dirname(fullpath), target)
+      : null;
 
   return SortBy(
     Flatten(

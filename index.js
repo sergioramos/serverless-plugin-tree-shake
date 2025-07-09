@@ -1,5 +1,5 @@
 const archiver = require('archiver');
-const { readFileSync, lstatSync, realpathSync, ...fs } = require('fs');
+const { readFileSync, lstatSync, realpathSync, ...fs } = require('node:fs');
 const { exists, existsSync, stat: statAsync } = require('mz/fs');
 const { nodeFileTrace: FileTrace } = require('@vercel/nft');
 const { default: resDep } = require('@vercel/nft/out/resolve-dependency.js');
@@ -9,8 +9,7 @@ const Globby = require('globby');
 const { default: Map } = require('apr-map');
 const nanomatch = require('nanomatch');
 const Parallel = require('apr-parallel');
-const { basename, dirname, extname, isAbsolute, sep, join } = require('path');
-const { normalize, relative, resolve } = require('path');
+const { normalize, relative, resolve } = require('node:path');
 const PathIsInside = require('path-is-inside');
 const Intercept = require('apr-intercept');
 const SortBy = require('lodash.sortby');
@@ -19,13 +18,22 @@ const { writeSync } = require('tempy');
 const Uniq = require('lodash.uniq');
 const pkgUp = require('pkg-up');
 
+const {
+  basename,
+  dirname,
+  extname,
+  isAbsolute,
+  sep,
+  join,
+} = require('node:path');
+
 const zipService = require('osls/lib/plugins/package/lib/zip-service');
 const packageService = require('osls/lib/plugins/package/lib/package-service');
 const NativePkg = require('osls/lib/plugins/package/package');
 
 const EXTENSIONS = ['.tsx', '.ts', '.node', '.mjs', '.cjs', '.js'];
 const NODE_BUILTINS = [
-  ...require('repl')._builtinLibs,
+  ...require('node:repl')._builtinLibs,
   'fs/promises',
   'constants',
   'module',
@@ -38,6 +46,7 @@ const NODE_BUILTINS = [
   'sys',
 ];
 
+let pnp, locatorMap;
 if ('pnp' in process.versions) {
   try {
     const {
@@ -45,24 +54,16 @@ if ('pnp' in process.versions) {
       buildLocatorMap,
     } = require('@yarnpkg/pnpify');
 
-    // eslint-disable-next-line no-var, block-scoped-var
-    var pnp = require('pnpapi');
-    // eslint-disable-next-line no-var, block-scoped-var
-    var locatorMap = buildLocatorMap(
-      // eslint-disable-next-line block-scoped-var
+    pnp = require('pnpapi');
+    locatorMap = buildLocatorMap(
       buildNodeModulesTree(pnp, { pnpifyFs: false }),
     );
-  } catch (err) {
-    console.error(err);
-    // eslint-disable-next-line no-var, no-redeclare
-    var locatorMap;
-    // eslint-disable-next-line no-var, no-redeclare
-    var pnp;
-  }
+  } catch (_err) {}
 }
 
+let tsAvailable = false;
 try {
-  // eslint-disable-next-line no-var
+  // biome-ignore lint/correctness/noInnerDeclarations: we don't know if this module exists or not
   var {
     findConfigFile,
     flattenDiagnosticMessageText,
@@ -72,25 +73,17 @@ try {
     transpileModule,
   } = require('typescript');
 
-  // eslint-disable-next-line no-var,block-scoped-var
-  var tsAvailable = true;
-  // eslint-disable-next-line no-unused-vars
-} catch (e) {
-  // eslint-disable-next-line no-var,block-scoped-var,no-redeclare
-  var tsAvailable = false;
-}
+  tsAvailable = true;
+} catch (_e) {}
 
 const getCompilerOptions = (entrypoint, servicePath) => {
-  // eslint-disable-next-line block-scoped-var
   const filepath = findConfigFile(dirname(entrypoint), sys.fileExists);
   if (!filepath) {
     return {};
   }
 
-  // eslint-disable-next-line block-scoped-var
   const { config, error } = readConfigFile(filepath, sys.readFile);
   if (error) {
-    // eslint-disable-next-line block-scoped-var
     console.error(flattenDiagnosticMessageText(error.messageText, '\n'));
   }
 
@@ -98,10 +91,8 @@ const getCompilerOptions = (entrypoint, servicePath) => {
     return {};
   }
 
-  // eslint-disable-next-line block-scoped-var
   const { options: compilerOptions = {} } = parseJsonConfigFileContent(
     config,
-    // eslint-disable-next-line block-scoped-var
     sys,
     servicePath,
     {},
@@ -322,7 +313,6 @@ module.exports = class {
     };
 
     const revertPnp = ({ filePath }) => {
-      // eslint-disable-next-line block-scoped-var
       if (!locatorMap) {
         return;
       }
@@ -330,9 +320,7 @@ module.exports = class {
       try {
         const name = filePath.slice(prefix ? `${prefix}${sep}`.length : 0);
 
-        // eslint-disable-next-line block-scoped-var
         const { name: key, reference } = pnp.findPackageLocator(name);
-        // eslint-disable-next-line block-scoped-var
         const { locations, target } = locatorMap.get(`${key}@${reference}`);
         const isSymlink = !/\.yarn\//.test(name);
 
@@ -397,11 +385,7 @@ module.exports = class {
 
           const name = filePath.slice(prefix ? `${prefix}${sep}`.length : 0);
 
-          if (
-            normalizedFilesToChmodPlusX &&
-            normalizedFilesToChmodPlusX.includes(name) &&
-            mode % 2 === 0
-          ) {
+          if (normalizedFilesToChmodPlusX?.includes(name) && mode % 2 === 0) {
             mode += 1;
           }
 
@@ -456,7 +440,6 @@ module.exports = class {
         }
       }
 
-      // eslint-disable-next-line block-scoped-var
       if (!tsAvailable) {
         return readFileSync(pathname, 'utf-8');
       }
@@ -472,7 +455,6 @@ module.exports = class {
         return readFileSync(pathname, 'utf-8');
       }
 
-      // eslint-disable-next-line block-scoped-var
       const { outputText } = transpileModule(sys.readFile(pathname), {
         compilerOptions: getCompilerOptions(pathname, this.servicePath),
         fileName: basename(pathname),
@@ -525,7 +507,7 @@ module.exports = class {
           return nativeResolve(previous, parent);
         }
 
-        return fallbackResolve('./' + join(id, 'index'), parent, {
+        return fallbackResolve(`./${join(id, 'index')}`, parent, {
           tryAgain: false,
           previous: id,
         });
@@ -538,13 +520,13 @@ module.exports = class {
       base: this.servicePath,
       readLink: handleFile,
       readFile: handleFile,
-      resolve: async (id, parent, job, isESM) => {
+      resolve: async (id, parent, job, isEsm) => {
         if (NODE_BUILTINS.includes(id)) {
           return `node:${id}`;
         }
 
         const [, defaultResolve] = await Intercept(
-          resDep(id, parent, job, isESM),
+          resDep(id, parent, job, isEsm),
         );
 
         return defaultResolve ? defaultResolve : fallbackResolve(id, parent);
@@ -583,7 +565,6 @@ module.exports = class {
         const exclude = p.startsWith('!');
         const pattern = exclude ? p.slice(1) : p;
         return nanomatch(allFilePaths, [pattern], { dot: true }).forEach(
-          // eslint-disable-next-line no-return-assign
           (key) => (filePathStates[key] = !exclude),
         );
       });
@@ -592,14 +573,13 @@ module.exports = class {
       .filter((r) => r[1] === true)
       .map((r) => r[0]);
 
-    if (!filePaths.length) {
+    if (filePaths.length === 0) {
       throw new this.serverless.classes.Error(
         'No file matches include / exclude patterns',
       );
     }
 
     const appendPkgs = async (filePaths) => {
-      // eslint-disable-next-line block-scoped-var
       if (!locatorMap) {
         return filePaths;
       }
@@ -627,7 +607,6 @@ module.exports = class {
 
     const filePathsWPkgs = await appendPkgs(filePaths);
 
-    // eslint-disable-next-line block-scoped-var
     if (tsAvailable) {
       filePathsWPkgs
         .filter((pathname) => {
