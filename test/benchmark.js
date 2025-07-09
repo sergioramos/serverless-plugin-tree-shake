@@ -2,11 +2,11 @@ const Execa = require('execa');
 const { stat, readdir, writeFile } = require('mz/fs');
 const Reduce = require('apr-reduce');
 const Main = require('apr-main');
-const { extname, resolve } = require('path');
+const { extname, resolve } = require('node:path');
 const PrettyBytes = require('pretty-bytes');
 const PrettyMs = require('pretty-ms');
 const Table = require('markdown-table');
-const Setup = require('./setup');
+const Setup = require('./setup.js');
 const { name: pkgName } = require('../package.json');
 
 Main(async () => {

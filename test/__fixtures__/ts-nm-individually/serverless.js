@@ -1,12 +1,12 @@
 const { name: service } = require('./package.json');
 
-const DISABLE_TREE_SHAKE = Boolean(JSON.parse(process.env.DISABLE_TREE_SHAKE || '0'));
+const DISABLE_TREE_SHAKE = Boolean(
+  JSON.parse(process.env.DISABLE_TREE_SHAKE || '0'),
+);
 module.exports = {
   frameworkVersion: '3',
   service,
-  plugins: [
-    DISABLE_TREE_SHAKE ? false : './plugin'
-  ].filter(Boolean),
+  plugins: [DISABLE_TREE_SHAKE ? false : './plugin'].filter(Boolean),
   provider: {
     name: 'aws',
     runtime: 'nodejs20.x',

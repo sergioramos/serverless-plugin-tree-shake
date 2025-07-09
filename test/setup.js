@@ -2,7 +2,7 @@ const Execa = require('execa');
 const { series: ForEach } = require('apr-for-each');
 const { readdir, rmdir, link, mkdir, unlink } = require('mz/fs');
 const Intercept = require('apr-intercept');
-const { resolve } = require('path');
+const { resolve } = require('node:path');
 
 module.exports = async () => {
   const ls = await readdir(resolve(__dirname, '__fixtures__'), {
