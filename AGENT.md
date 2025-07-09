@@ -97,10 +97,57 @@ A Serverless Framework plugin that optimizes deployment packages by analyzing de
 
 ## Git Workflow
 
-### Commit Guidelines
-- Conventional commits via `@commitlint/config-conventional`
-- Pre-commit hooks run lint-staged
-- Commit message validation via Husky
+This project follows the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification with [@commitlint/config-conventional](https://github.com/conventional-changelog/commitlint/tree/master/@commitlint/config-conventional) rules.
+
+### Commit Message Format
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+### Allowed Types
+- `build`: Changes to build system or external dependencies
+- `chore`: Routine tasks, maintenance, or tooling changes
+- `ci`: Changes to CI/CD configuration files and scripts
+- `docs`: Documentation changes
+- `feat`: New features
+- `fix`: Bug fixes
+- `perf`: Performance improvements
+- `refactor`: Code refactoring without feature changes
+- `revert`: Revert previous commits
+- `style`: Code style changes (formatting, missing semi-colons, etc.)
+- `test`: Adding or modifying tests
+
+### Rules
+- Type must be lowercase and from the allowed list
+- Subject cannot be empty or end with a period
+- Use lowercase for subject (no sentence-case, start-case, pascal-case, or upper-case)
+- Maximum header length: 100 characters
+- Maximum body/footer line length: 100 characters
+- Body and footer should have leading blank lines
+- Use `!` after type/scope or `BREAKING CHANGE:` footer for breaking changes
+
+### Examples
+```
+feat: add user authentication
+fix(auth): resolve password reset bug
+docs: update API documentation
+feat!: redesign user interface (breaking change)
+chore: upgrade dependencies
+```
+
+### Semantic Versioning Mapping
+- `fix:` → PATCH release (0.0.1)
+- `feat:` → MINOR release (0.1.0)
+- Breaking changes → MAJOR release (1.0.0)
+
+### Additional Guidelines
+- Do NOT include "🤖 Generated with <agent name (e.g. "Claude Code")>" footer in commit messages
+- Do NOT include "Co-Authored-By: <agent name (e.g. "Claude")> <email>" footer in commit messages
+- Keep commit messages clean and focused on the changes made
 
 ### Branch Management
 - Main branch: `master`
