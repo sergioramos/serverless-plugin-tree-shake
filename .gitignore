@@ -167,3 +167,4 @@ $RECYCLE.BIN/
 .npmrc
 .serverless
 test/__fixtures__/*/plugin
+settings.local.json
