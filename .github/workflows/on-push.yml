@@ -6,18 +6,14 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-      - uses: technote-space/auto-cancel-redundant-job@v1.7.5
+      - uses: technote-space/auto-cancel-redundant-job@v1
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Node.js
-        uses: actions/setup-node@v3.2.0
+        uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
-      - name: Setup Cache
-        uses: actions/cache@v3.0.2
-        with:
-          path: .yarn
-          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          cache: "yarn"
       - name: Install dependencies
         run: yarn install --immutable
         env:
@@ -31,25 +27,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Commit Lint
-        uses: wagoid/commitlint-github-action@v4.1.12
+        uses: wagoid/commitlint-github-action@v6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   ###############################################################################
-  # ESLINT                                                                      #
+  # BIOME                                                                      #
   ###############################################################################
-  eslint:
+  biome:
     needs: setup
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Biome
-        uses: biomejs/setup-biome@v2.5.0
+        uses: biomejs/setup-biome@v2
       - name: Run Biome
         run: biome ci --reporter=github
 
@@ -61,16 +57,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Node.js
-        uses: actions/setup-node@v3.2.0
+        uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
-      - name: Setup Cache
-        uses: actions/cache@v3.0.2
-        with:
-          path: .yarn
-          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          cache: "yarn"
       - name: Install dependencies
         run: yarn install --immutable --immutable-cache
       - name: Test
@@ -80,25 +72,20 @@ jobs:
   # RELEASE                                                                     #
   ###############################################################################
   release:
-    needs: [test, eslint, commitlint]
+    needs: [test, biome, commitlint]
     runs-on: ubuntu-latest
     steps:
       - name: Get branch
-        uses: rlespinasse/github-slug-action@4.2.4
+        uses: rlespinasse/github-slug-action@v5
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         if: ${{ env.GITHUB_REF_SLUG == 'master' }}
       - name: Setup Node.js
-        uses: actions/setup-node@v3.2.0
+        uses: actions/setup-node@v4
         if: ${{ env.GITHUB_REF_SLUG == 'master' }}
         with:
           node-version: "lts/*"
-      - name: Setup Cache
-        uses: actions/cache@v3.0.2
-        if: ${{ env.GITHUB_REF_SLUG == 'master' }}
-        with:
-          path: .yarn
-          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          cache: "yarn"
       - name: Install dependencies
         run: yarn install --immutable --immutable-cache
         if: ${{ env.GITHUB_REF_SLUG == 'master' }}
@@ -106,7 +93,7 @@ jobs:
         run: yarn run benchmark
         if: ${{ env.GITHUB_REF_SLUG == 'master' }}
       - name: Release
-        uses: ridedott/release-me-action@v3.6.39
+        uses: ridedott/release-me-action@v3
         if: ${{ env.GITHUB_REF_SLUG == 'master' }}
         with:
           node-module: true
