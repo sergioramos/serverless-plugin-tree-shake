@@ -9003,13 +9003,13 @@ __metadata:
     tempy: ^1.0.1
   peerDependencies:
     osls: ^3.40.1
-    typescript: ^4.6.4
+    typescript: ^5.8.3
   languageName: unknown
   linkType: soft
 
-"serverless-plugin-typescript@npm:^2.1.2":
-  version: 2.1.2
-  resolution: "serverless-plugin-typescript@npm:2.1.2"
+"serverless-plugin-typescript@npm:2.1.5":
+  version: 2.1.5
+  resolution: "serverless-plugin-typescript@npm:2.1.5"
   dependencies:
     fs-extra: ^7.0.1
     globby: ^10.0.2
@@ -9017,7 +9017,7 @@ __metadata:
   peerDependencies:
     serverless: 2 || 3
     typescript: ">=2.2.2"
-  checksum: af7b4049c822e181cb50994dcbcf6872df52f1e5bdc58056b30154f5a616ddb84ffacf863c318aeaab5020f642c96994b862367b775d772d01d9632097e3d72b
+  checksum: b0c59a783e70d8cc5cc693629bc058c169f3d66df01932768f7b4f5d5e1929923107c6995db21ca575e0675b052a59321bc0a7d809d9ac123a3b3442273334b7
   languageName: node
   linkType: hard
 
@@ -9859,8 +9859,8 @@ __metadata:
   resolution: "ts-nm-single@workspace:."
   dependencies:
     osls: ^3.40.1
-    serverless-plugin-typescript: ^2.1.2
-    typescript: ^4.6.4
+    serverless-plugin-typescript: 2.1.5
+    typescript: ^5.8.3
   languageName: unknown
   linkType: soft
 
@@ -10003,23 +10003,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.6.4":
-  version: 4.6.4
-  resolution: "typescript@npm:4.6.4"
+"typescript@npm:^5.8.3":
+  version: 5.8.3
+  resolution: "typescript@npm:5.8.3"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: e7bfcc39cd4571a63a54e5ea21f16b8445268b9900bf55aee0e02ad981be576acc140eba24f1af5e3c1457767c96cea6d12861768fb386cf3ffb34013718631a
+  checksum: cb1d081c889a288b962d3c8ae18d337ad6ee88a8e81ae0103fa1fecbe923737f3ba1dbdb3e6d8b776c72bc73bfa6d8d850c0306eed1a51377d2fccdfd75d92c4
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.6.4#~builtin<compat/typescript>":
-  version: 4.6.4
-  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=7ad353"
+"typescript@patch:typescript@^5.8.3#~builtin<compat/typescript>":
+  version: 5.8.3
+  resolution: "typescript@patch:typescript@npm%3A5.8.3#~builtin<compat/typescript>::version=5.8.3&hash=7ad353"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 1cb434fbc637d347be90e3a0c6cd05e33c38f941713c8786d3031faf1842c2c148ba91d2fac01e7276b0ae3249b8633f1660e32686cc7a8c6a8fd5361dc52c66
+  checksum: 1b503525a88ff0ff5952e95870971c4fb2118c17364d60302c21935dedcd6c37e6a0a692f350892bafcef6f4a16d09073fe461158547978d2f16fbe4cb18581c
   languageName: node
   linkType: hard
 
