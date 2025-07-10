@@ -17,6 +17,6 @@ jobs:
       env:
         YARN_CHECKSUM_BEHAVIOR: update
     - name: Publish
-      uses: JS-DevTools/npm-publish@v1
+      uses: JS-DevTools/npm-publish@v3
       with:
         token: ${{ secrets.NODE_AUTH_TOKEN }}
