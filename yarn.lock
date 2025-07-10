@@ -3019,12 +3019,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:^8.0.1":
-  version: 8.0.1
-  resolution: "husky@npm:8.0.1"
+"husky@npm:^9.1.7":
+  version: 9.1.7
+  resolution: "husky@npm:9.1.7"
   bin:
-    husky: lib/bin.js
-  checksum: 10/0f4c1162845cd8c4ecf13af85fe62a1c9de3d4277053004a59dae90a36346fe7eeb7eff3bc7a8484c4f365f6eccf7fd17aa6935198028980c9d6e95306455f3c
+    husky: bin.js
+  checksum: 10/c2412753f15695db369634ba70f50f5c0b7e5cb13b673d0826c411ec1bd9ddef08c1dad89ea154f57da2521d2605bd64308af748749b27d08c5f563bcd89975f
   languageName: node
   linkType: hard
 
@@ -5460,7 +5460,7 @@ __metadata:
     eslint-config-xo-space: "npm:^0.33.0"
     execa: "npm:^5.1.1"
     globby: "npm:^11.1.0"
-    husky: "npm:^8.0.1"
+    husky: "npm:^9.1.7"
     lint-staged: "npm:^12.4.1"
     lodash.flatten: "npm:^4.4.0"
     lodash.sortby: "npm:^4.7.0"
