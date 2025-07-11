@@ -153,8 +153,12 @@ for (const typescript of [false, true]) {
           await Intercept(rmdir(rootCwd, { recursive: true }));
           await decompress(`${service}.zip`, serverless);
 
-          t.snapshot(serializeTree(normalizeTree(Tree(rootCwd), rootCwd)));
           t.snapshot(await readOutputs(functions, rootCwd));
+          t.snapshot(
+            serializeTree(
+              normalizeTree(Tree(rootCwd, { attributes: ['type'] }), rootCwd),
+            ),
+          );
         }
 
         await ForEach(Object.keys(functions), async (service) => {
@@ -170,8 +174,12 @@ for (const typescript of [false, true]) {
               cwd,
             );
 
-            t.snapshot(serializeTree(normalizeTree(Tree(cwd), cwd)));
             t.snapshot(outputs);
+            t.snapshot(
+              serializeTree(
+                normalizeTree(Tree(cwd, { attributes: ['type'] }), cwd),
+              ),
+            );
           }
 
           t.snapshot(await require(fullpath)[fn](EVENT));
