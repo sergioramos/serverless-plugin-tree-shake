@@ -2,7 +2,7 @@ import { link, mkdir, readdir, rmdir, unlink } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { series as ForEach } from 'apr-for-each';
 import Intercept from 'apr-intercept';
-import Execa from 'execa';
+import { execa } from 'execa';
 
 export default async () => {
   const ls = await readdir(resolve(import.meta.dirname, '__fixtures__'), {
@@ -36,7 +36,7 @@ export default async () => {
     await Intercept(unlink(resolve(root, '.yarn/build-state.yml')));
     await Intercept(unlink(resolve(root, '.yarn/install-state.gz')));
 
-    await Execa('yarn', { stdio: 'inherit', cwd: root });
+    await execa('yarn', { stdio: 'inherit', cwd: root });
   });
 
   return fixtures;

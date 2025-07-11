@@ -59,7 +59,7 @@
     "apr-reduce": "^3.0.3",
     "ava": "^3.15.0",
     "directory-tree": "^3.5.2",
-    "execa": "^5.1.1",
+    "execa": "^9.6.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.2",
     "markdown-table": "^2.0.0",
