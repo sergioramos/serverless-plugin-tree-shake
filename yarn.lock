@@ -5229,7 +5229,7 @@ __metadata:
     markdown-table: "npm:^3.0.4"
     nanomatch: "npm:^1.2.13"
     path-is-inside: "npm:^1.0.2"
-    path-type: "npm:^4.0.0"
+    path-type: "npm:^6.0.0"
     pkg-up: "npm:^3.1.0"
     pretty-bytes: "npm:^5.6.0"
     pretty-ms: "npm:^9.2.0"
