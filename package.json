@@ -5,7 +5,11 @@
   "license": "BSD-3-Clause",
   "repository": "github:sergioramos/serverless-plugin-tree-shake",
   "author": "Sérgio Ramos <mail@sergioramos.me>",
+  "type": "module",
   "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
   "files": [
     "index.js"
   ],
@@ -41,7 +45,6 @@
     "lodash.sortby": "^4.7.0",
     "lodash.topairs": "^4.3.0",
     "lodash.uniq": "^4.5.0",
-    "mz": "^2.7.0",
     "nanomatch": "^1.2.13",
     "path-is-inside": "^1.0.2",
     "pkg-up": "^3.1.0",

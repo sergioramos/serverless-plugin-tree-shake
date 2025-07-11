@@ -1,1 +1,1 @@
-module.exports.statusCode = 200;
+export const statusCode = 200;

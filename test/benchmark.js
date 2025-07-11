@@ -1,19 +1,22 @@
-const Execa = require('execa');
-const { stat, readdir, writeFile } = require('mz/fs');
-const Reduce = require('apr-reduce');
-const Main = require('apr-main');
-const { extname, resolve } = require('node:path');
-const PrettyBytes = require('pretty-bytes');
-const PrettyMs = require('pretty-ms');
-const Table = require('markdown-table');
-const Setup = require('./setup.js');
+import { readdir, stat, writeFile } from 'node:fs/promises';
+import { createRequire } from 'node:module';
+import { extname, resolve } from 'node:path';
+import Main from 'apr-main';
+import Reduce from 'apr-reduce';
+import Execa from 'execa';
+import Table from 'markdown-table';
+import PrettyBytes from 'pretty-bytes';
+import PrettyMs from 'pretty-ms';
+import Setup from './setup.js';
+
+const require = createRequire(import.meta.url);
 const { name: pkgName } = require('../package.json');
 
 Main(async () => {
   const results = await Reduce(
     await Setup(),
     async (memo, { name }) => {
-      const root = resolve(__dirname, '__fixtures__', name);
+      const root = resolve(import.meta.dirname, '__fixtures__', name);
       const output = resolve(root, '.serverless');
 
       // with tree-shake
@@ -109,5 +112,5 @@ Main(async () => {
   );
 
   console.log(md);
-  await writeFile(resolve(__dirname, '../BENCHMARK.md'), md);
+  await writeFile(resolve(import.meta.dirname, '../BENCHMARK.md'), md);
 });

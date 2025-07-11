@@ -1,18 +1,18 @@
-const Execa = require('execa');
-const { series: ForEach } = require('apr-for-each');
-const { readdir, rmdir, link, mkdir, unlink } = require('mz/fs');
-const Intercept = require('apr-intercept');
-const { resolve } = require('node:path');
+import { link, mkdir, readdir, rmdir, unlink } from 'node:fs/promises';
+import { resolve } from 'node:path';
+import { series as ForEach } from 'apr-for-each';
+import Intercept from 'apr-intercept';
+import Execa from 'execa';
 
-module.exports = async () => {
-  const ls = await readdir(resolve(__dirname, '__fixtures__'), {
+export default async () => {
+  const ls = await readdir(resolve(import.meta.dirname, '__fixtures__'), {
     withFileTypes: true,
   });
 
   const fixtures = ls.filter((entry) => entry.isDirectory());
 
   await ForEach(fixtures, async ({ name }) => {
-    const root = resolve(__dirname, '__fixtures__', name);
+    const root = resolve(import.meta.dirname, '__fixtures__', name);
 
     await Intercept(rmdir(resolve(root, 'plugin'), { recursive: true }));
     await Intercept(mkdir(resolve(root, 'plugin')));
@@ -20,12 +20,12 @@ module.exports = async () => {
     await Intercept(mkdir(resolve(root, '.serverless'), { recursive: true }));
 
     await link(
-      resolve(__dirname, '../index.js'),
+      resolve(import.meta.dirname, '../index.js'),
       resolve(root, 'plugin/index.js'),
     );
 
     await link(
-      resolve(__dirname, '../package.json'),
+      resolve(import.meta.dirname, '../package.json'),
       resolve(root, 'plugin/package.json'),
     );
 

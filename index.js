@@ -1,31 +1,53 @@
-const archiver = require('archiver');
-const { readFileSync, lstatSync, realpathSync, ...fs } = require('node:fs');
-const { exists, existsSync, stat: statAsync } = require('mz/fs');
-const { nodeFileTrace: FileTrace } = require('@vercel/nft');
-const { default: resDep } = require('@vercel/nft/out/resolve-dependency.js');
-const Flatten = require('lodash.flatten');
-const { default: Find } = require('apr-find');
-const Globby = require('globby');
-const { default: Map } = require('apr-map');
-const nanomatch = require('nanomatch');
-const Parallel = require('apr-parallel');
-const { normalize, relative, resolve } = require('node:path');
-const PathIsInside = require('path-is-inside');
-const Intercept = require('apr-intercept');
-const SortBy = require('lodash.sortby');
-const ToPairs = require('lodash.topairs');
-const { writeSync } = require('tempy');
-const Uniq = require('lodash.uniq');
-const pkgUp = require('pkg-up');
-
-const {
+import {
+  createWriteStream,
+  existsSync,
+  lstatSync,
+  readFileSync,
+  realpathSync,
+} from 'node:fs';
+import { stat as statAsync } from 'node:fs/promises';
+import { createRequire } from 'node:module';
+import {
   basename,
   dirname,
   extname,
   isAbsolute,
-  sep,
   join,
-} = require('node:path');
+  normalize,
+  relative,
+  resolve,
+  sep,
+} from 'node:path';
+import { nodeFileTrace as FileTrace } from '@vercel/nft';
+import Intercept from 'apr-intercept';
+import Parallel from 'apr-parallel';
+import archiver from 'archiver';
+import Globby from 'globby';
+import Flatten from 'lodash.flatten';
+import SortBy from 'lodash.sortby';
+import ToPairs from 'lodash.topairs';
+import Uniq from 'lodash.uniq';
+import nanomatch from 'nanomatch';
+import PathIsInside from 'path-is-inside';
+import pkgUp from 'pkg-up';
+import { writeSync } from 'tempy';
+
+const require = createRequire(import.meta.url);
+
+// Create async exists function since fs.exists was removed
+const exists = async (filepath) => {
+  try {
+    await statAsync(filepath);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
+// Import CommonJS modules that don't work well with ES module imports
+const { default: Find } = require('apr-find');
+const { default: MapFunc } = require('apr-map');
+const { default: resDep } = require('@vercel/nft/out/resolve-dependency.js');
 
 const zipService = require('osls/lib/plugins/package/lib/zip-service');
 const packageService = require('osls/lib/plugins/package/lib/package-service');
@@ -102,7 +124,7 @@ const getCompilerOptions = (entrypoint, servicePath) => {
   return compilerOptions;
 };
 
-module.exports = class {
+export default class {
   constructor(serverless, options) {
     this.serverless = serverless;
     this.options = options;
@@ -148,7 +170,7 @@ module.exports = class {
   }
 
   async resolveFilePathsAll() {
-    const allFiles = await Map(
+    const allFiles = await MapFunc(
       this.serverless.service.getAllFunctions(),
       (fnName) => {
         return this.resolveFilePathsFunction(fnName);
@@ -289,7 +311,7 @@ module.exports = class {
     );
 
     this.serverless.utils.writeFileDir(artifactFilePath);
-    const output = fs.createWriteStream(artifactFilePath);
+    const output = createWriteStream(artifactFilePath);
 
     const inferNodeModulesPath = ({ filePath, name, key }) => {
       const filePathParts = filePath.split(sep);
@@ -372,7 +394,7 @@ module.exports = class {
           Uniq(filesToChmodPlusX.map((file) => normalize(file)));
 
         const contents = Flatten(
-          await Map(
+          await MapFunc(
             Uniq(files.map((pathname) => normalize(pathname))),
             (fullpath) => this.getFileContentAndStat(fullpath),
           ),
@@ -472,7 +494,12 @@ module.exports = class {
 
     const nativeResolve = (id, parent) => {
       return require.resolve(id, {
-        paths: [parent, dirname(parent), this.servicePath, __filename],
+        paths: [
+          parent,
+          dirname(parent),
+          this.servicePath,
+          import.meta.filename,
+        ],
       });
     };
 
@@ -586,7 +613,7 @@ module.exports = class {
 
       return Uniq(
         Flatten(
-          await Map(filePaths, async (pathname) => {
+          await MapFunc(filePaths, async (pathname) => {
             if (basename(pathname) === 'package.json') {
               return pathname;
             }
@@ -648,4 +675,4 @@ module.exports = class {
       return pathname.split(sep).includes('package.json');
     });
   }
-};
+}

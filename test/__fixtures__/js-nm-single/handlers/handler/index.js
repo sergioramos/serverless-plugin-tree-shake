@@ -1,5 +1,5 @@
-const { statusCode } = require('out');
+import { statusCode } from 'out';
 
-module.exports = async () => {
+export default async () => {
   return { statusCode };
 };

@@ -1,7 +1,8 @@
 {
   "name": "world-handler",
   "private": true,
-  "main": "index.ts",
+  "type": "module",
+  "main": "index.js",
   "dependencies": {
     "framework": "workspace:framework",
     "out": "workspace:out"

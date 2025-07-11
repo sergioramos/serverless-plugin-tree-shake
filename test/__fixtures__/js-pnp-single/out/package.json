@@ -1,4 +1,5 @@
 {
   "name": "out",
-  "private": true
+  "private": true,
+  "type": "module"
 }
