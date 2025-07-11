@@ -65,7 +65,7 @@
     "markdown-table": "^2.0.0",
     "path-type": "^4.0.0",
     "pretty-bytes": "^5.6.0",
-    "pretty-ms": "^7.0.1"
+    "pretty-ms": "^9.2.0"
   },
   "peerDependencies": {
     "osls": "^3.40.1",
