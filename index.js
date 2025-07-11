@@ -22,7 +22,7 @@ import { nodeFileTrace as FileTrace } from '@vercel/nft';
 import Intercept from 'apr-intercept';
 import Parallel from 'apr-parallel';
 import archiver from 'archiver';
-import Globby from 'globby';
+import { globby } from 'globby';
 import Flatten from 'lodash.flatten';
 import SortBy from 'lodash.sortby';
 import ToPairs from 'lodash.topairs';
@@ -571,7 +571,7 @@ export default class {
         excludes.map((p) => (p.charAt(0) === '!' ? p.substring(1) : `!${p}`)),
       );
 
-    const allFilePaths = await Globby(patterns, {
+    const allFilePaths = await globby(patterns, {
       cwd: this.servicePath,
       dot: true,
       silent: true,
