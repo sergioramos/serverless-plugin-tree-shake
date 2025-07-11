@@ -29,7 +29,7 @@ import ToPairs from 'lodash.topairs';
 import Uniq from 'lodash.uniq';
 import nanomatch from 'nanomatch';
 import PathIsInside from 'path-is-inside';
-import pkgUp from 'pkg-up';
+import { packageUp } from 'package-up';
 import tempy from 'tempy';
 
 const require = createRequire(import.meta.url);
@@ -622,7 +622,7 @@ export default class {
               pathname,
               relative(
                 this.servicePath,
-                await pkgUp({
+                await packageUp({
                   cwd: dirname(join(this.servicePath, pathname)),
                 }),
               ),
