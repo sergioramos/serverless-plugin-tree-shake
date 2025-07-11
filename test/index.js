@@ -15,7 +15,7 @@ import Intercept from 'apr-intercept';
 import Reduce from 'apr-reduce';
 import test from 'ava';
 import Tree from 'directory-tree';
-import Execa from 'execa';
+import { execa } from 'execa';
 import Flatten from 'lodash.flatten';
 import SortBy from 'lodash.sortby';
 import Uniq from 'lodash.uniq';
@@ -85,7 +85,7 @@ const normalizeTree = ({ path: fullpath, type, children = [] }, root) => {
 
 const decompress = async (file, cwd) => {
   const [err] = await Intercept(
-    Execa(
+    execa(
       'unzip',
       ['-u', file, '-d', join(cwd, basename(file, extname(file)))],
       {
@@ -124,7 +124,7 @@ const getFn = (handler, cwd) => {
 test.before(async () => {
   await ForEach(await Setup(), async ({ name }) => {
     const root = resolve(import.meta.dirname, '__fixtures__', name);
-    await Execa('yarn', ['sls', 'package'], {
+    await execa('yarn', ['sls', 'package'], {
       stdio: 'inherit',
       cwd: root,
       env: {
