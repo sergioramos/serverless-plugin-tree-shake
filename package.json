@@ -61,7 +61,7 @@
     "directory-tree": "^3.5.2",
     "execa": "^9.6.0",
     "husky": "^9.1.7",
-    "lint-staged": "^15.5.2",
+    "lint-staged": "^16.1.2",
     "markdown-table": "^2.0.0",
     "path-type": "^4.0.0",
     "pretty-bytes": "^5.6.0",
