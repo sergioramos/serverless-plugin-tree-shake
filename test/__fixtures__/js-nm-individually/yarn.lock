@@ -9193,7 +9193,7 @@ __metadata:
     markdown-table: ^3.0.4
     nanomatch: ^1.2.13
     path-is-inside: ^1.0.2
-    path-type: ^4.0.0
+    path-type: ^6.0.0
     pkg-up: ^3.1.0
     pretty-bytes: ^5.6.0
     pretty-ms: ^9.2.0
