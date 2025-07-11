@@ -4,7 +4,7 @@ import { extname, resolve } from 'node:path';
 import Main from 'apr-main';
 import Reduce from 'apr-reduce';
 import { execa } from 'execa';
-import Table from 'markdown-table';
+import { markdownTable } from 'markdown-table';
 import PrettyBytes from 'pretty-bytes';
 import PrettyMs from 'pretty-ms';
 import Setup from './setup.js';
@@ -101,7 +101,7 @@ Main(async () => {
     [],
   );
 
-  const md = Table(
+  const md = markdownTable(
     [
       ['', 'Duration', 'Acc size'],
       ...results.map(({ name, size, duration }) => [name, duration, size]),

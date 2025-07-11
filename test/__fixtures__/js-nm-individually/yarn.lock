@@ -7406,12 +7406,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdown-table@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "markdown-table@npm:2.0.0"
-  dependencies:
-    repeat-string: ^1.0.0
-  checksum: 9bb634a9300016cbb41216c1eab44c74b6b7083ac07872e296f900a29449cf0e260ece03fa10c3e9784ab94c61664d1d147da0315f95e1336e2bdcc025615c90
+"markdown-table@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "markdown-table@npm:3.0.4"
+  checksum: bc24b177cbb3ef170cb38c9f191476aa63f7236ebc8980317c5e91b5bf98c8fb471cf46d8920478c5e770d7f4337326f6b5b3efbf0687c2044fd332d7a64dfcb
   languageName: node
   linkType: hard
 
@@ -8834,13 +8832,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"repeat-string@npm:^1.0.0":
-  version: 1.6.1
-  resolution: "repeat-string@npm:1.6.1"
-  checksum: 1b809fc6db97decdc68f5b12c4d1a671c8e3f65ec4a40c238bc5200e44e85bcc52a54f78268ab9c29fcf5fe4f1343e805420056d1f30fa9a9ee4c2d93e3cc6c0
-  languageName: node
-  linkType: hard
-
 "request@npm:^2.88.0":
   version: 2.88.2
   resolution: "request@npm:2.88.2"
@@ -9199,7 +9190,7 @@ __metadata:
     lodash.sortby: ^4.7.0
     lodash.topairs: ^4.3.0
     lodash.uniq: ^4.5.0
-    markdown-table: ^2.0.0
+    markdown-table: ^3.0.4
     nanomatch: ^1.2.13
     path-is-inside: ^1.0.2
     path-type: ^4.0.0
