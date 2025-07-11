@@ -1,27 +1,29 @@
-const test = require('ava');
-const Tree = require('directory-tree');
-const Execa = require('execa');
-const { series: ForEach } = require('apr-for-each');
-const Flatten = require('lodash.flatten');
-const { readlinkSync, realpathSync, lstatSync } = require('node:fs');
-const { readFile, rmdir } = require('mz/fs');
-const Intercept = require('apr-intercept');
-const PathIsInside = require('path-is-inside');
-const { isSymlinkSync } = require('path-type');
-const Reduce = require('apr-reduce');
-const SortBy = require('lodash.sortby');
-const Uniq = require('lodash.uniq');
-const Setup = require('./setup.js');
-
-const {
+import { lstatSync, readlinkSync, realpathSync } from 'node:fs';
+import { readFile, rmdir } from 'node:fs/promises';
+import { createRequire } from 'node:module';
+import {
   basename,
   dirname,
   extname,
   join,
-  resolve,
   relative,
+  resolve,
   sep,
-} = require('node:path');
+} from 'node:path';
+import { series as ForEach } from 'apr-for-each';
+import Intercept from 'apr-intercept';
+import Reduce from 'apr-reduce';
+import test from 'ava';
+import Tree from 'directory-tree';
+import Execa from 'execa';
+import Flatten from 'lodash.flatten';
+import SortBy from 'lodash.sortby';
+import Uniq from 'lodash.uniq';
+import PathIsInside from 'path-is-inside';
+import { isSymlinkSync } from 'path-type';
+import Setup from './setup.js';
+
+const require = createRequire(import.meta.url);
 
 const EVENT = {
   httpMethod: 'GET',
@@ -121,7 +123,7 @@ const getFn = (handler, cwd) => {
 
 test.before(async () => {
   await ForEach(await Setup(), async ({ name }) => {
-    const root = resolve(__dirname, '__fixtures__', name);
+    const root = resolve(import.meta.dirname, '__fixtures__', name);
     await Execa('yarn', ['sls', 'package'], {
       stdio: 'inherit',
       cwd: root,
@@ -142,9 +144,9 @@ for (const typescript of [false, true]) {
       ].join('-');
 
       test(name, async (t) => {
-        const root = resolve(__dirname, '__fixtures__', name);
+        const root = resolve(import.meta.dirname, '__fixtures__', name);
         const serverless = resolve(root, '.serverless');
-        const { service, functions } = require(resolve(root, 'serverless'));
+        const { service, functions } = require(resolve(root, 'serverless.js'));
         const rootCwd = join(serverless, service);
 
         if (!individually) {

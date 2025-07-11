@@ -1,11 +1,11 @@
 // from: https://github.com/yldio/asap-hub/blob/4e3f94016e529f809aa6bfb212efc409bcb222d5/apps/user-service/src/framework/lambda.ts
 
-const Boom = require('@hapi/boom');
-const Bourne = require('@hapi/bourne');
-const Debug = require('debug');
-const Intercept = require('apr-intercept');
+import Boom from '@hapi/boom';
+import Bourne from '@hapi/bourne';
+import Debug from 'debug';
+import Intercept from 'apr-intercept';
 
-module.exports.validate = (prop, value, schema, options) => {
+export const validate = (prop, value, schema, options) => {
   const { error, value: res } = schema.validate(value, options);
   if (error) {
     throw Boom.badRequest(`Error "${prop}": ${error.message}`, {
@@ -18,7 +18,7 @@ module.exports.validate = (prop, value, schema, options) => {
 
 // ensure any thrown exception is handled and returned correctly
 const debug = Debug('http');
-module.exports.http = (fn) => async (event) => {
+export const http = (fn) => async (event) => {
   let payload;
   try {
     payload = event.body && Bourne.parse(event.body);

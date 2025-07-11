@@ -168,3 +168,4 @@ $RECYCLE.BIN/
 .serverless
 test/__fixtures__/*/plugin
 settings.local.json
+.build

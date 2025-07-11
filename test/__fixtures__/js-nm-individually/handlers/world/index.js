@@ -1,4 +1,4 @@
-const { http } = require('framework');
-const handler = require('../handler');
+import { http } from 'framework';
+import handlerFn from '../handler/index.js';
 
-module.exports.handler = http(handler);
+export const handler = http(handlerFn);
