@@ -58,7 +58,7 @@
     "apr-main": "^4.0.3",
     "apr-reduce": "^3.0.3",
     "ava": "^3.15.0",
-    "directory-tree": "^2.3.1",
+    "directory-tree": "^3.5.2",
     "execa": "^5.1.1",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.2",
