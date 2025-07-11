@@ -30,7 +30,7 @@ import Uniq from 'lodash.uniq';
 import nanomatch from 'nanomatch';
 import PathIsInside from 'path-is-inside';
 import pkgUp from 'pkg-up';
-import { writeSync } from 'tempy';
+import tempy from 'tempy';
 
 const require = createRequire(import.meta.url);
 
@@ -484,7 +484,7 @@ export default class {
 
       this.files.push([
         pathname,
-        writeSync(outputText, {
+        tempy.writeSync(outputText, {
           extension: '.js',
         }),
       ]);
@@ -664,7 +664,7 @@ export default class {
 
           this.files.push([
             fullpath,
-            writeSync(JSON.stringify(newPkg, null, 2), {
+            tempy.writeSync(JSON.stringify(newPkg, null, 2), {
               extension: '.json',
             }),
           ]);
