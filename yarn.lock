@@ -4757,10 +4757,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-bytes@npm:^5.6.0":
-  version: 5.6.0
-  resolution: "pretty-bytes@npm:5.6.0"
-  checksum: 10/9c082500d1e93434b5b291bd651662936b8bd6204ec9fa17d563116a192d6d86b98f6d328526b4e8d783c07d5499e2614a807520249692da9ec81564b2f439cd
+"pretty-bytes@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "pretty-bytes@npm:7.0.0"
+  checksum: 10/1d13dd23a6e50ddcd9b6b968490c1ac93d6babea808f7e4be9bb6eab8513658fd3fec2e6b2367325acad7e14b0ca9fb06dc66a72ff7244b63216f07c5c2626e1
   languageName: node
   linkType: hard
 
@@ -5238,7 +5238,7 @@ __metadata:
     package-up: "npm:^5.0.0"
     path-is-inside: "npm:^1.0.2"
     path-type: "npm:^6.0.0"
-    pretty-bytes: "npm:^5.6.0"
+    pretty-bytes: "npm:^7.0.0"
     pretty-ms: "npm:^9.2.0"
     tempy: "npm:^2.0.0"
   peerDependencies:
