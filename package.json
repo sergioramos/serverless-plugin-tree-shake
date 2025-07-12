@@ -31,7 +31,7 @@
     "check": "biome check --write .",
     "fmt": "biome format --write",
     "prepare": "husky",
-    "test": "NODE_ENV=test ava --timeout=5m"
+    "test": "node --test 'test/index.js'"
   },
   "dependencies": {
     "@vercel/nft": "^0.29.4",
@@ -57,7 +57,6 @@
     "apr-for-each": "^3.0.3",
     "apr-main": "^4.0.3",
     "apr-reduce": "^3.0.3",
-    "ava": "^3.15.0",
     "directory-tree": "^3.5.2",
     "execa": "^9.6.0",
     "husky": "^9.1.7",
@@ -82,11 +81,6 @@
     "*": [
       "biome check --no-errors-on-unmatched --files-ignore-unknown=true",
       "git add"
-    ]
-  },
-  "ava": {
-    "files": [
-      "test/index.js"
     ]
   },
   "commitlint": {

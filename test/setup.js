@@ -1,4 +1,4 @@
-import { link, mkdir, readdir, rmdir, unlink } from 'node:fs/promises';
+import { link, mkdir, readdir, rm, unlink } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { series as ForEach } from 'apr-for-each';
 import Intercept from 'apr-intercept';
@@ -14,9 +14,13 @@ export default async () => {
   await ForEach(fixtures, async ({ name }) => {
     const root = resolve(import.meta.dirname, '__fixtures__', name);
 
-    await Intercept(rmdir(resolve(root, 'plugin'), { recursive: true }));
+    await Intercept(
+      rm(resolve(root, 'plugin'), { recursive: true, force: true }),
+    );
     await Intercept(mkdir(resolve(root, 'plugin')));
-    await Intercept(rmdir(resolve(root, '.serverless'), { recursive: true }));
+    await Intercept(
+      rm(resolve(root, '.serverless'), { recursive: true, force: true }),
+    );
     await Intercept(mkdir(resolve(root, '.serverless'), { recursive: true }));
 
     await link(
@@ -29,9 +33,11 @@ export default async () => {
       resolve(root, 'plugin/package.json'),
     );
 
-    await Intercept(rmdir(resolve(root, '.yarn/cache'), { recursive: true }));
     await Intercept(
-      rmdir(resolve(root, '.yarn/unplugged'), { recursive: true }),
+      rm(resolve(root, '.yarn/cache'), { recursive: true, force: true }),
+    );
+    await Intercept(
+      rm(resolve(root, '.yarn/unplugged'), { recursive: true, force: true }),
     );
     await Intercept(unlink(resolve(root, '.yarn/build-state.yml')));
     await Intercept(unlink(resolve(root, '.yarn/install-state.gz')));

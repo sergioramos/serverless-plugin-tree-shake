@@ -1,5 +1,5 @@
 import { lstatSync, readlinkSync, realpathSync } from 'node:fs';
-import { readFile, rmdir } from 'node:fs/promises';
+import { readFile, rm } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import {
   basename,
@@ -10,10 +10,10 @@ import {
   resolve,
   sep,
 } from 'node:path';
+import { before, test } from 'node:test';
 import { series as ForEach } from 'apr-for-each';
 import Intercept from 'apr-intercept';
 import Reduce from 'apr-reduce';
-import test from 'ava';
 import Tree from 'directory-tree';
 import { execa } from 'execa';
 import Flatten from 'lodash.flatten';
@@ -121,7 +121,7 @@ const getFn = (handler, cwd) => {
   ];
 };
 
-test.before(async () => {
+before(async () => {
   await ForEach(await Setup(), async ({ name }) => {
     const root = resolve(import.meta.dirname, '__fixtures__', name);
     await execa('yarn', ['sls', 'package'], {
@@ -150,11 +150,11 @@ for (const typescript of [false, true]) {
         const rootCwd = join(serverless, service);
 
         if (!individually) {
-          await Intercept(rmdir(rootCwd, { recursive: true }));
+          await Intercept(rm(rootCwd, { recursive: true, force: true }));
           await decompress(`${service}.zip`, serverless);
 
-          t.snapshot(await readOutputs(functions, rootCwd));
-          t.snapshot(
+          t.assert.snapshot(await readOutputs(functions, rootCwd));
+          t.assert.snapshot(
             serializeTree(
               normalizeTree(Tree(rootCwd, { attributes: ['type'] }), rootCwd),
             ),
@@ -167,22 +167,22 @@ for (const typescript of [false, true]) {
           const [fullpath, fn] = getFn(handler, individually ? cwd : rootCwd);
 
           if (individually) {
-            await Intercept(rmdir(cwd, { recursive: true }));
+            await Intercept(rm(cwd, { recursive: true, force: true }));
             await decompress(`${service}.zip`, serverless);
             const outputs = await readOutputs(
               { [service]: functions[service] },
               cwd,
             );
 
-            t.snapshot(outputs);
-            t.snapshot(
+            t.assert.snapshot(outputs);
+            t.assert.snapshot(
               serializeTree(
                 normalizeTree(Tree(cwd, { attributes: ['type'] }), cwd),
               ),
             );
           }
 
-          t.snapshot(await require(fullpath)[fn](EVENT));
+          t.assert.snapshot(await require(fullpath)[fn](EVENT));
         });
       });
     }

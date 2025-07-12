@@ -12,7 +12,8 @@
       "**",
       "!**/node_modules/**/*",
       "!**/test/__fixtures__/**/*/node_modules/**/*",
-      "!**/test/__fixtures__/**/*"
+      "!**/test/__fixtures__/**/*",
+      "!**/*.snapshot"
     ]
   },
   "formatter": {
