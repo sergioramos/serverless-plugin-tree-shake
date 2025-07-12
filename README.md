@@ -57,6 +57,8 @@ More details: [`BENCHMARK.md`](./BENCHMARK.md).
 
 This plugins supports typescript natively. It uses the installed typescript package, reads the appropriate config, and transpiles to js according to that config. You can see examples on the [`__fixtures__`](./test/__fixtures__) that start with `ts-`.
 
+**Note**: This plugin is compatible with [osls](https://github.com/oss-serverless/serverless) (Serverless v3 fork).
+
 ##### individually
 
 This plugins supports bundling functions `individually`. Just use that option accordingly:
