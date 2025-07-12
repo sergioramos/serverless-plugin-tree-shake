@@ -48,7 +48,7 @@
     "nanomatch": "^1.2.13",
     "package-up": "^5.0.0",
     "path-is-inside": "^1.0.2",
-    "tempy": "^2.0.0"
+    "tempy": "^3.1.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.1.1",
