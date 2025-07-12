@@ -1,3 +1,68 @@
+# [2.0.0](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.11...v2.0.0) (2025-07-12)
+
+### Bug Fixes
+
+- gracefully handle non-existing dirs when trying to rm ([0ad64b6](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/0ad64b67d17a63374c813417cf54f23807f58c94))
+- inline source maps file name on ts ([d864ec1](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/d864ec1940cc4218f5a82e827ca80af680d931ac))
+- upgrade `directory-tree` to `^3` ([9751598](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/97515987b5d46741c2b338e1bb8b1a3bc10175c8))
+
+### Chores
+
+- **deps:** bump actions/cache from 2.1.4 to 3.0.2 ([59f4848](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/59f48481ee3875d869137dffdfe6314ffcdd42f7))
+- **deps:** bump actions/checkout from 2 to 3 ([32a58d5](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/32a58d5a6265976b2c7b64bfa3e24bcd6b9e552c))
+- **deps:** bump actions/setup-node from 2.1.5 to 3.2.0 ([9159b3c](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/9159b3cfa93231f362cf92ba385ca260dc6cd232))
+- **deps:** bump ridedott/release-me-action from 3.5.16 to 3.6.39 ([35f5b17](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/35f5b17d799f58785f0b6b4f333ad131274c77a1))
+- **deps:** bump rlespinasse/github-slug-action from 3.5.1 to 4.2.4 ([92117b7](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/92117b7d8ebe62e28f582830d229ad10b32b76e2))
+- **deps:** bump technote-space/auto-cancel-redundant-job ([83a3c22](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/83a3c2261bae3faf065b3d28b3ad47ee21ea1513))
+- **deps:** bump technote-space/auto-cancel-redundant-job ([4ef88c6](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/4ef88c6c640bcd769bba58a7e5118e166bebf639))
+- **deps:** bump wagoid/commitlint-github-action from 3.1.0 to 4.1.12 ([5cda7da](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/5cda7dad7be90f91d103abf02b2e42e8092a4679))
+- migrate from `eslint` + `prettier` to `biome` ([6246b82](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/6246b82ae0d72c614142765b8b41b10e651a4758))
+- migrate project from CommonJS to ES modules ([e142aac](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/e142aac35cdcf9100eec5094bb94a11a90d7615a))
+- upgrade `@commitlint/*` to `^19` ([9135e09](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/9135e09785334b3c57cb947fb0dc8919f16a388b))
+- upgrade `@vercel/nft` to `^0.29` ([d1f3c2f](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/d1f3c2f9c455e42c09662bce927c472b38b239d9))
+- upgrade `execa` to `^9` ([7d3d9f6](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/7d3d9f60b3f22bb2b5e081d317489e463ff4d23f))
+- upgrade `globby` to `^14` ([5c52604](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/5c52604d95f51e90d240b2c69dc855dbbc2ce83e))
+- upgrade `lint-staged` to `^16` ([e3d8d0c](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/e3d8d0c9550d0f3f9d2cd792c9d19623c9d8a4df))
+- upgrade `markdown-table` to `^3` ([6cb2a36](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/6cb2a3607cd710c2d3d29d50b80939478f1430b2))
+- upgrade `path-type` to `^6` ([cfca25c](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/cfca25ca84ca423a15a5b00e5fbcefd34b9466bd))
+- upgrade `pkg-up` to `package-up@^5` ([30a5f72](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/30a5f72ab142147a2608aea78b373e6f337ba475))
+- upgrade `pretty-bytes` to `^7` ([d84afad](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/d84afad95bdc6a4c132d33a945f6a1421d2bf03e))
+- upgrade `tempy` to `^2` ([c6f451c](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/c6f451c68fba35d87ac4f698eedc71b8d455b187))
+- upgrade to `archiver^7` ([b3288ca](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/b3288cad576fb35dee343465b5492eff79aaa1a0))
+- upgrade to `typescript^5` ([6a39eb7](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/6a39eb7e60f888c64195a43d491a72e8cc28c610))
+- upgrade to `yarn^4` ([a804b67](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/a804b67c61976d38448fee4dde85f0b1dcfb6a23))
+- upgrade`pretty-ms` to `^9` ([751393f](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/751393f23ed0e81463c23083c898c2fb4533c657))
+
+### Continuous Integration
+
+- remove release rules ([65b51e3](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/65b51e3a68a864f7a75d92ce24b60f506412f4cc))
+- upgrade all GitHub Actions to latest versions ([9b62e11](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/9b62e118aa792e5dd8583b0c6f48173ef8ab913d))
+- upgrade node to lts ([4d1f736](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/4d1f7363dec019f8fbd21a080472a115ddeb681b))
+
+### Documentation
+
+- add AGENT.md and CLAUDE.md ([cd3e4ad](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/cd3e4ad2640b707187977c85836ca2af6de85926))
+- add reference to `osls` ([d3551ff](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/d3551ffc8890d9432ed6ba40f50a9ef1bd1aaeb1))
+- document commit rules ([714e304](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/714e304a36c860df749f3cbb31a122dbb1309d78))
+
+### Features
+
+- upgrade dependencies ([e053ff8](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/e053ff8566ca6719feabe3e45f4af1cc076775eb))
+
+### Other
+
+- chore!: upgrade to osls (serverless v3 fork) and remove NCC support ([88c6405](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/88c640564acd375640a13627fb3b46e216788b06))
+
+### Tests
+
+- migrate from `ava` to Node.js test runner ([2d7a9bb](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/2d7a9bb7919bf00af2d3ee9f00293406b4070a26))
+
+### BREAKING CHANGE
+
+- new yarn version, which _can_ change the tree output.
+
+Functional results are the same, but the tree outputs are different.
+
 ## [1.1.11](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.10...v1.1.11) (2021-04-09)
 
 ### Bug Fixes
