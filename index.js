@@ -28,8 +28,8 @@ import SortBy from 'lodash.sortby';
 import ToPairs from 'lodash.topairs';
 import Uniq from 'lodash.uniq';
 import nanomatch from 'nanomatch';
-import PathIsInside from 'path-is-inside';
 import { packageUp } from 'package-up';
+import PathIsInside from 'path-is-inside';
 import tempy from 'tempy';
 
 const require = createRequire(import.meta.url);
