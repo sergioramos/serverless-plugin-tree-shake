@@ -8,7 +8,7 @@ A Serverless Framework plugin that optimizes deployment packages by analyzing de
 
 ### Development Commands
 - `yarn test` - Run AVA tests with 5-minute timeout
-- `yarn benchmark` - Run performance benchmarks  
+- `yarn benchmark` - Run performance benchmarks
 - `yarn eslint` - Lint JavaScript files
 - `yarn fmt` - Format code with Prettier
 
@@ -150,5 +150,5 @@ chore: upgrade dependencies
 - Keep commit messages clean and focused on the changes made
 
 ### Branch Management
-- Main branch: `master`
+- Main branch: `main`
 - Standard GitHub flow for contributions

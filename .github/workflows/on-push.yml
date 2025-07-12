@@ -79,22 +79,22 @@ jobs:
         uses: rlespinasse/github-slug-action@v5
       - name: Checkout
         uses: actions/checkout@v4
-        if: ${{ env.GITHUB_REF_SLUG == 'master' }}
+        if: ${{ env.GITHUB_REF_SLUG == 'main' }}
       - name: Setup Node.js
         uses: actions/setup-node@v4
-        if: ${{ env.GITHUB_REF_SLUG == 'master' }}
+        if: ${{ env.GITHUB_REF_SLUG == 'main' }}
         with:
           node-version: "lts/*"
           cache: "yarn"
       - name: Install dependencies
         run: yarn install --immutable --immutable-cache
-        if: ${{ env.GITHUB_REF_SLUG == 'master' }}
+        if: ${{ env.GITHUB_REF_SLUG == 'main' }}
       - name: Benchmark
         run: yarn run benchmark
-        if: ${{ env.GITHUB_REF_SLUG == 'master' }}
+        if: ${{ env.GITHUB_REF_SLUG == 'main' }}
       - name: Release
         uses: ridedott/release-me-action@v3
-        if: ${{ env.GITHUB_REF_SLUG == 'master' }}
+        if: ${{ env.GITHUB_REF_SLUG == 'main' }}
         with:
           node-module: true
           commit-assets: |
