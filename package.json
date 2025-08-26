@@ -34,7 +34,7 @@
     "test": "node --test 'test/index.js'"
   },
   "dependencies": {
-    "@vercel/nft": "^0.29.4",
+    "@vercel/nft": "^0.30.1",
     "apr-find": "^3.0.3",
     "apr-intercept": "^3.0.4",
     "apr-map": "^3.0.3",
