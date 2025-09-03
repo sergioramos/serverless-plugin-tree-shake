@@ -591,9 +591,9 @@ export default class {
       .forEach((p) => {
         const exclude = p.startsWith('!');
         const pattern = exclude ? p.slice(1) : p;
-        return nanomatch(allFilePaths, [pattern], { dot: true }).forEach(
-          (key) => (filePathStates[key] = !exclude),
-        );
+        nanomatch(allFilePaths, [pattern], { dot: true }).forEach((key) => {
+          filePathStates[key] = !exclude;
+        });
       });
 
     const filePaths = ToPairs(filePathStates)
