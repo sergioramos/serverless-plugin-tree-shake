@@ -73,6 +73,11 @@
     "osls": "^3.53.0",
     "typescript": "^5.9.2"
   },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
   "lint-staged": {
     "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
       "biome check --write --no-errors-on-unmatched",
