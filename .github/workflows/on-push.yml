@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: technote-space/auto-cancel-redundant-job@v1
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - name: Commit Lint
@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Setup Biome
         uses: biomejs/setup-biome@v2
       - name: Run Biome
@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -78,7 +78,7 @@ jobs:
       - name: Get branch
         uses: rlespinasse/github-slug-action@v5
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         if: ${{ env.GITHUB_REF_SLUG == 'main' }}
       - name: Setup Node.js
         uses: actions/setup-node@v4
