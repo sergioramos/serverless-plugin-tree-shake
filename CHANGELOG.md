@@ -1,3 +1,23 @@
+## [2.0.1](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v2.0.0...v2.0.1) (2025-09-03)
+
+### Chores
+
+- normalize package.json ([73db74b](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/73db74b4365b7f545b21f8786ee9daf3f17def89))
+- upgrade dependencies ([b1384a9](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/b1384a99e3571342dc1b9955c5ba01b1a64ef24c))
+- upgrade peer dependencies ([29a1f61](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/29a1f617316bae0fe4af289e97b6e12b9792503e))
+
+### Code Style
+
+- don't return on `.forEach` ([78a693b](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/78a693b5470966bf254e6bb5715efdcad30c3afc))
+
+### Continuous Integration
+
+- add `release` config ([20e9592](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/20e9592a418e00c318ff39946fd76297167f0172))
+- add permissions to action ([d358909](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/d358909fa69eae430b6e66efc68588313fea919a))
+- remove npm for dependabot ([45624a9](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/45624a9e12dee9df577dd3ff446e18d7d9f228b2))
+- update default branch to `main` ([6065dba](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/6065dbadfb0548cecb682225977f3c13a9e847e3))
+- upgrade actions/checkout ([49544bd](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/49544bd30bbe3513ba3885133edc60d3029376a2))
+
 # [2.0.0](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v1.1.11...v2.0.0) (2025-07-12)
 
 ### Bug Fixes
