@@ -70,11 +70,8 @@
     "pretty-ms": "^9.2.0"
   },
   "peerDependencies": {
-    "osls": "^3.40.1",
-    "typescript": "^5.8.3"
-  },
-  "resolutions": {
-    "fsevents": "1.2.13"
+    "osls": "^3.53.0",
+    "typescript": "^5.9.2"
   },
   "lint-staged": {
     "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
