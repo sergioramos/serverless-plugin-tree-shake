@@ -943,18 +943,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@biomejs/biome@npm:^2.1.1":
-  version: 2.1.1
-  resolution: "@biomejs/biome@npm:2.1.1"
+"@biomejs/biome@npm:^2.2.2":
+  version: 2.2.2
+  resolution: "@biomejs/biome@npm:2.2.2"
   dependencies:
-    "@biomejs/cli-darwin-arm64": 2.1.1
-    "@biomejs/cli-darwin-x64": 2.1.1
-    "@biomejs/cli-linux-arm64": 2.1.1
-    "@biomejs/cli-linux-arm64-musl": 2.1.1
-    "@biomejs/cli-linux-x64": 2.1.1
-    "@biomejs/cli-linux-x64-musl": 2.1.1
-    "@biomejs/cli-win32-arm64": 2.1.1
-    "@biomejs/cli-win32-x64": 2.1.1
+    "@biomejs/cli-darwin-arm64": 2.2.2
+    "@biomejs/cli-darwin-x64": 2.2.2
+    "@biomejs/cli-linux-arm64": 2.2.2
+    "@biomejs/cli-linux-arm64-musl": 2.2.2
+    "@biomejs/cli-linux-x64": 2.2.2
+    "@biomejs/cli-linux-x64-musl": 2.2.2
+    "@biomejs/cli-win32-arm64": 2.2.2
+    "@biomejs/cli-win32-x64": 2.2.2
   dependenciesMeta:
     "@biomejs/cli-darwin-arm64":
       optional: true
@@ -974,62 +974,62 @@ __metadata:
       optional: true
   bin:
     biome: bin/biome
-  checksum: 9fb0137fdd93ec4037c37ea10f38bb0cc387073e2d2375895aceef9b4fc09452cda4d706d52e05ca154f3f698b4e533e71d4c65a0fb549b66887224f224c246b
+  checksum: ed379af46e2266e1762da763db1cd30df4655eab39fade6965750341f2eef46e20b5e88b4559c368411e5440969e3d141bc2a8688dbf863da8af6c1ed147830e
   languageName: node
   linkType: hard
 
-"@biomejs/cli-darwin-arm64@npm:2.1.1":
-  version: 2.1.1
-  resolution: "@biomejs/cli-darwin-arm64@npm:2.1.1"
+"@biomejs/cli-darwin-arm64@npm:2.2.2":
+  version: 2.2.2
+  resolution: "@biomejs/cli-darwin-arm64@npm:2.2.2"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@biomejs/cli-darwin-x64@npm:2.1.1":
-  version: 2.1.1
-  resolution: "@biomejs/cli-darwin-x64@npm:2.1.1"
+"@biomejs/cli-darwin-x64@npm:2.2.2":
+  version: 2.2.2
+  resolution: "@biomejs/cli-darwin-x64@npm:2.2.2"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@biomejs/cli-linux-arm64-musl@npm:2.1.1":
-  version: 2.1.1
-  resolution: "@biomejs/cli-linux-arm64-musl@npm:2.1.1"
+"@biomejs/cli-linux-arm64-musl@npm:2.2.2":
+  version: 2.2.2
+  resolution: "@biomejs/cli-linux-arm64-musl@npm:2.2.2"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@biomejs/cli-linux-arm64@npm:2.1.1":
-  version: 2.1.1
-  resolution: "@biomejs/cli-linux-arm64@npm:2.1.1"
+"@biomejs/cli-linux-arm64@npm:2.2.2":
+  version: 2.2.2
+  resolution: "@biomejs/cli-linux-arm64@npm:2.2.2"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@biomejs/cli-linux-x64-musl@npm:2.1.1":
-  version: 2.1.1
-  resolution: "@biomejs/cli-linux-x64-musl@npm:2.1.1"
+"@biomejs/cli-linux-x64-musl@npm:2.2.2":
+  version: 2.2.2
+  resolution: "@biomejs/cli-linux-x64-musl@npm:2.2.2"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@biomejs/cli-linux-x64@npm:2.1.1":
-  version: 2.1.1
-  resolution: "@biomejs/cli-linux-x64@npm:2.1.1"
+"@biomejs/cli-linux-x64@npm:2.2.2":
+  version: 2.2.2
+  resolution: "@biomejs/cli-linux-x64@npm:2.2.2"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@biomejs/cli-win32-arm64@npm:2.1.1":
-  version: 2.1.1
-  resolution: "@biomejs/cli-win32-arm64@npm:2.1.1"
+"@biomejs/cli-win32-arm64@npm:2.2.2":
+  version: 2.2.2
+  resolution: "@biomejs/cli-win32-arm64@npm:2.2.2"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@biomejs/cli-win32-x64@npm:2.1.1":
-  version: 2.1.1
-  resolution: "@biomejs/cli-win32-x64@npm:2.1.1"
+"@biomejs/cli-win32-x64@npm:2.2.2":
+  version: 2.2.2
+  resolution: "@biomejs/cli-win32-x64@npm:2.2.2"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -2329,9 +2329,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/nft@npm:^0.29.4":
-  version: 0.29.4
-  resolution: "@vercel/nft@npm:0.29.4"
+"@vercel/nft@npm:^0.30.1":
+  version: 0.30.1
+  resolution: "@vercel/nft@npm:0.30.1"
   dependencies:
     "@mapbox/node-pre-gyp": ^2.0.0
     "@rollup/pluginutils": ^5.1.3
@@ -2347,7 +2347,7 @@ __metadata:
     resolve-from: ^5.0.0
   bin:
     nft: out/cli.js
-  checksum: 05446c7d372d6cb2e0d58a32492160e180f099b5991c2315d8189439ab3734cfef6bfdb9d9e3829d0821875715814b678a8e499e19ca5411312293a229c2cac9
+  checksum: af1099f09c4ffb9e78f42c68b759065eedf7b932ed150db339548d3c602be8a1c086a6365fd6397fb4abd0cfffed4598157dcf3e6194952ad0ac77889e9fdb89
   languageName: node
   linkType: hard
 
@@ -3316,10 +3316,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^5.3.0, chalk@npm:^5.4.1":
+"chalk@npm:^5.3.0":
   version: 5.4.1
   resolution: "chalk@npm:5.4.1"
   checksum: 0c656f30b782fed4d99198825c0860158901f449a6b12b818b0aabad27ec970389e7e8767d0e00762175b23620c812e70c4fd92c0210e55fc2d993638b74e86e
+  languageName: node
+  linkType: hard
+
+"chalk@npm:^5.6.0":
+  version: 5.6.0
+  resolution: "chalk@npm:5.6.0"
+  checksum: 245d4b53c29c88da9e291f318c86b6b3ee65aa81568f9e10fafc984a6ef520412dee513057d07cc0f4614ab5a46cb07a0394fab3794d88d48c89c17b2d8fbf7f
   languageName: node
   linkType: hard
 
@@ -6329,29 +6336,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^16.1.2":
-  version: 16.1.2
-  resolution: "lint-staged@npm:16.1.2"
+"lint-staged@npm:^16.1.6":
+  version: 16.1.6
+  resolution: "lint-staged@npm:16.1.6"
   dependencies:
-    chalk: ^5.4.1
+    chalk: ^5.6.0
     commander: ^14.0.0
     debug: ^4.4.1
     lilconfig: ^3.1.3
-    listr2: ^8.3.3
+    listr2: ^9.0.3
     micromatch: ^4.0.8
     nano-spawn: ^1.0.2
     pidtree: ^0.6.0
     string-argv: ^0.3.2
-    yaml: ^2.8.0
+    yaml: ^2.8.1
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: e91a8a8d86c09bf6ec48e8c407595f801535c38c7f6a9bba3c45f71cb312c76f21e0151b439535bdc8f1c45462d887b68c99b75b00b48b2be954fd06064db780
+  checksum: 88970fad20275a5a719357cf4c76a1b7ffd5cdc8aef034b81eef50aa774ca13d244697914e358ab87cbfb27a7dff66abd40493915af31316158be63c2741315d
   languageName: node
   linkType: hard
 
-"listr2@npm:^8.3.3":
-  version: 8.3.3
-  resolution: "listr2@npm:8.3.3"
+"listr2@npm:^9.0.3":
+  version: 9.0.3
+  resolution: "listr2@npm:9.0.3"
   dependencies:
     cli-truncate: ^4.0.0
     colorette: ^2.0.20
@@ -6359,7 +6366,7 @@ __metadata:
     log-update: ^6.1.0
     rfdc: ^1.4.1
     wrap-ansi: ^9.0.0
-  checksum: 77588101773677903205674e1fcfa880fda7aee64aec7797f03cbf638f3acdb6c91ca21496e938a2f29a71645aa838caee60b913d6c901d364af308d61f9bfff
+  checksum: d1f84457fac7c6f395fe2607101d4e6e6cbdb122c9a4efdf060f905aced3f8c46783d84b52d0d6104dec41807fc7edc5f04bb05053e0fa1b1d2bd227d901327c
   languageName: node
   linkType: hard
 
@@ -7565,10 +7572,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-bytes@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "pretty-bytes@npm:7.0.0"
-  checksum: 1d13dd23a6e50ddcd9b6b968490c1ac93d6babea808f7e4be9bb6eab8513658fd3fec2e6b2367325acad7e14b0ca9fb06dc66a72ff7244b63216f07c5c2626e1
+"pretty-bytes@npm:^7.0.1":
+  version: 7.0.1
+  resolution: "pretty-bytes@npm:7.0.1"
+  checksum: 03e6853d2f4f9c9842f29455b9b44de6bc017a87480b46997bdce40aa53ca31f999cc16df665aaeed1f4f93fca364245fa3735692310f45e6e352807e6a6f3bc
   languageName: node
   linkType: hard
 
@@ -8026,10 +8033,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "serverless-plugin-tree-shake@workspace:plugin"
   dependencies:
-    "@biomejs/biome": ^2.1.1
+    "@biomejs/biome": ^2.2.2
     "@commitlint/cli": ^19.8.1
     "@commitlint/config-conventional": ^19.8.1
-    "@vercel/nft": ^0.29.4
+    "@vercel/nft": ^0.30.1
     apr-find: ^3.0.3
     apr-for-each: ^3.0.3
     apr-intercept: ^3.0.4
@@ -8042,7 +8049,7 @@ __metadata:
     execa: ^9.6.0
     globby: ^14.1.0
     husky: ^9.1.7
-    lint-staged: ^16.1.2
+    lint-staged: ^16.1.6
     lodash.flatten: ^4.4.0
     lodash.sortby: ^4.7.0
     lodash.topairs: ^4.3.0
@@ -8052,7 +8059,7 @@ __metadata:
     package-up: ^5.0.0
     path-is-inside: ^1.0.2
     path-type: ^6.0.0
-    pretty-bytes: ^7.0.0
+    pretty-bytes: ^7.0.1
     pretty-ms: ^9.2.0
     tempy: ^2.0.0
   peerDependencies:
@@ -9332,12 +9339,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yaml@npm:^2.8.0":
-  version: 2.8.0
-  resolution: "yaml@npm:2.8.0"
+"yaml@npm:^2.8.1":
+  version: 2.8.1
+  resolution: "yaml@npm:2.8.1"
   bin:
     yaml: bin.mjs
-  checksum: 66f103ca5a2f02dac0526895cc7ae7626d91aa8c43aad6fdcff15edf68b1199be4012140b390063877913441aaa5288fdf57eca30e06268a8282dd741525e626
+  checksum: 35b46150d48bc1da2fd5b1521a48a4fa36d68deaabe496f3c3fa9646d5796b6b974f3930a02c4b5aee6c85c860d7d7f79009416724465e835f40b87898c36de4
   languageName: node
   linkType: hard
 
