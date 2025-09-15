@@ -1,3 +1,13 @@
+## [2.0.2](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v2.0.1...v2.0.2) (2025-09-15)
+
+### Bug Fixes
+
+- include `package.json` of nested packages ([090f4f0](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/090f4f090aa9ea52e890c5feb7e1e9c1f4cdb4db))
+
+### Chores
+
+- **deps:** bump actions/setup-node from 4 to 5 ([8cfad91](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/8cfad917006b2fc94396b4e58cb775e3b69dbc4e))
+
 ## [2.0.1](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v2.0.0...v2.0.1) (2025-09-03)
 
 ### Chores
