@@ -607,31 +607,67 @@ export default class {
     }
 
     const appendPkgs = async (filePaths) => {
-      if (!locatorMap) {
-        return filePaths;
-      }
+      const findPackageJson = async (pathname) => {
+        if (basename(pathname) === 'package.json') {
+          return pathname;
+        }
+
+        const wd = join(this.servicePath, pathname);
+        if (wd === this.servicePath) {
+          return null;
+        }
+
+        try {
+          const pkgFile = join(wd, 'package.json');
+
+          if (!(await statAsync(wd)).isDirectory) {
+            return null;
+          }
+
+          if (!(await exists(pkgFile))) {
+            return null;
+          }
+
+          return relative(this.servicePath, pkgFile);
+        } catch (_err) {
+          return null;
+        }
+      };
 
       return Uniq(
         Flatten(
           await MapFunc(filePaths, async (pathname) => {
-            if (basename(pathname) === 'package.json') {
-              return pathname;
-            }
+            const isPkg = basename(pathname) === 'package.json';
+            const closest = isPkg
+              ? null
+              : basename(
+                  await packageUp({
+                    cwd: dirname(join(this.servicePath, pathname)),
+                  }),
+                  this.servicePath,
+                );
 
-            return [
-              pathname,
-              relative(
-                this.servicePath,
-                await packageUp({
-                  cwd: dirname(join(this.servicePath, pathname)),
-                }),
-              ),
-            ];
+            const tree = await Promise.all(
+              pathname
+                .split(sep)
+                .reduce(
+                  (sum, _part, index, pathnames) =>
+                    sum.concat(pathnames.slice(0, index + 1).join(sep)),
+                  [],
+                )
+                .map(findPackageJson),
+            );
+
+            return Uniq([pathname, closest, ...tree].filter(Boolean));
           }),
         ),
       );
     };
 
+    // we have a list of files, now we need to find all the package.json's
+    // for that we try two things (that will be redundant):
+    // 1. use `packageUp` to find the closes Package.json in the tree
+    // 2. navigate the tree, and find all the package.jsons that exist
     const filePathsWPkgs = await appendPkgs(filePaths);
 
     if (tsAvailable) {

@@ -82,7 +82,8 @@ exports[`js-nm-individually 2`] = `
   "file node_modules/supports-color/package.json",
   "directory out",
   "file out/index.js",
-  "file out/package.json"
+  "file out/package.json",
+  "file package.json"
 ]
 `;
 
@@ -391,7 +392,8 @@ exports[`js-pnp-individually 2`] = `
   "file node_modules/supports-color/package.json",
   "directory out",
   "file out/index.js",
-  "file out/package.json"
+  "file out/package.json",
+  "file package.json"
 ]
 `;
 
@@ -700,7 +702,8 @@ exports[`ts-nm-individually 2`] = `
   "file node_modules/supports-color/package.json",
   "directory out",
   "file out/index.js",
-  "file out/package.json"
+  "file out/package.json",
+  "file package.json"
 ]
 `;
 
@@ -1009,7 +1012,8 @@ exports[`ts-pnp-individually 2`] = `
   "file node_modules/supports-color/package.json",
   "directory out",
   "file out/index.js",
-  "file out/package.json"
+  "file out/package.json",
+  "file package.json"
 ]
 `;
 
