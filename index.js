@@ -194,7 +194,7 @@ export default class {
     });
 
     if (prevSym) {
-      const { source, target, ...entry } = prevSym;
+      const { ...entry } = prevSym;
       return [
         entry,
         await this.getFileContentAndStat(relative(this.servicePath, realpath)),
@@ -552,9 +552,32 @@ export default class {
           return `node:${id}`;
         }
 
-        const [, defaultResolve] = await Intercept(
+        let [, defaultResolve] = await Intercept(
           resDep(id, parent, job, isEsm),
         );
+
+        // might be a .js import in a .ts file with something like `rewriteRelativeImportExtensions`
+        if (!defaultResolve && tsAvailable) {
+          // lets replace the extensions
+          const fullpath = resolve(dirname(parent), id)
+            .replace(/.jsx$/, '.tsx')
+            .replace(/.js$/, '.ts');
+
+          // lets check if the file exists
+          if (exists(fullpath)) {
+            // and try again with a new id
+            const [, tsResolve] = await Intercept(
+              resDep(
+                id.replace(/.jsx$/, '.tsx').replace(/.js$/, '.ts'),
+                parent,
+                job,
+                isEsm,
+              ),
+            );
+
+            defaultResolve = tsResolve;
+          }
+        }
 
         return defaultResolve ? defaultResolve : fallbackResolve(id, parent);
       },
