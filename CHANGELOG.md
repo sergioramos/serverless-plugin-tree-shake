@@ -1,3 +1,13 @@
+## [2.0.3](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v2.0.2...v2.0.3) (2025-09-27)
+
+### Bug Fixes
+
+- gracefully handle `.ts` imports that get re-written to `.js` ([91ffc4d](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/91ffc4d41ae614d5fa0ed66985436d27b62ba378))
+
+### Chores
+
+- **deps:** bump JS-DevTools/npm-publish from 3 to 4 ([cdfcaef](https://github.com/sergioramos/serverless-plugin-tree-shake/commit/cdfcaefd790e06076f60dbbf1585fd0ac7f5b689))
+
 ## [2.0.2](https://github.com/sergioramos/serverless-plugin-tree-shake/compare/v2.0.1...v2.0.2) (2025-09-15)
 
 ### Bug Fixes
